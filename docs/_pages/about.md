@@ -1,4 +1,3 @@
-
 ---
 title: "About WordDoc "
 excerpt: "Create Documentation directly from PowerShell. Simple Installation from PowerShell Gallery, and as long as you have MS Word Installed you will be creating .docx, .pdf, .html files in minutes!"
