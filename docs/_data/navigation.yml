@@ -11,7 +11,7 @@ main:
     url: /scripts
 
 docs:
-  - title: Syntax
+  - title: Module Help
     children:
       - title: "add-wordbreak"
         url: /docs/add-wordbreak
@@ -51,7 +51,7 @@ docs:
         url: /history/
       - title: "License"
         url: /license/
-      - title: "privacy"
+      - title: "Privacy"
         url: /privacy/
       - title: "Credit & Thanks"
         url: /credits/
