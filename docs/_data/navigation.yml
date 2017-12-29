@@ -1,0 +1,57 @@
+main:
+  - title: "<i class='fa fa-home'></i>"
+    url: /
+  - title: "About"
+    url: /about
+  - title: "Getting Started"
+    url: /getting-started
+  - title: "Documentation"
+    url: /docs
+  - title: "Scripts"
+    url: /scripts
+
+docs:
+  - title: Syntax
+    children:
+      - title: "add-wordbreak"
+        url: /docs/add-wordbreak
+      - title: "add-wordcoverpage"
+        url: /docs/add-wordcoverpage/
+      - title: "add-wordtable"
+        url: /docs/add-wordtable/
+      - title: "add-wordtemplate"
+        url: /docs/add-wordtemplate/
+      - title: "add-wordtext"
+        url: /docs/add-wordtext/
+      - title: "add-wordtoc"
+        url: /docs/add-wordtoc/
+      - title: "close-worddocument"
+        url: /docs/close-worddocument/
+      - title: "get-wordbuiltinstylek"
+        url: /docs/get-wordbuiltinstyle/
+      - title: "get-wordwdtableformat"
+        url: /docs/get-wordwdtableformat/
+      - title: "new-worddocument"
+        url: /docs/new-worddocument/
+      - title: "new-wordinstance"
+        url: /docs/new-wordinstance/
+      - title: "save-worddocument"
+        url: /docs/save-worddocument/
+      - title: "set-wordbuiltinproperty"
+        url: /docs/set-wordbuiltinproperty/
+      - title: "set-wordorientation"
+        url: /docs/save-wordorientation/
+      - title: "update-wordtoc"
+        url: /docs/update-wordtoc/
+  - title: About WordDoc
+    children:
+      - title: "Contributing"
+        url: /contributing/
+      - title: "History"
+        url: /history/
+      - title: "License"
+        url: /license/
+      - title: "privacy"
+        url: /privacy/
+      - title: "Credit & Thanks"
+        url: /credits/
