@@ -25,9 +25,9 @@ WordDoc is a Powershell Script Module that is hosted on Powershell Gallery.  It 
  * PowerShell 5 (should work on powershell 3 or 4 as well)
  * Microsoft Word 2016 (should work on Word 2010/2013 as well)
 
-## License 
+### License 
  This PowerShell Script Module is free distributed under the [MIT License](/license)
 
 >## Using this Module Commercially ? 
-> Lots of hours have gone into the module and example scripts development, So your [small donation](https://www.paypal.me/shanehoey) of a few dollars is much appreciated, and will help me continue improving.
- {: .notice--warning}
+>Lots of hours have gone into the module and example scripts development, So your [small donation](https://www.paypal.me/shanehoey) of a few dollars is much appreciated, and will help me continue improving.
+{: .notice--info}
