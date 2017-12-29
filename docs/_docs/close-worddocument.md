@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Close-WordDocument \[-WordInstance\] <Object> \[-WordDoc\] <Object> \[<CommonParameters>\]`
+`Close-WordDocument [-WordInstance] <Object> [-WordDoc] <Object> [<CommonParameters>]`
 
 ### Parameters
 

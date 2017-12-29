@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`New-WordDocument \[-WordInstance\] <Object> \[\[-WordDocName\] <string>\] \[<CommonParameters>\]`
+`New-WordDocument [-WordInstance] <Object> [[-WordDocName] <string>] [<CommonParameters>]`
 
 ### Parameters
 

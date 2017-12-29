@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Add-WordTOC \[\[-WordInstance\] <Object>\] \[\[-WordDoc\] <Object>\] \[<CommonParameters>\]`
+`Add-WordTOC [[-WordInstance] <Object>] [[-WordDoc] <Object>] [<CommonParameters>]`
 
 ### Parameters
 

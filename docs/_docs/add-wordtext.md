@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Add-WordText \[-text\] <string> \[\[-WdColor\] <WdColor>\] \[\[-WDBuiltinStyle\] <WdBuiltinStyle>\] \[-WordDoc <Object>\] \[<CommonParameters>\]`
+`Add-WordText [-text] <string> [[-WdColor] <WdColor>] [[-WDBuiltinStyle] <WdBuiltinStyle>] [-WordDoc <Object>] [<CommonParameters>]`
 
 ### Parameters
 

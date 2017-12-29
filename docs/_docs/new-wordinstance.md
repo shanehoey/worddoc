@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`New-WordInstance \[\[-WordInstanceName\] <string>\] \[\[-Visable\] <bool>\] \[<CommonParameters>\]`
+`New-WordInstance [[-WordInstanceName] <string>] [[-Visable] <bool>] [<CommonParameters>]`
 
 ### Parameters
 

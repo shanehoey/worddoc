@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Set-WordOrientation \[-Orientation\] <string> \[-WordInstance <Object>\] \[<CommonParameters>\]`
+`Set-WordOrientation [-Orientation] <string> [-WordInstance <Object>] [<CommonParameters>]`
 
 ### Parameters
 

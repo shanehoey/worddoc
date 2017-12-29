@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Add-WordCoverPage \[\[-CoverPage\] <string>\] \[-WordInstance <Object>\] \[-WordDoc <Object>\] \[<CommonParameters>\]`
+`Add-WordCoverPage [[-CoverPage] <string>] [-WordInstance <Object>] [-WordDoc <Object>] [<CommonParameters>]`
 
 ### Parameters
 

@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Add-WordTemplate \[-filename\] <string> \[-WordDoc <Object>\] \[<CommonParameters>\]`
+`Add-WordTemplate [-filename] <string> [-WordDoc <Object>] [<CommonParameters>]`
 
 ### Parameters
 

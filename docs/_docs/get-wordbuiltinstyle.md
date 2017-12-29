@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Get-WordBuiltinStyle \[<CommonParameters>\]`
+`Get-WordBuiltinStyle [<CommonParameters>]`
 
 ### Parameters
 

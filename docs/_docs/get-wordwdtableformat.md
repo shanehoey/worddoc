@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Get-WordWdTableFormat \[<CommonParameters>\]`
+`Get-WordWdTableFormat [<CommonParameters>]`
 
 ### Parameters
 

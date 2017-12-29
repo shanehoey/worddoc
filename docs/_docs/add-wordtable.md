@@ -8,13 +8,13 @@ category: "help"
 
 ### Syntax
 
-`Add-WordTable \[-Object\] <psobject> \[-WdAutoFitBehavior <WdAutoFitBehavior>\] \[-WdDefaultTableBehavior <WdDefaultTableBehavior>\] \[-HeaderRow <bool>\] \[-TotalRow <bool>\] \[-BandedRow <bool>\] \[-FirstColumn <bool>\] \[-LastColumn <bool>\] \[-BandedColumn <bool>\] \[-WDTableFormat <WdTableFormat>\] \[-RemoveProperties\] \[-VerticleTable\] \[-NoParagraph\] \[-WordDoc <Object>\] \[<CommonParameters>\]`
+`Add-WordTable [-Object] <psobject> [-WdAutoFitBehavior <WdAutoFitBehavior>] [-WdDefaultTableBehavior <WdDefaultTableBehavior>] [-HeaderRow <bool>] [-TotalRow <bool>] [-BandedRow <bool>] [-FirstColumn <bool>] [-LastColumn <bool>] [-BandedColumn <bool>] [-WDTableFormat <WdTableFormat>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDoc <Object>] [<CommonParameters>]`
 
-`Add-WordTable \[-Object\] <psobject> \[-WdAutoFitBehavior <WdAutoFitBehavior>\] \[-WdDefaultTableBehavior <WdDefaultTableBehavior>\] \[-HeaderRow <bool>\] \[-TotalRow <bool>\] \[-BandedRow <bool>\] \[-FirstColumn <bool>\] \[-LastColumn <bool>\] \[-BandedColumn <bool>\] \[-PlainTable <string>\] \[-RemoveProperties\] \[-VerticleTable\] \[-NoParagraph\] \[-WordDoc <Object>\] \[<CommonParameters>\]`
+`Add-WordTable [-Object] <psobject> [-WdAutoFitBehavior <WdAutoFitBehavior>] [-WdDefaultTableBehavior <WdDefaultTableBehavior>] [-HeaderRow <bool>] [-TotalRow <bool>] [-BandedRow <bool>] [-FirstColumn <bool>] [-LastColumn <bool>] [-BandedColumn <bool>] [-PlainTable <string>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDoc <Object>] [<CommonParameters>]`
 
-`Add-WordTable \[-Object\] <psobject> \[-WdAutoFitBehavior <WdAutoFitBehavior>\] \[-WdDefaultTableBehavior <WdDefaultTableBehavior>\] \[-HeaderRow <bool>\] \[-TotalRow <bool>\] \[-BandedRow <bool>\] \[-FirstColumn <bool>\] \[-LastColumn <bool>\] \[-BandedColumn <bool>\] \[-GridTable <string>\] \[-GridAccent <string>\] \[-RemoveProperties\] \[-VerticleTable\] \[-NoParagraph\] \[-WordDoc <Object>\] \[<CommonParameters>\]`
+`Add-WordTable [-Object] <psobject> [-WdAutoFitBehavior <WdAutoFitBehavior>] [-WdDefaultTableBehavior <WdDefaultTableBehavior>] [-HeaderRow <bool>] [-TotalRow <bool>] [-BandedRow <bool>] [-FirstColumn <bool>] [-LastColumn <bool>] [-BandedColumn <bool>] [-GridTable <string>] [-GridAccent <string>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDoc <Object>] [<CommonParameters>]`
 
-`Add-WordTable \[-Object\] <psobject> \[-WdAutoFitBehavior <WdAutoFitBehavior>\] \[-WdDefaultTableBehavior <WdDefaultTableBehavior>\] \[-HeaderRow <bool>\] \[-TotalRow <bool>\] \[-BandedRow <bool>\] \[-FirstColumn <bool>\] \[-LastColumn <bool>\] \[-BandedColumn <bool>\] \[-ListTable <string>\] \[-ListAccent <string>\] \[-RemoveProperties\] \[-VerticleTable\] \[-NoParagraph\] \[-WordDoc <Object>\] \[<CommonParameters>\]`
+`Add-WordTable [-Object] <psobject> [-WdAutoFitBehavior <WdAutoFitBehavior>] [-WdDefaultTableBehavior <WdDefaultTableBehavior>] [-HeaderRow <bool>] [-TotalRow <bool>] [-BandedRow <bool>] [-FirstColumn <bool>] [-LastColumn <bool>] [-BandedColumn <bool>] [-ListTable <string>] [-ListAccent <string>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDoc <Object>] [<CommonParameters>]`
 
 ### Parameters
 

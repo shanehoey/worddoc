@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Set-WordBuiltInProperty \[-WdBuiltInProperty\] <WdBuiltInProperty> \[-text\] <string> \[-WordDoc <Object>\] \[<CommonParameters>\]`
+`Set-WordBuiltInProperty [-WdBuiltInProperty] <WdBuiltInProperty> [-text] <string> [-WordDoc <Object>] [<CommonParameters>]`
 
 ### Parameters
 

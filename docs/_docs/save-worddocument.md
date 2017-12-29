@@ -7,7 +7,7 @@ category: "help"
 {{ page.excerpt }}
 
 ### Syntax
-`Save-WordDocument \[-WordSaveFormat\] <WdSaveFormat> \[-filename\] <string> -folder <string> -WordDoc <Object> \[<CommonParameters>\]`
+`Save-WordDocument [-WordSaveFormat] <WdSaveFormat> [-filename] <string> -folder <string> -WordDoc <Object> [<CommonParameters>]`
 
 ### Parameters
 
