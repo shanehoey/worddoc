@@ -1,9 +1,9 @@
 ---
 title: "About WordDoc "
-excerpt: "WordDoc - Create Microsoft Word Documents directly from PowerShell"
+excerpt: "Create Documentation directly from PowerShell. Simple Installation from PowerShell Gallery, and as long as you have MS Word Installed you will be creating .docx, .pdf, .html files in minutes!"
 header:
-  cta_label: "<i class='fa fa-download'></i> Get Started"
-  cta_url: "/quick-start"
+  cta_label: "<i class='fa fa-download'></i> Getting Started"
+  cta_url: "/getting-started/"
 ---
 
 ## About
