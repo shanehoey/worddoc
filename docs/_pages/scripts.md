@@ -1,7 +1,7 @@
 ---
 title: "WordDoc Example Scripts"
 excerpt: "WordDoc Quick Start - Create Microsoft Word Documents directly from PowerShell"
-layout: single
+layout: portfolio
 header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/unsplash.jpg
