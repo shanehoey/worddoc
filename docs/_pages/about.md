@@ -1,3 +1,4 @@
+
 ---
 title: "About WordDoc "
 excerpt: "Create Documentation directly from PowerShell. Simple Installation from PowerShell Gallery, and as long as you have MS Word Installed you will be creating .docx, .pdf, .html files in minutes!"
@@ -26,8 +27,9 @@ WordDoc is a Powershell Script Module that is hosted on Powershell Gallery.  It 
  * Microsoft Word 2016 (should work on Word 2010/2013 as well)
 
 ### License 
- This PowerShell Script Module is free distributed under the [MIT License](/license)
+This PowerShell Script Module is free distributed under the [MIT License](/license)
 
 >## Using this Module Commercially ? 
->Lots of hours have gone into the module and example scripts development, So your [**small donation**](https://www.paypal.me/shanehoey) of a few dollars is much appreciated, and will help me continue improving. {{ site.btn_paypal }}
+>Lots of hours have gone into the module and example scripts development, So your [**small donation**](https://www.paypal.me/shanehoey) of a few dollars is much appreciated, and will help me continue improving. 
+{{ site.btn_paypal }}
 {: .notice--info}
