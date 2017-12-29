@@ -14,20 +14,20 @@ feature_row:
   - image_path: /assets/images/getting-started-teaser.jpg
     alt: "Getting Started"
     title: "Getting Started"
-    excerpt: "Want to jump right in and get started"
+    excerpt: "Want to just jump right in and get started ?                                  "
     url: "/getting-started"
     btn_label: "<i class='fa fa-download'></i> Start Here"
     btn_class: "btn--primary"
   - image_path: /assets/images/documentation-teaser.jpg
     alt: "Help & Documents"
     title: "Documentation"
-    excerpt: "Want to dig deeper and learn how to write your own scripts ?"
+    excerpt: "Want to dig deeper and learn how to write your own scripts ?                  "
     url: "/docs"
     btn_label: "<i class='fa fa-question-circle'></i> Documentation"
     btn_class: "btn--primary"
   - image_path: /assets/images/scripts-teaser.jpg
     alt: "customizable"
-    title: "Learn More"
+    title: "Script Library"
     excerpt: "Just want to use an existing script?? Check out some great scripts right here."
     url: "/scripts"
     btn_class: "btn--primary"
