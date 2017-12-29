@@ -266,7 +266,6 @@ defaults:
         overlay_image: /assets/images/unsplash.jpg
         overlay_filter: rgba(100, 100, 100, 0.5)
         teaser: /assets/images/teaser.jpg
-      breadcrumbs: true
   
   # _scripts
   - scope:
@@ -285,7 +284,6 @@ defaults:
         overlay_color: "#5e616c"
         overlay_image: /assets/images/unsplash.jpg
         overlay_filter: rgba(100, 100, 100, 0.5)
-      breadcrumbs: true
 
 #custom
 btn_paypal:       '[<i class="fa fa-paypal"></i> Show your Appreciation](https://www.paypal.me/shanehoey){: .btn .bth--primary .btn--info}'
