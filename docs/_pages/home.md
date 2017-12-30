@@ -14,14 +14,14 @@ feature_row:
   - image_path: /assets/images/getting-started-teaser.jpg
     alt: "Getting Started"
     title: "Getting Started"
-    excerpt: "Do you just Want to just jump right in and get started with WordDoc straight away ? &emsp&emsp&emsp&emsp&emsp&emsp&emsp&emsp"
+    excerpt: "Do you just Want to just jump&nbsp;right in and get started with WordDoc straight away ? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp"
     url: "/getting-started"
     btn_label: "<i class='fa fa-download'></i> Start Here"
     btn_class: "btn--primary"
   - image_path: /assets/images/documentation-teaser.jpg
     alt: "Help & Documents"
     title: "Documentation"
-    excerpt: "Want to dig deeper and learn how to write your own scripts ?&emsp&emsp&emsp&emsp&emsp&emsp&emsp"
+    excerpt: "Want to dig deeper and learn how to write your own scripts ?&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp"
     url: "/docs"
     btn_label: "<i class='fa fa-question-circle'></i> Documentation"
     btn_class: "btn--primary"
