@@ -1,5 +1,5 @@
 ---
-title: "new-WordDocument"
+title: "new-worddocument"
 excerpt: "Describe purpose of "new-WordDocument" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ new-WordDocument [[-WordInstance] <Application>] [-WordDocObject] [<CommonParame
 
 
 ```
-new-WordDocument -WordInstance Value -WordDocObject
+PS C:\>new-WordDocument -WordInstance Value -WordDocObject
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -WordInstance
+### WordInstance
 
 Describe parameter -WordInstance.
 
@@ -46,7 +47,7 @@ Position: 1
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### -WordDocObject
+### WordDocObject
 
 Describe parameter -WordDocObject.
 
@@ -70,4 +71,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# new-WordDocument
+
+new-WordDocument

@@ -1,5 +1,5 @@
 ---
-title: "Update-WordTOC"
+title: "update-wordtoc"
 excerpt: "Describe purpose of "Update-WordTOC" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ Update-WordTOC [[-WordDoc] <Document>] [<CommonParameters>]
 
 
 ```
-Update-WordTOC -WordDoc Value
+PS C:\>Update-WordTOC -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -57,4 +58,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Update-WordTOC
+
+Update-WordTOC

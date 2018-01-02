@@ -1,5 +1,5 @@
 ---
-title: "Set-WordBuiltInProperty"
+title: "set-wordbuiltinproperty"
 excerpt: "Describe purpose of "Set-WordBuiltInProperty" in 1-2 sentences."
 category: "help"
 ---
@@ -29,14 +29,15 @@ wdPropertyCharsWSpaces} [-text] <String> [-WordDoc <Document>] [<CommonParameter
 
 
 ```
-Set-WordBuiltInProperty -WdBuiltInProperty Value -text Value -WordDoc Value
+PS C:\>Set-WordBuiltInProperty -WdBuiltInProperty Value -text Value -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -WdBuiltInProperty
+### WdBuiltInProperty
 
 Describe parameter -WdBuiltInProperty.
 
@@ -49,7 +50,7 @@ Position: 1
 Default Value:
 Accept pipeline input: false
 ```
-### -text
+### text
 
 Describe parameter -text.
 
@@ -62,7 +63,7 @@ Position: 2
 Default Value:
 Accept pipeline input: false
 ```
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -86,4 +87,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Set-WordBuiltInProperty
+
+Set-WordBuiltInProperty

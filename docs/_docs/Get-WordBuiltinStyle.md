@@ -1,5 +1,5 @@
 ---
-title: "Get-WordBuiltinStyle"
+title: "get-wordbuiltinstyle"
 excerpt: "Describe purpose of "Get-WordBuiltinStyle" in 1-2 sentences."
 category: "help"
 ---
@@ -26,10 +26,11 @@ Get-WordBuiltinStyle [<CommonParameters>]
 
 
 ```
-Get-WordBuiltinStyle
+PS C:\>Get-WordBuiltinStyle
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
@@ -44,4 +45,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Get-WordBuiltinStyle
+
+Get-WordBuiltinStyle

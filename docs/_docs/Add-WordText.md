@@ -1,5 +1,5 @@
 ---
-title: "Add-WordText"
+title: "add-wordtext"
 excerpt: "Describe purpose of "Add-WordText" in 1-2 sentences."
 category: "help"
 ---
@@ -43,14 +43,15 @@ wdStyleHeading6 | wdStyleHeading5 | wdStyleHeading4 | wdStyleHeading3 | wdStyleH
 
 
 ```
-Add-WordText -text Value -WdColor Value -WDBuiltinStyle Value -WordDoc Value
+PS C:\>Add-WordText -text Value -WdColor Value -WDBuiltinStyle Value -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -text
+### text
 
 Describe parameter -text.
 
@@ -63,7 +64,7 @@ Position: 1
 Default Value:
 Accept pipeline input: false
 ```
-### -WdColor
+### WdColor
 
 Describe parameter -WdColor.
 
@@ -76,7 +77,7 @@ Position: named
 Default Value:wdColorAutomatic
 Accept pipeline input: false
 ```
-### -WDBuiltinStyle
+### WDBuiltinStyle
 
 Describe parameter -WDBuiltinStyle.
 
@@ -89,7 +90,7 @@ Position: named
 Default Value:wdStyleDefaultParagraphFont
 Accept pipeline input: false
 ```
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -113,4 +114,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Add-WordText
+
+Add-WordText

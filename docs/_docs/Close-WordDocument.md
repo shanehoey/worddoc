@@ -1,5 +1,5 @@
 ---
-title: "Close-WordDocument"
+title: "close-worddocument"
 excerpt: "Describe purpose of "Close-WordDocument" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ Close-WordDocument [[-WordInstance] <Application>] [[-WordDoc] <Document>] [<Com
 
 
 ```
-Close-WordDocument -WordInstance Value -WordDoc Value
+PS C:\>Close-WordDocument -WordInstance Value -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -WordInstance
+### WordInstance
 
 Describe parameter -WordInstance.
 
@@ -46,7 +47,7 @@ Position: 1
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -70,4 +71,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Close-WordDocument
+
+Close-WordDocument

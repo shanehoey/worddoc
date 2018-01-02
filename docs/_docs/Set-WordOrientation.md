@@ -1,5 +1,5 @@
 ---
-title: "Set-WordOrientation"
+title: "set-wordorientation"
 excerpt: "Describe purpose of "Set-WordOrientation" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ Set-WordOrientation [-Orientation] <String> [-WordInstance <Application>] [<Comm
 
 
 ```
-Set-WordOrientation -Orientation Value -WordInstance Value
+PS C:\>Set-WordOrientation -Orientation Value -WordInstance Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -Orientation
+### Orientation
 
 Describe parameter -Orientation.
 
@@ -46,7 +47,7 @@ Position: 1
 Default Value:
 Accept pipeline input: false
 ```
-### -WordInstance
+### WordInstance
 
 Describe parameter -WordInstance.
 
@@ -70,4 +71,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Set-WordOrientation
+
+Set-WordOrientation

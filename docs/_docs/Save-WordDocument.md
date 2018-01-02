@@ -1,5 +1,5 @@
 ---
-title: "Save-WordDocument"
+title: "save-worddocument"
 excerpt: "Describe purpose of "Save-WordDocument" in 1-2 sentences."
 category: "help"
 ---
@@ -29,14 +29,15 @@ wdFormatStrictOpenXMLDocument}] [[-filename] <String>] [-folder <String>] [<Comm
 
 
 ```
-Save-WordDocument -WordDoc Value -WordSaveFormat Value -filename Value -folder Value
+PS C:\>Save-WordDocument -WordDoc Value -WordSaveFormat Value -filename Value -folder Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -49,7 +50,7 @@ Position: named
 Default Value:$Script:worddoc
 Accept pipeline input: false
 ```
-### -WordSaveFormat
+### WordSaveFormat
 
 Describe parameter -WordSaveFormat.
 
@@ -62,7 +63,7 @@ Position: 1
 Default Value:wdFormatDocumentDefault
 Accept pipeline input: false
 ```
-### -filename
+### filename
 
 Describe parameter -filename.
 
@@ -75,7 +76,7 @@ Position: 2
 Default Value:document.docx
 Accept pipeline input: false
 ```
-### -folder
+### folder
 
 Describe parameter -folder.
 
@@ -99,4 +100,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Save-WordDocument
+
+Save-WordDocument

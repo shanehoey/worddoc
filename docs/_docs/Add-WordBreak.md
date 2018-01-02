@@ -1,5 +1,5 @@
 ---
-title: "Add-WordBreak"
+title: "add-wordbreak"
 excerpt: "Describe purpose of "Add-WordBreak" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ Add-WordBreak [-breaktype <String>] [-WordInstance <Application>] [-WordDoc <Doc
 
 
 ```
-Add-WordBreak -breaktype Value -WordInstance Value -WordDoc Value
+PS C:\>Add-WordBreak -breaktype Value -WordInstance Value -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -breaktype
+### breaktype
 
 Describe parameter -breaktype.
 
@@ -46,7 +47,7 @@ Position: 1
 Default Value:NewPage
 Accept pipeline input: false
 ```
-### -WordInstance
+### WordInstance
 
 Describe parameter -WordInstance.
 
@@ -59,7 +60,7 @@ Position: named
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -83,4 +84,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Add-WordBreak
+
+Add-WordBreak

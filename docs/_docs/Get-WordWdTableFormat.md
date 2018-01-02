@@ -1,5 +1,5 @@
 ---
-title: "Get-WordWdTableFormat"
+title: "get-wordwdtableformat"
 excerpt: "Describe purpose of "Get-WordWdTableFormat" in 1-2 sentences."
 category: "help"
 ---
@@ -26,10 +26,11 @@ Get-WordWdTableFormat [<CommonParameters>]
 
 
 ```
-Get-WordWdTableFormat
+PS C:\>Get-WordWdTableFormat
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
@@ -44,4 +45,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Get-WordWdTableFormat
+
+Get-WordWdTableFormat

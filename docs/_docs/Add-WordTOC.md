@@ -1,5 +1,5 @@
 ---
-title: "Add-WordTOC"
+title: "add-wordtoc"
 excerpt: "Describe purpose of "Add-WordTOC" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ Add-WordTOC [[-WordInstance] <Application>] [[-WordDoc] <Document>] [<CommonPara
 
 
 ```
-Add-WordTOC -WordInstance Value -WordDoc Value
+PS C:\>Add-WordTOC -WordInstance Value -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -WordInstance
+### WordInstance
 
 Describe parameter -WordInstance.
 
@@ -46,7 +47,7 @@ Position: 1
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -70,4 +71,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Add-WordTOC
+
+Add-WordTOC

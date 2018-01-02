@@ -1,5 +1,5 @@
 ---
-title: "Add-WordTable"
+title: "add-wordtable"
 excerpt: "Describe purpose of "Add-WordTable" in 1-2 sentences."
 category: "help"
 ---
@@ -43,46 +43,51 @@ Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoF
 
 
 ```
-Add-WordTable -Object Value -WdAutoFitBehavior Value -WdDefaultTableBehavior Value -HeaderRow Value -TotalRow Value -BandedRow Value -FirstColumn Value -LastColumn Value -BandedColumn Value -RemoveProperties -VerticleTable -NoParagraph -WordDoc Value
+PS C:\>Add-WordTable -Object Value -WdAutoFitBehavior Value -WdDefaultTableBehavior Value -HeaderRow Value -TotalRow Value -BandedRow Value -FirstColumn Value -LastColumn Value -BandedColumn Value -RemoveProperties -VerticleTable -NoParagraph -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 ### -------------------------- EXAMPLE 2 --------------------------
 
 
 ```
-Add-WordTable -WDTableFormat Value
+PS C:\>Add-WordTable -WDTableFormat Value
 ```
-PS C:\>
+
 Describe what this call does
+
 ### -------------------------- EXAMPLE 3 --------------------------
 
 
 ```
-Add-WordTable -PlainTable Value
+PS C:\>Add-WordTable -PlainTable Value
 ```
-PS C:\>
+
 Describe what this call does
+
 ### -------------------------- EXAMPLE 4 --------------------------
 
 
 ```
-Add-WordTable -GridTable Value -GridAccent Value
+PS C:\>Add-WordTable -GridTable Value -GridAccent Value
 ```
-PS C:\>
+
 Describe what this call does
+
 ### -------------------------- EXAMPLE 5 --------------------------
 
 
 ```
-Add-WordTable -ListTable Value -ListAccent Value
+PS C:\>Add-WordTable -ListTable Value -ListAccent Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -Object
+### Object
 
 Describe parameter -Object.
 
@@ -95,7 +100,7 @@ Position: 1
 Default Value:
 Accept pipeline input: true (ByValue)
 ```
-### -WdAutoFitBehavior
+### WdAutoFitBehavior
 
 Describe parameter -WdAutoFitBehavior.
 
@@ -108,7 +113,7 @@ Position: named
 Default Value:wdAutoFitContent
 Accept pipeline input: false
 ```
-### -WdDefaultTableBehavior
+### WdDefaultTableBehavior
 
 Describe parameter -WdDefaultTableBehavior.
 
@@ -121,7 +126,7 @@ Position: named
 Default Value:wdWord9TableBehavior
 Accept pipeline input: false
 ```
-### -HeaderRow
+### HeaderRow
 
 Describe parameter -HeaderRow.
 
@@ -134,7 +139,7 @@ Position: named
 Default Value:True
 Accept pipeline input: false
 ```
-### -TotalRow
+### TotalRow
 
 Describe parameter -TotalRow.
 
@@ -147,7 +152,7 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### -BandedRow
+### BandedRow
 
 Describe parameter -BandedRow.
 
@@ -160,7 +165,7 @@ Position: named
 Default Value:True
 Accept pipeline input: false
 ```
-### -FirstColumn
+### FirstColumn
 
 Describe parameter -FirstColumn.
 
@@ -173,7 +178,7 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### -LastColumn
+### LastColumn
 
 Describe parameter -LastColumn.
 
@@ -186,7 +191,7 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### -BandedColumn
+### BandedColumn
 
 Describe parameter -BandedColumn.
 
@@ -199,7 +204,7 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### -WDTableFormat
+### WDTableFormat
 
 Describe parameter -WDTableFormat.
 
@@ -212,7 +217,7 @@ Position: named
 Default Value:wdTableFormatNone
 Accept pipeline input: false
 ```
-### -PlainTable
+### PlainTable
 
 Describe parameter -PlainTable.
 
@@ -225,7 +230,7 @@ Position: named
 Default Value:Table Grid
 Accept pipeline input: false
 ```
-### -GridTable
+### GridTable
 
 Describe parameter -GridTable.
 
@@ -238,7 +243,7 @@ Position: named
 Default Value:Grid Table 1 Light
 Accept pipeline input: false
 ```
-### -ListTable
+### ListTable
 
 Describe parameter -ListTable.
 
@@ -251,7 +256,7 @@ Position: named
 Default Value:List Table 1 Light
 Accept pipeline input: false
 ```
-### -ListAccent
+### ListAccent
 
 Describe parameter -ListAccent.
 
@@ -264,7 +269,7 @@ Position: named
 Default Value:Accent 1
 Accept pipeline input: false
 ```
-### -GridAccent
+### GridAccent
 
 Describe parameter -GridAccent.
 
@@ -277,7 +282,7 @@ Position: named
 Default Value:Accent 1
 Accept pipeline input: false
 ```
-### -RemoveProperties
+### RemoveProperties
 
 Describe parameter -RemoveProperties.
 
@@ -290,7 +295,7 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### -VerticleTable
+### VerticleTable
 
 Describe parameter -VerticleTable.
 
@@ -303,7 +308,7 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### -NoParagraph
+### NoParagraph
 
 Describe parameter -NoParagraph.
 
@@ -316,7 +321,7 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -340,4 +345,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Add-WordTable
+
+Add-WordTable

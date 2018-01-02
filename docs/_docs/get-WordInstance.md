@@ -1,5 +1,5 @@
 ---
-title: "get-WordInstance"
+title: "get-wordinstance"
 excerpt: "Describe purpose of "get-WordInstance" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ get-WordInstance [[-WordInstance] <Application>] [<CommonParameters>]
 
 
 ```
-get-WordInstance -WordInstance Value
+PS C:\>get-WordInstance -WordInstance Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -WordInstance
+### WordInstance
 
 Describe parameter -WordInstance.
 
@@ -57,4 +58,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# get-WordInstance
+
+get-WordInstance

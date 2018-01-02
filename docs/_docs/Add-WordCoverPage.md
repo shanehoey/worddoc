@@ -1,5 +1,5 @@
 ---
-title: "Add-WordCoverPage"
+title: "add-wordcoverpage"
 excerpt: "Describe purpose of "Add-WordCoverPage" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ Add-WordCoverPage [[-CoverPage] <String>] [-WordInstance <Application>] [-WordDo
 
 
 ```
-Add-WordCoverPage -CoverPage Value -WordInstance Value -WordDoc Value
+PS C:\>Add-WordCoverPage -CoverPage Value -WordInstance Value -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -CoverPage
+### CoverPage
 
 Describe parameter -CoverPage.
 
@@ -46,7 +47,7 @@ Position: 1
 Default Value:Facet
 Accept pipeline input: false
 ```
-### -WordInstance
+### WordInstance
 
 Describe parameter -WordInstance.
 
@@ -59,7 +60,7 @@ Position: named
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -83,4 +84,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Add-WordCoverPage
+
+Add-WordCoverPage

@@ -1,5 +1,5 @@
 ---
-title: "new-WordInstance"
+title: "new-wordinstance"
 excerpt: "The new-wordinstance function starts a new instance of MS Word."
 category: "help"
 ---
@@ -26,30 +26,33 @@ new-WordInstance [-WordInstanceObject] [[-Visable] <Boolean>] [<CommonParameters
 
 
 ```
-new-WordInstance -Visable True
+PS C:\>new-WordInstance -Visable True
 ```
-PS C:\>
+
+Create a new Word Instance that is visable
 
 ### -------------------------- EXAMPLE 2 --------------------------
 
 
 ```
-new-WordInstance -Visable False
+PS C:\>new-WordInstance -Visable False
 ```
-PS C:\>
+
+Create a new Word Instance that is hidden
 
 ### -------------------------- EXAMPLE 3 --------------------------
 
 
 ```
-$wi = new-wordinstance -wordinstanceobject
+PS C:\>$wi = new-wordinstance -wordinstanceobject
 ```
-PS C:\>
-$wd = new-worddoc      -wordinstance $wi  -worddocobject
+
+Create a word instance that is stored in a local variable
+
 
 ## PARAMETERS
 
-### -WordInstanceObject
+### WordInstanceObject
 
 Returns an Word Instance Object.
 
@@ -62,7 +65,7 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### -Visable
+### Visable
 
 Makes the Word object Visable or Hidden
 
@@ -86,4 +89,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# new-WordInstance
+
+new-WordInstance

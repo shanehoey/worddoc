@@ -1,5 +1,5 @@
 ---
-title: "Add-WordTemplate"
+title: "add-wordtemplate"
 excerpt: "Describe purpose of "Add-WordTemplate" in 1-2 sentences."
 category: "help"
 ---
@@ -26,14 +26,15 @@ Add-WordTemplate [-filename] <String> [-WordDoc <Document>] [<CommonParameters>]
 
 
 ```
-Add-WordTemplate -filename Value -WordDoc Value
+PS C:\>Add-WordTemplate -filename Value -WordDoc Value
 ```
-PS C:\>
+
 Describe what this call does
+
 
 ## PARAMETERS
 
-### -filename
+### filename
 
 Describe parameter -filename.
 
@@ -46,7 +47,7 @@ Position: 1
 Default Value:
 Accept pipeline input: false
 ```
-### -WordDoc
+### WordDoc
 
 Describe parameter -WordDoc.
 
@@ -70,4 +71,5 @@ This function only supports -verbose
 ## NOTES
 
 ## RELATED LINKS
-# Add-WordTemplate
+
+Add-WordTemplate
