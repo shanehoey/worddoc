@@ -61,7 +61,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = 'New-WordInstance','New-WordDocument','Save-WordDocument','Close-WordDocument','Add-WordText','Add-WordBreak','Set-WordBuiltInProperty','Add-WordCoverPage','Set-WordOrientation','Add-WordTOC','Update-WordTOC','Add-WordTable','Get-WordBuiltinStyle','Get-WordWdTableFormat','Add-WordTemplate','Get-WordInstance'
+    FunctionsToExport = 'New-WordInstance','New-WordDocument','Save-WordDocument','Close-WordDocument','Add-WordText','Add-WordBreak','Set-WordBuiltInProperty','Add-WordCoverPage','Set-WordOrientation','Add-WordTOC','Update-WordTOC','Add-WordTable','Get-WordBuiltinStyle','Get-WordWdTableFormat','Add-WordTemplate','Get-WordInstance','Get-WordDocument','test-WordInstance','test-WordDocument'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()

@@ -145,7 +145,7 @@ function test-WordInstance {
     End { Write-Verbose -Message "[End] *** $($Myinvocation.InvocationName) ***" }
 }
 
-function test-WordDoc {
+function test-WordDocument {
   <#
     .SYNOPSIS
     Returns True or False if parsed object is a MS-Word Document.
@@ -157,7 +157,7 @@ function test-WordDoc {
     Object that you want to check if it is a MS Word Document
 
     .EXAMPLE
-    test-WordDoc -WordDoc $wd
+    test-WordDocument -WordDocument $wd
 
     tests is $wd is a MS Word Document Object
 
@@ -229,7 +229,7 @@ function get-WordInstance {
     End { Write-Verbose -Message "[End] *** $($Myinvocation.InvocationName) ***" }
 }
 
-function get-WordDoc {
+function get-WordDocument {
   <#
     .SYNOPSIS
     Describe purpose of "get-WordDoc" in 1-2 sentences.
@@ -241,7 +241,7 @@ function get-WordDoc {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    get-WordDoc -WordDoc Value
+    get-WordDocument -WordDocument Value
    
 
     .NOTES
@@ -256,11 +256,11 @@ function get-WordDoc {
     [CmdletBinding()]
     Param(  
         [Parameter(Position = 0,DontShow)] 
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDoc
     )
     Begin {
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { return $worddoc}
@@ -334,8 +334,8 @@ function Save-WordDocument {
     .DESCRIPTION
     Add a more complete description of what the function does.
 
-    .PARAMETER WordDoc
-    Describe parameter -WordDoc.
+    .PARAMETER WordDocument
+    Describe parameter -WordDocument.
 
     .PARAMETER WordSaveFormat
     Describe parameter -WordSaveFormat.
@@ -347,7 +347,7 @@ function Save-WordDocument {
     Describe parameter -folder.
 
     .EXAMPLE
-    Save-WordDocument -WordDoc Value -WordSaveFormat Value -filename Value -folder Value
+    Save-WordDocument -WordDocument Value -WordSaveFormat Value -filename Value -folder Value
     Describe what this call does
 
     .NOTES
@@ -361,7 +361,7 @@ function Save-WordDocument {
 
     [CmdletBinding()]
     Param( 
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:worddoc,
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:worddoc,
 
         [Parameter(Position = 0)]
         [Microsoft.Office.Interop.Word.WdSaveFormat]$WordSaveFormat = 'wdFormatDocumentDefault',
@@ -373,7 +373,7 @@ function Save-WordDocument {
     )
     Begin { 
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { 
@@ -407,7 +407,7 @@ function Close-WordDocument {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    Close-WordDocument -WordInstance Value -WordDoc Value
+    Close-WordDocument -WordInstance Value -WordDocument Value
     Describe what this call does
 
     .NOTES
@@ -423,13 +423,13 @@ function Close-WordDocument {
     param(
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
   
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDoc
     )
     Begin { 
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***"  
         try { 
             test-wordinstance -WordInstance $wordinstance
-            test-worddoc -Worddoc $worddoc
+            test-WordDocument -WordDocument $worddoc
         }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
@@ -515,13 +515,13 @@ function Add-WordText {
 
     .EXAMPLE
 
-    Add-WordText -text "Heading 1" -WdColor Value -WDBuiltinStyle Value -WordDoc Value
+    Add-WordText -text "Heading 1" -WdColor Value -WDBuiltinStyle Value -WordDocument Value
     
     Adds text to document 
 
     .EXAMPLE
 
-    Add-WordText -text "Heading 1" -WdColor Value -WDBuiltinStyle Value -WordDoc Value
+    Add-WordText -text "Heading 1" -WdColor Value -WDBuiltinStyle Value -WordDocument Value
     
     Adds text to document 
 
@@ -543,12 +543,12 @@ function Add-WordText {
     
         [Microsoft.Office.Interop.Word.WdBuiltinStyle]$WDBuiltinStyle = 'wdStyleDefaultParagraphFont',
     
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $script:WordDoc
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $script:WordDoc
     )
     Begin {
         Add-Type -AssemblyName Microsoft.Office.Interop.Word
 Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { 
@@ -586,7 +586,7 @@ function Add-WordBreak {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    Add-WordBreak -breaktype Value -WordInstance Value -WordDoc Value
+    Add-WordBreak -breaktype Value -WordInstance Value -WordDocument Value
     Describe what this call does
 
     .NOTES
@@ -609,7 +609,7 @@ function Add-WordBreak {
         #Todo cast type instead ie [Microsoft.Office.Interop.Word.Application]$WordInstance but does not work
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
     
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDoc
     )
  
     Begin {
@@ -617,7 +617,7 @@ function Add-WordBreak {
 Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***"
         try { test-wordinstance -WordInstance $wordinstance }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { 
@@ -654,7 +654,7 @@ function Set-WordBuiltInProperty {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    Set-WordBuiltInProperty -WdBuiltInProperty Value -text Value -WordDoc Value
+    Set-WordBuiltInProperty -WdBuiltInProperty Value -text Value -WordDocument Value
     Describe what this call does
 
     .NOTES
@@ -675,11 +675,11 @@ function Set-WordBuiltInProperty {
         [Parameter(Position = 1, HelpMessage = 'Add help message for user', mandatory = $true)] 
         [String]$text,
     
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDoc
     )
     Begin { 
         Write-Verbose -Message "Start  : $($Myinvocation.InvocationName)" 
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { 
@@ -714,7 +714,7 @@ function Add-WordCoverPage {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    Add-WordCoverPage -CoverPage Value -WordInstance Value -WordDoc Value
+    Add-WordCoverPage -CoverPage Value -WordInstance Value -WordDocument Value
     Describe what this call does
 
     .NOTES
@@ -736,14 +736,14 @@ function Add-WordCoverPage {
     
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
     
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDoc
     )  
     Begin { 
         Add-Type -AssemblyName Microsoft.Office.Interop.Word
 Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***"
         try { test-wordinstance -WordInstance $wordinstance }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { 
@@ -832,7 +832,7 @@ function Add-WordTOC {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    Add-WordTOC -WordInstance Value -WordDoc Value
+    Add-WordTOC -WordInstance Value -WordDocument Value
     Describe what this call does
 
     .NOTES
@@ -850,14 +850,14 @@ function Add-WordTOC {
         [ValidateScript( {test-wordinstance -WordInstance $_})]
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
   
-        [ValidateScript( {test-worddoc -Worddoc $_})]
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
+        [ValidateScript( {test-WordDocument -WordDocument $_})]
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDoc
     )
     Begin { 
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***"
         try { test-wordinstance -WordInstance $wordinstance }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process {  
@@ -888,7 +888,7 @@ function Update-WordTOC {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    Update-WordTOC -WordDoc Value
+    Update-WordTOC -WordDocument Value
     Describe what this call does
 
     .NOTES
@@ -902,11 +902,11 @@ function Update-WordTOC {
 
     [CmdletBinding()]   
     param (
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDoc
     )
     Begin {
         Write-Verbose -Message "Start  : $($Myinvocation.InvocationName)" 
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { 
@@ -982,7 +982,7 @@ function Add-WordTable {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    Add-WordTable -Object Value -WdAutoFitBehavior Value -WdDefaultTableBehavior Value -HeaderRow Value -TotalRow Value -BandedRow Value -FirstColumn Value -LastColumn Value -BandedColumn Value -RemoveProperties -VerticleTable -NoParagraph -WordDoc Value
+    Add-WordTable -Object Value -WdAutoFitBehavior Value -WdDefaultTableBehavior Value -HeaderRow Value -TotalRow Value -BandedRow Value -FirstColumn Value -LastColumn Value -BandedColumn Value -RemoveProperties -VerticleTable -NoParagraph -WordDocument Value
     Describe what this call does
 
     .EXAMPLE
@@ -1072,7 +1072,7 @@ function Add-WordTable {
    
     Begin {
         Add-Type -AssemblyName Microsoft.Office.Interop.Word
-try { test-worddoc -Worddoc $worddoc }
+try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { 
@@ -1265,7 +1265,7 @@ function Add-WordTemplate {
     Describe parameter -WordDoc.
 
     .EXAMPLE
-    Add-WordTemplate -filename Value -WordDoc Value
+    Add-WordTemplate -filename Value -WordDocument Value
     Describe what this call does
 
     .NOTES
@@ -1284,11 +1284,11 @@ function Add-WordTemplate {
         [string]$filename,
 
         [Parameter(ParameterSetName = 'Default')]
-        [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc  
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDoc  
     )   
     Begin {
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
-        try { test-worddoc -Worddoc $worddoc }
+        try { test-WordDocument -WordDocument $worddoc }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     
         if (!($PSBoundParameters.ContainsKey('filename'))) { 
