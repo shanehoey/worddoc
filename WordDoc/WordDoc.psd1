@@ -52,7 +52,7 @@
     # RequiredModules = @()
 
     # Assemblies that must be loaded prior to importing this module
-    # RequiredAssemblies = @()
+     RequiredAssemblies = "Microsoft.Office.Interop.Word"
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module.
     # ScriptsToProcess = @()
@@ -67,13 +67,13 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = 'New-WordInstance','New-WordDocument','Save-WordDocument','Close-WordDocument','Add-WordText','Add-WordBreak','Set-WordBuiltInProperty','Add-WordCoverPage','Set-WordOrientation','Add-WordTOC','Update-WordTOC','Add-WordTable','Get-WordBuiltinStyle','Get-WordWdTableFormat','Add-WordTemplate'
+    FunctionsToExport = 'New-WordInstance','New-WordDocument','Save-WordDocument','Close-WordDocument','Add-WordText','Add-WordBreak','Set-WordBuiltInProperty','Add-WordCoverPage','Set-WordOrientation','Add-WordTOC','Update-WordTOC','Add-WordTable','Get-WordBuiltinStyle','Get-WordWdTableFormat','Add-WordTemplate','Get-WordInstance'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
 
     # Variables to export from this module
-    VariablesToExport =  @()
+    VariablesToExport =   @()    
 
     # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
     AliasesToExport = @()
