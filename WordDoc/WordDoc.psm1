@@ -1,4 +1,4 @@
-﻿#requires -version 3.0
+﻿#requires -version 4.0
 <#
     .SYNOPSIS
     WordDoc helps you quickly generate Word Documents from PowerShell quickly and effortless.
@@ -32,33 +32,47 @@ function new-WordInstance {
     The new-wordinstance function starts a new instance of MS Word.
 
     .PARAMETER WordInstanceObject
-    Returns an Word Instance Object.
+    When used the function will return the Word Instance as an Object to be stored in a variable in the local shell. 
+    If using this method you must use worddocobject as well, and manually parse these objects to all functions. 
 
     .PARAMETER Visable
-    Makes the Word object Visable or Hidden
+    Makes MS Word application Visable or Hidden
 
     .EXAMPLE
     new-WordInstance -Visable True
     
+    Create a new Word Instance that is visable
+    
     .EXAMPLE
     new-WordInstance -Visable False
+
+    Create a new Word Instance that is hidden
     
     .EXAMPLE
     $wi = new-wordinstance -wordinstanceobject
-    $wd = new-worddoc      -wordinstance $wi  -worddocobject
+
+    Create a word instance that is stored in a local variable
+    
+    .INPUTS
+
+    .OUTPUTS
+     [Microsoft.Office.Interop.Word.Application]
+
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
 
     .LINK
+
+    new-wordinstance
+
     https://shanehoey.github.io/worddoc/docs/new-wordinstance
 
   #>
 
-
     [CmdletBinding()]
     Param( 
-        [Parameter(Mandatory = $false, HelpMessage = 'Returns object Rather than creating a Script Scope variable')]
         [switch]$WordInstanceObject,
 
-        [Parameter(Mandatory = $false, HelpMessage = 'Display Word or keep it hidden')]
         [bool]$Visable = $true
     )
     Begin { 
@@ -85,71 +99,79 @@ function new-WordInstance {
 function test-WordInstance {
   <#
     .SYNOPSIS
-    Describe purpose of "test-WordInstance" in 1-2 sentences.
+    Returns True or False if parsed object is a MS-Word Application.
 
     .DESCRIPTION
-    Add a more complete description of what the function does.
+    Returns True or False if parsed object is a MS-Word Application.
 
     .PARAMETER WordInstance
-    Describe parameter -WordInstance.
+    Object that you want to check if it is a MS Word Application
 
     .EXAMPLE
+
     test-WordInstance -WordInstance $wi
-    Describe what this call does
+    
+    Tests is $wi is a MS Word Application object
+
+    .INPUTS
+
+    .OUTPUTS
+    [Boolean]
+
+    This function returns a Boolean.
+
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
 
     .LINK
     https://shanehoey.github.io/worddoc/docs/test-wordinstance
     
   #>
 
- 
     [CmdletBinding()]
     Param(  
-        [Parameter(Mandatory = $false, Position = 0, HelpMessage = 'Word Instance Object')] 
+        [Parameter(Position = 0)] 
         $WordInstance = $Script:WordInstance
     )
-    Begin {
-        Add-Type -AssemblyName Microsoft.Office.Interop.Word
-Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
-    }
+    Begin { Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" }
     Process { 
         if ($WordInstance -is [Microsoft.Office.Interop.Word.Application]) {
-            write-verbose -Message 'Type is [Microsoft.Office.Interop.Word.Application]'
+            return $true
         }
         else { 
-            write-verbose -Message 'Type is NOT [Microsoft.Office.Interop.Word.Application]'
-            throw 'WordInstance was not of type [Microsoft.Office.Interop.Word.Application]' 
+            return $false
         }
     }
-    End { 
-        Write-Verbose -Message "[End] *** $($Myinvocation.InvocationName) ***" 
-    }
+    End { Write-Verbose -Message "[End] *** $($Myinvocation.InvocationName) ***" }
 }
 
 function test-WordDoc {
   <#
     .SYNOPSIS
-    Describe purpose of "test-WordDoc" in 1-2 sentences.
+    Returns True or False if parsed object is a MS-Word Document.
 
     .DESCRIPTION
-    Add a more complete description of what the function does.
+    Returns True or False if parsed object is a MS-Word Document.
 
     .PARAMETER WordDoc
-    Describe parameter -WordDoc.
+    Object that you want to check if it is a MS Word Document
 
     .EXAMPLE
-    test-WordDoc -WordDoc Value
-    Describe what this call does
+    test-WordDoc -WordDoc $wd
+
+    tests is $wd is a MS Word Document Object
+
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
 
     .LINK
     https://shanehoey.github.io/worddoc/docs/test-worddoc
 
   #>
 
-
     [CmdletBinding()]
     Param(  
-        [Parameter(Mandatory = $false, Position = 0, HelpMessage = 'Word Document Object')] 
+        [Parameter(Position = 0)] 
         $WordDoc = $Script:WordDoc
     )
     Begin { 
@@ -158,11 +180,10 @@ function test-WordDoc {
     }
     Process {
         if ($WordDoc -is [Microsoft.Office.Interop.Word.Document]) {
-            write-verbose -Message 'Type is [Microsoft.Office.Interop.Word.Document]'
+            return $true
         }
         else { 
-            write-verbose -Message 'Type is NOT [Microsoft.Office.Interop.Word.Document]'
-            throw 'WordDoc was not of type [Microsoft.Office.Interop.Word.Document]' 
+            return $false
         }
     }
     End { 
@@ -173,17 +194,20 @@ function test-WordDoc {
 function get-WordInstance {
   <#
     .SYNOPSIS
-    Describe purpose of "get-WordInstance" in 1-2 sentences.
+    This function is used to return a Word Instance created automatically by Word Doc Module
 
     .DESCRIPTION
-    Add a more complete description of what the function does.
+    This function is used to return a Word Instance created automatically by Word Doc Module
 
     .PARAMETER WordInstance
-    Describe parameter -WordInstance.
+    Not required as this function will work without using WordInstance Parameter
 
     .EXAMPLE
     get-WordInstance -WordInstance Value
     Describe what this call does
+
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
 
     .LINK
     https://shanehoey.github.io/worddoc/docs/get-wordinstance
@@ -193,7 +217,7 @@ function get-WordInstance {
  
     [CmdletBinding()]
     Param(  
-        [Parameter(Mandatory = $false, Position = 0, HelpMessage = 'Word Instance Object')] 
+        [Parameter(Position = 0)] 
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance
     )
     Begin { 
@@ -218,7 +242,10 @@ function get-WordDoc {
 
     .EXAMPLE
     get-WordDoc -WordDoc Value
-    Describe what this call does
+   
+
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
 
     .LINK
     https://shanehoey.github.io/worddoc/docs/get-worddoc
@@ -228,7 +255,7 @@ function get-WordDoc {
 
     [CmdletBinding()]
     Param(  
-        [Parameter(Mandatory = $false, Position = 0, HelpMessage = 'Word Document Object')] 
+        [Parameter(Position = 0,DontShow)] 
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
     )
     Begin {
@@ -258,6 +285,9 @@ function new-WordDocument {
     new-WordDocument -WordInstance Value -WordDocObject
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/new-worddocument
 
@@ -266,10 +296,9 @@ function new-WordDocument {
 
     [CmdletBinding()]
     Param(  
-        [Parameter(Mandatory = $false, Position = 0, HelpMessage = 'Word Instance Object')] 
+        [Parameter(Position = 0)] 
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
  
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [switch]$WordDocObject
     )
     Begin { 
@@ -321,6 +350,9 @@ function Save-WordDocument {
     Save-WordDocument -WordDoc Value -WordSaveFormat Value -filename Value -folder Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/save-worddocument
 
@@ -329,16 +361,14 @@ function Save-WordDocument {
 
     [CmdletBinding()]
     Param( 
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:worddoc,
 
-        [Parameter(Mandatory = $false, HelpMessage = 'Configure the save format', Position = 0)]
+        [Parameter(Position = 0)]
         [Microsoft.Office.Interop.Word.WdSaveFormat]$WordSaveFormat = 'wdFormatDocumentDefault',
      
-        [Parameter(Mandatory = $false, HelpMessage = 'Name of Filename', Position = 1)]
+        [Parameter(Position = 1)]
         [string]$filename = 'document.docx',
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Name of Folder Path, defaults to MyDocuments')]
         [String]$folder = [Environment]::GetFolderPath('MyDocuments')
     )
     Begin { 
@@ -380,6 +410,9 @@ function Close-WordDocument {
     Close-WordDocument -WordInstance Value -WordDoc Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/close-worddocument
 
@@ -388,10 +421,8 @@ function Close-WordDocument {
 
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Instance Object')]
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
   
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
     )
     Begin { 
@@ -429,6 +460,9 @@ function Close-WordInstance {
     Close-WordInstance -WordInstance Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/close-wordinstance
 
@@ -437,7 +471,6 @@ function Close-WordInstance {
 
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory = $false)]
         #Todo cast type instead ie [Microsoft.Office.Interop.Word.Application]$WordInstance but does not work
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance
   
@@ -463,27 +496,37 @@ function Close-WordInstance {
 function Add-WordText {
   <#
     .SYNOPSIS
-    Describe purpose of "Add-WordText" in 1-2 sentences.
+    Adds text to MS Word Document.
 
     .DESCRIPTION
-    Add a more complete description of what the function does.
+    Adds text to MS Word Document.
 
     .PARAMETER text
-    Describe parameter -text.
+    Text to add to word Document
 
     .PARAMETER WdColor
-    Describe parameter -WdColor.
+    Color of Text
 
     .PARAMETER WDBuiltinStyle
-    Describe parameter -WDBuiltinStyle.
+    Builtin Stype to use 
 
     .PARAMETER WordDoc
-    Describe parameter -WordDoc.
+    WordDoc Object 
 
     .EXAMPLE
-    Add-WordText -text Value -WdColor Value -WDBuiltinStyle Value -WordDoc Value
-    Describe what this call does
 
+    Add-WordText -text "Heading 1" -WdColor Value -WDBuiltinStyle Value -WordDoc Value
+    
+    Adds text to document 
+
+    .EXAMPLE
+
+    Add-WordText -text "Heading 1" -WdColor Value -WDBuiltinStyle Value -WordDoc Value
+    
+    Adds text to document 
+
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
 
     .LINK
     https://shanehoey.github.io/worddoc/docs/add-wordtext
@@ -496,13 +539,10 @@ function Add-WordText {
         [Parameter(Position = 0, Mandatory = $true, HelpMessage = 'Text to add to word document.' )] 
         [String]$text,
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Color of text.' )] 
         [Microsoft.Office.Interop.Word.WdColor]$WdColor = 'wdColorAutomatic',
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Built in style of text.' )] 
         [Microsoft.Office.Interop.Word.WdBuiltinStyle]$WDBuiltinStyle = 'wdStyleDefaultParagraphFont',
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $script:WordDoc
     )
     Begin {
@@ -549,6 +589,9 @@ function Add-WordBreak {
     Add-WordBreak -breaktype Value -WordInstance Value -WordDoc Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/add-wordbreak
 
@@ -558,16 +601,14 @@ function Add-WordBreak {
 
     [CmdletBinding()]
     param (
-        [Parameter(Position = 0, Mandatory = $false)] 
+        [Parameter(Position = 0)] 
         [Parameter(ParameterSetName = 'GridTable')]
         [ValidateSet('NewPage', 'Section', 'Paragraph')]
         [string]$breaktype = 'NewPage',
    
         #Todo cast type instead ie [Microsoft.Office.Interop.Word.Application]$WordInstance but does not work
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Instance Object')]
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
     )
  
@@ -616,6 +657,9 @@ function Set-WordBuiltInProperty {
     Set-WordBuiltInProperty -WdBuiltInProperty Value -text Value -WordDoc Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/set-wordbuiltinproperty
 
@@ -631,7 +675,6 @@ function Set-WordBuiltInProperty {
         [Parameter(Position = 1, HelpMessage = 'Add help message for user', mandatory = $true)] 
         [String]$text,
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
     )
     Begin { 
@@ -674,6 +717,9 @@ function Add-WordCoverPage {
     Add-WordCoverPage -CoverPage Value -WordInstance Value -WordDoc Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/add-wordcoverpage
 
@@ -688,10 +734,8 @@ function Add-WordCoverPage {
         [string]$CoverPage = 'Facet',
   
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Instance Object')]
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
     )  
     Begin { 
@@ -738,6 +782,9 @@ function Set-WordOrientation {
     Set-WordOrientation -Orientation Value -WordInstance Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/set-wordorientation
 
@@ -750,7 +797,6 @@ function Set-WordOrientation {
         [ValidateSet('Portrait', 'Landscape')]  
         [string]$Orientation,
   
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Instance Object')]
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance
             
     )
@@ -789,6 +835,9 @@ function Add-WordTOC {
     Add-WordTOC -WordInstance Value -WordDoc Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/add-wordtoc
 
@@ -798,11 +847,9 @@ function Add-WordTOC {
     [CmdletBinding()]  
     param (
         #Todo cast type instead ie [Microsoft.Office.Interop.Word.Application]$WordInstance but does not work
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Instance Object')]
         [ValidateScript( {test-wordinstance -WordInstance $_})]
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
   
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [ValidateScript( {test-worddoc -Worddoc $_})]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
     )
@@ -844,6 +891,9 @@ function Update-WordTOC {
     Update-WordTOC -WordDoc Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/update-wordtoc
 
@@ -852,7 +902,6 @@ function Update-WordTOC {
 
     [CmdletBinding()]   
     param (
-        [Parameter(Mandatory = $false)]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc
     )
     Begin {
@@ -952,6 +1001,9 @@ function Add-WordTable {
     Add-WordTable -ListTable Value -ListAccent Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/add-wordtable
 
@@ -963,70 +1015,58 @@ function Add-WordTable {
         [Parameter(Position = 0, HelpMessage = 'psobject to send to word', Mandatory = $true, ValuefromPipeline = $true)]    
         [psobject]$Object,
   
-        [Parameter(HelpMessage = 'Add help message for user')] 
         [Microsoft.Office.Interop.Word.WdAutoFitBehavior]$WdAutoFitBehavior = 'wdAutoFitContent',
 
-        [Parameter(HelpMessage = 'Add help message for user')] 
         [Microsoft.Office.Interop.Word.WdDefaultTableBehavior]$WdDefaultTableBehavior = 'wdWord9TableBehavior', 
 
-        [Parameter(HelpMessage = 'Add help message for user')]
         [bool]$HeaderRow = $true,
     
-        [Parameter(HelpMessage = 'Add help message for user')]
         [bool]$TotalRow = $false,
     
-        [Parameter(HelpMessage = 'Add help message for user')]
         [bool]$BandedRow = $true,
     
-        [Parameter(HelpMessage = 'Add help message for user')]
         [bool]$FirstColumn = $false,
     
-        [Parameter(HelpMessage = 'Add help message for user')]
         [bool]$LastColumn = $false,
     
-        [Parameter(HelpMessage = 'Add help message for user')]
         [bool]$BandedColumn = $false,
 
-        [Parameter(Mandatory = $false, ParameterSetName = 'WDTableFormat', HelpMessage = 'Add help message for user')]
+        [Parameter(ParameterSetName = 'WDTableFormat')]
         [Microsoft.Office.Interop.Word.WdTableFormat]$WDTableFormat = 'wdTableFormatNone',
     
         #Todo:  Investigate how to do better thru [Microsoft.Office.Interop.Word.??????]
-        [Parameter(Mandatory = $false, ParameterSetName = 'PlainTable', HelpMessage = 'Add help message for user')]
+        [Parameter(ParameterSetName = 'PlainTable')]
         [validateSet('Table Grid', 'Table Grid Light', 'Plain Table 1', 'Plain Table 2', 'Plain Table 3', 'Plain Table 4', 'Plain Table 5')]
         [String]$PlainTable = 'Table Grid',
 
     
         #Todo:  Investigate how to do better thru [Microsoft.Office.Interop.Word.??????]
         #Todo:  Investigate $table.ApplyStyleDirectFormatting("Grid Table 5 Dark")
-        [Parameter( Mandatory = $false, ParameterSetName = 'GridTable')]
+        [Parameter( ParameterSetName = 'GridTable')]
         [ValidateSet('Grid Table 1 Light', 'Grid Table 2', 'Grid Table 3', 'Grid Table 4', 'Grid Table 5 Dark', 'Grid Table 6 Colorful', 'Grid Table 7 Colorful')]
         [String]$GridTable = 'Grid Table 1 Light',
     
         #Todo:  Investigate how to do better thru [Microsoft.Office.Interop.Word.??????]
-        [Parameter( Mandatory = $false, ParameterSetName = 'ListTable')]
+        [Parameter( ParameterSetName = 'ListTable')]
         [ValidateSet('List Table 1 Light', 'List Table 2', 'List Table 3', 'List Table 4', 'List Table 5 Dark', 'List Table 6 Colorful', 'List Table 7 Colorful')]
         [String]$ListTable = 'List Table 1 Light',
     
         #Todo:  Investigate how to do better thru [Microsoft.Office.Interop.Word.??????]
-        [Parameter( Mandatory = $false, ParameterSetName = 'ListTable')]
+        [Parameter( ParameterSetName = 'ListTable')]
         [ValidateSet('Accent 1', 'Accent 2', 'Accent 3', 'Accent 4', 'Accent 5', 'Accent 6')]
         [String]$ListAccent = 'Accent 1',
     
         #Todo:  Investigate how to do better thru [Microsoft.Office.Interop.Word.??????]
-        [Parameter( Mandatory = $false, ParameterSetName = 'GridTable')]
+        [Parameter( ParameterSetName = 'GridTable')]
         [ValidateSet('Accent 1', 'Accent 2', 'Accent 3', 'Accent 4', 'Accent 5', 'Accent 6')]
         [string]$GridAccent = 'Accent 1',
     
-        [Parameter( Mandatory = $false)]
         [switch]$RemoveProperties,
     
-        [Parameter( Mandatory = $false, HelpMessage = 'Add help message for user')]
         [switch]$VerticleTable,
     
-        [Parameter( Mandatory = $false, HelpMessage = 'Add help message for user')]
         [switch]$NoParagraph,
     
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object')]
         [Microsoft.Office.Interop.Word.Document][Object]$WordDoc = $Script:WordDoc
     )
    
@@ -1156,11 +1196,13 @@ function Get-WordBuiltinStyle {
     Get-WordBuiltinStyle
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/get-wordbuiltinstyle
 
   #>
-
 
     [CmdletBinding()]
     param()
@@ -1185,6 +1227,9 @@ function Get-WordWdTableFormat {
     .EXAMPLE
     Get-WordWdTableFormat
     Describe what this call does
+
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
 
     .LINK
     https://shanehoey.github.io/worddoc/docs/get-wordwdtableformat
@@ -1223,6 +1268,9 @@ function Add-WordTemplate {
     Add-WordTemplate -filename Value -WordDoc Value
     Describe what this call does
 
+    .NOTES
+    for more examples visit https://shanehoey.github.io/worddoc/
+
     .LINK
     https://shanehoey.github.io/worddoc/docs/add-wordtemplate
 
@@ -1235,7 +1283,7 @@ function Add-WordTemplate {
         [ValidateScript( { test-Path -Path $_ })] 
         [string]$filename,
 
-        [Parameter(Mandatory = $false, HelpMessage = 'Word Document Object', ParameterSetName = 'Default')]
+        [Parameter(ParameterSetName = 'Default')]
         [Microsoft.Office.Interop.Word.Document]$WordDoc = $Script:WordDoc  
     )   
     Begin {
