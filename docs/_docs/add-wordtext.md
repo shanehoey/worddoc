@@ -107,12 +107,7 @@ Accept pipeline input: false
 
 This function only supports -verbose
 
-## INPUTS
-
-## OUTPUTS
-
-## NOTES
-
 ## RELATED LINKS
 
-Add-WordText
+
+https://shanehoey.github.io/worddoc/docs/add-wordtext

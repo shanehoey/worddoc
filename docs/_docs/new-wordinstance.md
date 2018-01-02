@@ -82,12 +82,9 @@ Accept pipeline input: false
 
 This function only supports -verbose
 
-## INPUTS
-
-## OUTPUTS
-
-## NOTES
-
 ## RELATED LINKS
 
-new-WordInstance
+new-wordinstance
+
+https://shanehoey.github.io/worddoc/docs/new-wordinstance
+

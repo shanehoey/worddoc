@@ -93,12 +93,7 @@ Accept pipeline input: false
 
 This function only supports -verbose
 
-## INPUTS
-
-## OUTPUTS
-
-## NOTES
-
 ## RELATED LINKS
 
-Save-WordDocument
+
+https://shanehoey.github.io/worddoc/docs/save-worddocument

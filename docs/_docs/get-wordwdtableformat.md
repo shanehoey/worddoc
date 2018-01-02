@@ -38,12 +38,7 @@ Describe what this call does
 
 This function only supports -verbose
 
-## INPUTS
-
-## OUTPUTS
-
-## NOTES
-
 ## RELATED LINKS
 
-Get-WordWdTableFormat
+
+https://shanehoey.github.io/worddoc/docs/get-wordwdtableformat

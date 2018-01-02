@@ -77,12 +77,7 @@ Accept pipeline input: false
 
 This function only supports -verbose
 
-## INPUTS
-
-## OUTPUTS
-
-## NOTES
-
 ## RELATED LINKS
 
-Add-WordCoverPage
+
+https://shanehoey.github.io/worddoc/docs/add-wordcoverpage

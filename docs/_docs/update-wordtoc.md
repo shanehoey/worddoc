@@ -51,12 +51,7 @@ Accept pipeline input: false
 
 This function only supports -verbose
 
-## INPUTS
-
-## OUTPUTS
-
-## NOTES
-
 ## RELATED LINKS
 
-Update-WordTOC
+
+https://shanehoey.github.io/worddoc/docs/update-wordtoc
