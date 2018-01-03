@@ -8,12 +8,16 @@ else {
     Write-host "Using $powershellgalleryAPI"
     }
 
-$psd = Import-PowerShellDataFile -path ".\Module\WordDoc.psd1"
+$psd = Import-PowerShellDataFile -path ".\WordDoc\WordDoc.psd1"
+
+Update-ModuleManifest -Path ".\WordDoc\WordDoc.psd1" -ModuleVersion "1.1.$($(get-date).DayofYear)"
+Test-ModuleManifest -path ".\WordDoc\WordDoc.psd1"
 
 $psd.RootModule
 $psd.ModuleVersion
 $psd.Copyright
-Write-host "Check date before continuing"
+
+Write-host "Check date before continuing -> BUILD ((GET-DATE).DayOfYear)"
 pause
 Import-Module .\module\WordDoc.psd1
 . .\Scripts\example-1-simple.ps1
