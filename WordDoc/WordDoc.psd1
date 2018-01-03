@@ -4,7 +4,7 @@
     RootModule = 'WordDoc.psm1'
 
     # Version number of this module.
-    ModuleVersion = '1.1.0101'
+    ModuleVersion = '1.1.003'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -46,7 +46,7 @@
     # RequiredModules = @()
 
     # Assemblies that must be loaded prior to importing this module
-     RequiredAssemblies = @('Microsoft.Office.Interop.Word')
+    # RequiredAssemblies = @()
      
     # Script files (.ps1) that are run in the caller's environment prior to importing this module.
     # ScriptsToProcess = @()
@@ -61,7 +61,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = 'New-WordInstance','New-WordDocument','Save-WordDocument','Close-WordDocument','Add-WordText','Add-WordBreak','Set-WordBuiltInProperty','Add-WordCoverPage','Set-WordOrientation','Add-WordTOC','Update-WordTOC','Add-WordTable','Get-WordBuiltinStyle','Get-WordWdTableFormat','Add-WordTemplate','Get-WordInstance','Get-WordDocument','test-WordInstance','test-WordDocument'
+    FunctionsToExport = 'New-WordInstance','Get-WordInstance','test-WordInstance','Close-WordDocument','New-WordDocument','Get-WordDocument','test-WordDocument','save-WordDocument','close-WordDocument','Add-WordText','Add-WordBreak','Set-WordBuiltInProperty','Add-WordCoverPage','Set-WordOrientation','Add-WordTOC','Update-WordTOC','Add-WordTable','Get-WordBuiltinStyle','Get-WordWdTableFormat','Add-WordTemplate'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
