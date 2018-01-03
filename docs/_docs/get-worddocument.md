@@ -1,14 +1,14 @@
 ---
-title: "update-wordtoc"
-excerpt: "Describe purpose of "Update-WordTOC" in 1-2 sentences."
+title: "get-worddocument"
+excerpt: "Describe purpose of "get-WordDoc" in 1-2 sentences."
 category: "help"
 ---
 
-# Update-WordTOC
+# get-WordDocument
 **Module** WordDoc
 
 ## SYNOPSIS
-Describe purpose of "Update-WordTOC" in 1-2 sentences.
+Describe purpose of "get-WordDoc" in 1-2 sentences.
 
 ## DESCRIPTION
 Add a more complete description of what the function does.
@@ -16,7 +16,7 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Update-WordTOC [[-WordDocument] <Document>] [<CommonParameters>]
+get-WordDocument [[-WordDocument] <Document>] [<CommonParameters>]
 ```
 
 
@@ -26,10 +26,10 @@ Update-WordTOC [[-WordDocument] <Document>] [<CommonParameters>]
 
 
 ```
-PS C:\>Update-WordTOC -WordDocument Value
+PS C:\>get-WordDocument -WordDocument Value
 ```
 
-Describe what this call does
+
 
 
 ## PARAMETERS
@@ -54,4 +54,4 @@ This function only supports -verbose
 ## RELATED LINKS
 
 
-https://shanehoey.github.io/worddoc/docs/update-wordtoc
+https://shanehoey.github.io/worddoc/docs/get-worddoc

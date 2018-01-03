@@ -16,7 +16,7 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Close-WordDocument [[-WordInstance] <Application>] [[-WordDoc] <Document>] [<CommonParameters>]
+Close-WordDocument [[-WordInstance] <Application>] [[-WordDocument] <Document>] [<CommonParameters>]
 ```
 
 
@@ -26,7 +26,7 @@ Close-WordDocument [[-WordInstance] <Application>] [[-WordDoc] <Document>] [<Com
 
 
 ```
-PS C:\>Close-WordDocument -WordInstance Value -WordDoc Value
+PS C:\>Close-WordDocument -WordInstance Value -WordDocument Value
 ```
 
 Describe what this call does
@@ -47,9 +47,9 @@ Position: 1
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### WordDoc
+### WordDocument
 
-Describe parameter -WordDoc.
+Describe parameter -WordDocument.
 
 ```
 Type Document
@@ -57,7 +57,7 @@ Parameter Sets:
 Aliases: 
 Required: false
 Position: 2
-Default Value:$Script:WordDoc
+Default Value:$Script:WordDocument
 Accept pipeline input: false
 ```
 ### CommonParameters

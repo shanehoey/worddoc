@@ -1,6 +1,6 @@
 ---
 title: "get-wordinstance"
-excerpt: "Describe purpose of "get-WordInstance" in 1-2 sentences."
+excerpt: "This function is used to return a Word Instance created automatically by Word Doc Module"
 category: "help"
 ---
 
@@ -8,10 +8,10 @@ category: "help"
 **Module** WordDoc
 
 ## SYNOPSIS
-Describe purpose of "get-WordInstance" in 1-2 sentences.
+This function is used to return a Word Instance created automatically by Word Doc Module
 
 ## DESCRIPTION
-Add a more complete description of what the function does.
+This function is used to return a Word Instance created automatically by Word Doc Module
 
 ## SYNTAX
 
@@ -36,7 +36,7 @@ Describe what this call does
 
 ### WordInstance
 
-Describe parameter -WordInstance.
+Not required as this function will work without using WordInstance Parameter
 
 ```
 Type Application

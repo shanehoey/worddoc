@@ -54,7 +54,8 @@ Create a word instance that is stored in a local variable
 
 ### WordInstanceObject
 
-Returns an Word Instance Object.
+When used the function will return the Word Instance as an Object to be stored in a variable in the local shell. 
+If using this method you must use worddocobject as well, and manually parse these objects to all functions.
 
 ```
 Type SwitchParameter
@@ -67,7 +68,7 @@ Accept pipeline input: false
 ```
 ### Visable
 
-Makes the Word object Visable or Hidden
+Makes MS Word application Visable or Hidden
 
 ```
 Type Boolean

@@ -19,7 +19,7 @@ Add a more complete description of what the function does.
 Set-WordBuiltInProperty [-WdBuiltInProperty] {wdPropertyTitle | wdPropertySubject | wdPropertyAuthor | wdPropertyKeywords | wdPropertyComments | wdPropertyTemplate | wdPropertyLastAuthor | wdPropertyRevision | 
 wdPropertyAppName | wdPropertyTimeLastPrinted | wdPropertyTimeCreated | wdPropertyTimeLastSaved | wdPropertyVBATotalEdit | wdPropertyPages | wdPropertyWords | wdPropertyCharacters | wdPropertySecurity | wdPropertyCategory | 
 wdPropertyFormat | wdPropertyManager | wdPropertyCompany | wdPropertyBytes | wdPropertyLines | wdPropertyParas | wdPropertySlides | wdPropertyNotes | wdPropertyHiddenSlides | wdPropertyMMClips | wdPropertyHyperlinkBase | 
-wdPropertyCharsWSpaces} [-text] <String> [-WordDoc <Document>] [<CommonParameters>]
+wdPropertyCharsWSpaces} [-text] <String> [-WordDocument <Document>] [<CommonParameters>]
 ```
 
 
@@ -29,7 +29,7 @@ wdPropertyCharsWSpaces} [-text] <String> [-WordDoc <Document>] [<CommonParameter
 
 
 ```
-PS C:\>Set-WordBuiltInProperty -WdBuiltInProperty Value -text Value -WordDoc Value
+PS C:\>Set-WordBuiltInProperty -WdBuiltInProperty Value -text Value -WordDocument Value
 ```
 
 Describe what this call does
@@ -63,9 +63,9 @@ Position: 2
 Default Value:
 Accept pipeline input: false
 ```
-### WordDoc
+### WordDocument
 
-Describe parameter -WordDoc.
+Describe parameter -WordDocument.
 
 ```
 Type Document
@@ -73,7 +73,7 @@ Parameter Sets:
 Aliases: 
 Required: false
 Position: named
-Default Value:$Script:WordDoc
+Default Value:$Script:WordDocument
 Accept pipeline input: false
 ```
 ### CommonParameters

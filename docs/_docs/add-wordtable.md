@@ -22,17 +22,17 @@ Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoF
 wdTableFormatColumns4 | wdTableFormatColumns5 | wdTableFormatGrid1 | wdTableFormatGrid2 | wdTableFormatGrid3 | wdTableFormatGrid4 | wdTableFormatGrid5 | wdTableFormatGrid6 | wdTableFormatGrid7 | wdTableFormatGrid8 | 
 wdTableFormatList1 | wdTableFormatList2 | wdTableFormatList3 | wdTableFormatList4 | wdTableFormatList5 | wdTableFormatList6 | wdTableFormatList7 | wdTableFormatList8 | wdTableFormat3DEffects1 | wdTableFormat3DEffects2 | 
 wdTableFormat3DEffects3 | wdTableFormatContemporary | wdTableFormatElegant | wdTableFormatProfessional | wdTableFormatSubtle1 | wdTableFormatSubtle2 | wdTableFormatWeb1 | wdTableFormatWeb2 | wdTableFormatWeb3}] 
-[-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDoc <Document>] [<CommonParameters>]
+[-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDocument <Document>] [<CommonParameters>]
 
 Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] 
-[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-PlainTable <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDoc <Document>] [<CommonParameters>]
+[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-PlainTable <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDocument <Document>] [<CommonParameters>]
 
 Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] 
-[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-GridTable <String>] [-GridAccent <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDoc <Document>] 
+[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-GridTable <String>] [-GridAccent <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDocument <Document>] 
 [<CommonParameters>]
 
 Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] 
-[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-ListTable <String>] [-ListAccent <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDoc <Document>] 
+[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-ListTable <String>] [-ListAccent <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDocument <Document>] 
 [<CommonParameters>]
 ```
 
@@ -43,7 +43,7 @@ Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoF
 
 
 ```
-PS C:\>Add-WordTable -Object Value -WdAutoFitBehavior Value -WdDefaultTableBehavior Value -HeaderRow Value -TotalRow Value -BandedRow Value -FirstColumn Value -LastColumn Value -BandedColumn Value -RemoveProperties -VerticleTable -NoParagraph -WordDoc Value
+PS C:\>Add-WordTable -Object Value -WdAutoFitBehavior Value -WdDefaultTableBehavior Value -HeaderRow Value -TotalRow Value -BandedRow Value -FirstColumn Value -LastColumn Value -BandedColumn Value -RemoveProperties -VerticleTable -NoParagraph -WordDocument Value
 ```
 
 Describe what this call does
@@ -321,9 +321,9 @@ Position: named
 Default Value:False
 Accept pipeline input: false
 ```
-### WordDoc
+### WordDocument
 
-Describe parameter -WordDoc.
+Describe parameter -WordDocument.
 
 ```
 Type Document
@@ -331,7 +331,7 @@ Parameter Sets:
 Aliases: 
 Required: false
 Position: named
-Default Value:$Script:WordDoc
+Default Value:$Script:WordDocument
 Accept pipeline input: false
 ```
 ### CommonParameters

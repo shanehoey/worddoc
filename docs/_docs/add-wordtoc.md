@@ -16,7 +16,7 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Add-WordTOC [[-WordInstance] <Application>] [[-WordDoc] <Document>] [<CommonParameters>]
+Add-WordTOC [[-WordInstance] <Application>] [[-WordDocument] <Document>] [[-Tableader] <Int32>] [[-IncludePageNumbers] <Int32>] [<CommonParameters>]
 ```
 
 
@@ -26,7 +26,7 @@ Add-WordTOC [[-WordInstance] <Application>] [[-WordDoc] <Document>] [<CommonPara
 
 
 ```
-PS C:\>Add-WordTOC -WordInstance Value -WordDoc Value
+PS C:\>Add-WordTOC -WordInstance Value -WordDocument Value
 ```
 
 Describe what this call does
@@ -47,9 +47,9 @@ Position: 1
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### WordDoc
+### WordDocument
 
-Describe parameter -WordDoc.
+Describe parameter -WordDocument.
 
 ```
 Type Document
@@ -57,7 +57,33 @@ Parameter Sets:
 Aliases: 
 Required: false
 Position: 2
-Default Value:$Script:WordDoc
+Default Value:$Script:WordDocument
+Accept pipeline input: false
+```
+### Tableader
+
+
+
+```
+Type Int32
+Parameter Sets: 
+Aliases: 
+Required: false
+Position: 3
+Default Value:0
+Accept pipeline input: false
+```
+### IncludePageNumbers
+
+
+
+```
+Type Int32
+Parameter Sets: 
+Aliases: 
+Required: false
+Position: 4
+Default Value:True
 Accept pipeline input: false
 ```
 ### CommonParameters

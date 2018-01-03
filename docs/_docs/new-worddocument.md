@@ -49,7 +49,7 @@ Accept pipeline input: false
 ```
 ### WordDocObject
 
-Describe parameter -WordDocObject.
+
 
 ```
 Type SwitchParameter

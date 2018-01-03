@@ -16,7 +16,7 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Add-WordCoverPage [[-CoverPage] <String>] [-WordInstance <Application>] [-WordDoc <Document>] [<CommonParameters>]
+Add-WordCoverPage [[-CoverPage] <String>] [-WordInstance <Application>] [-WordDocument <Document>] [<CommonParameters>]
 ```
 
 
@@ -26,7 +26,7 @@ Add-WordCoverPage [[-CoverPage] <String>] [-WordInstance <Application>] [-WordDo
 
 
 ```
-PS C:\>Add-WordCoverPage -CoverPage Value -WordInstance Value -WordDoc Value
+PS C:\>Add-WordCoverPage -CoverPage Value -WordInstance Value -WordDocument Value
 ```
 
 Describe what this call does
@@ -60,9 +60,9 @@ Position: named
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### WordDoc
+### WordDocument
 
-Describe parameter -WordDoc.
+Describe parameter -WordDocument.
 
 ```
 Type Document
@@ -70,7 +70,7 @@ Parameter Sets:
 Aliases: 
 Required: false
 Position: named
-Default Value:$Script:WordDoc
+Default Value:$Script:WordDocument
 Accept pipeline input: false
 ```
 ### CommonParameters

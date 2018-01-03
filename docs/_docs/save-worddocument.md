@@ -16,10 +16,10 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Save-WordDocument [-WordDoc <Document>] [[-WordSaveFormat] {wdFormatDocument | wdFormatDocument97 | wdFormatTemplate | wdFormatTemplate97 | wdFormatText | wdFormatTextLineBreaks | wdFormatDOSText | wdFormatDOSTextLineBreaks | 
-wdFormatRTF | wdFormatUnicodeText | wdFormatEncodedText | wdFormatHTML | wdFormatWebArchive | wdFormatFilteredHTML | wdFormatXML | wdFormatXMLDocument | wdFormatXMLDocumentMacroEnabled | wdFormatXMLTemplate | 
-wdFormatXMLTemplateMacroEnabled | wdFormatDocumentDefault | wdFormatPDF | wdFormatXPS | wdFormatFlatXML | wdFormatFlatXMLMacroEnabled | wdFormatFlatXMLTemplate | wdFormatFlatXMLTemplateMacroEnabled | wdFormatOpenDocumentText | 
-wdFormatStrictOpenXMLDocument}] [[-filename] <String>] [-folder <String>] [<CommonParameters>]
+Save-WordDocument [-WordDocument <Document>] [[-WordSaveFormat] {wdFormatDocument | wdFormatDocument97 | wdFormatTemplate | wdFormatTemplate97 | wdFormatText | wdFormatTextLineBreaks | wdFormatDOSText | 
+wdFormatDOSTextLineBreaks | wdFormatRTF | wdFormatUnicodeText | wdFormatEncodedText | wdFormatHTML | wdFormatWebArchive | wdFormatFilteredHTML | wdFormatXML | wdFormatXMLDocument | wdFormatXMLDocumentMacroEnabled | 
+wdFormatXMLTemplate | wdFormatXMLTemplateMacroEnabled | wdFormatDocumentDefault | wdFormatPDF | wdFormatXPS | wdFormatFlatXML | wdFormatFlatXMLMacroEnabled | wdFormatFlatXMLTemplate | wdFormatFlatXMLTemplateMacroEnabled | 
+wdFormatOpenDocumentText | wdFormatStrictOpenXMLDocument}] [[-filename] <String>] [-folder <String>] [<CommonParameters>]
 ```
 
 
@@ -29,7 +29,7 @@ wdFormatStrictOpenXMLDocument}] [[-filename] <String>] [-folder <String>] [<Comm
 
 
 ```
-PS C:\>Save-WordDocument -WordDoc Value -WordSaveFormat Value -filename Value -folder Value
+PS C:\>Save-WordDocument -WordDocument Value -WordSaveFormat Value -filename Value -folder Value
 ```
 
 Describe what this call does
@@ -37,9 +37,9 @@ Describe what this call does
 
 ## PARAMETERS
 
-### WordDoc
+### WordDocument
 
-Describe parameter -WordDoc.
+
 
 ```
 Type Document
@@ -47,7 +47,7 @@ Parameter Sets:
 Aliases: 
 Required: false
 Position: named
-Default Value:$Script:worddoc
+Default Value:$Script:WordDocument
 Accept pipeline input: false
 ```
 ### WordSaveFormat

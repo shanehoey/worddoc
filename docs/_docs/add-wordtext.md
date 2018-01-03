@@ -1,6 +1,6 @@
 ---
 title: "add-wordtext"
-excerpt: "Describe purpose of "Add-WordText" in 1-2 sentences."
+excerpt: "Adds text to MS Word Document."
 category: "help"
 ---
 
@@ -8,10 +8,10 @@ category: "help"
 **Module** WordDoc
 
 ## SYNOPSIS
-Describe purpose of "Add-WordText" in 1-2 sentences.
+Adds text to MS Word Document.
 
 ## DESCRIPTION
-Add a more complete description of what the function does.
+Adds text to MS Word Document.
 
 ## SYNTAX
 
@@ -33,7 +33,7 @@ wdStyleDefaultParagraphFont | wdStyleSignature | wdStyleClosing | wdStyleTitle |
 wdStyleEndnoteReference | wdStylePageNumber | wdStyleLineNumber | wdStyleCommentReference | wdStyleFootnoteReference | wdStyleEnvelopeReturn | wdStyleEnvelopeAddress | wdStyleTableOfFigures | wdStyleCaption | 
 wdStyleIndexHeading | wdStyleFooter | wdStyleHeader | wdStyleCommentText | wdStyleFootnoteText | wdStyleNormalIndent | wdStyleTOC9 | wdStyleTOC8 | wdStyleTOC7 | wdStyleTOC6 | wdStyleTOC5 | wdStyleTOC4 | wdStyleTOC3 | 
 wdStyleTOC2 | wdStyleTOC1 | wdStyleIndex9 | wdStyleIndex8 | wdStyleIndex7 | wdStyleIndex6 | wdStyleIndex5 | wdStyleIndex4 | wdStyleIndex3 | wdStyleIndex2 | wdStyleIndex1 | wdStyleHeading9 | wdStyleHeading8 | wdStyleHeading7 | 
-wdStyleHeading6 | wdStyleHeading5 | wdStyleHeading4 | wdStyleHeading3 | wdStyleHeading2 | wdStyleHeading1 | wdStyleNormal}] [-WordDoc <Document>] [<CommonParameters>]
+wdStyleHeading6 | wdStyleHeading5 | wdStyleHeading4 | wdStyleHeading3 | wdStyleHeading2 | wdStyleHeading1 | wdStyleNormal}] [-WordDocument <Document>] [<CommonParameters>]
 ```
 
 
@@ -43,17 +43,26 @@ wdStyleHeading6 | wdStyleHeading5 | wdStyleHeading4 | wdStyleHeading3 | wdStyleH
 
 
 ```
-PS C:\>Add-WordText -text Value -WdColor Value -WDBuiltinStyle Value -WordDoc Value
+PS C:\>Add-WordText -text "Heading 1" -WdColor Value -WDBuiltinStyle Value -WordDocument Value
 ```
 
-Describe what this call does
+Adds text to document
+
+### -------------------------- EXAMPLE 2 --------------------------
+
+
+```
+PS C:\>Add-WordText -text "Heading 1" -WdColor Value -WDBuiltinStyle Value -WordDocument Value
+```
+
+Adds text to document
 
 
 ## PARAMETERS
 
 ### text
 
-Describe parameter -text.
+Text to add to word Document
 
 ```
 Type String
@@ -66,7 +75,7 @@ Accept pipeline input: false
 ```
 ### WdColor
 
-Describe parameter -WdColor.
+Color of Text
 
 ```
 Type WdColor
@@ -79,7 +88,7 @@ Accept pipeline input: false
 ```
 ### WDBuiltinStyle
 
-Describe parameter -WDBuiltinStyle.
+Builtin Stype to use
 
 ```
 Type WdBuiltinStyle
@@ -90,9 +99,9 @@ Position: named
 Default Value:wdStyleDefaultParagraphFont
 Accept pipeline input: false
 ```
-### WordDoc
+### WordDocument
 
-Describe parameter -WordDoc.
+WordDocument Object
 
 ```
 Type Document
@@ -100,7 +109,7 @@ Parameter Sets:
 Aliases: 
 Required: false
 Position: named
-Default Value:$script:WordDoc
+Default Value:$Script:WordDocument
 Accept pipeline input: false
 ```
 ### CommonParameters
