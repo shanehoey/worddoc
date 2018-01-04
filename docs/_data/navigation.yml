@@ -27,10 +27,12 @@ docs:
         url: /docs/add-wordtoc/
       - title: "close-worddocument"
         url: /docs/close-worddocument/
-      - title: "get-wordbuiltinstylek"
-        url: /docs/get-wordbuiltinstyle/
-      - title: "get-wordwdtableformat"
-        url: /docs/get-wordwdtableformat/
+      - title: "close-wordinstance"
+        url: /docs/close-wordinstance/
+      - title: "get-worddocument"
+        url: /docs/get-worddocument/
+      - title: "get-wordinstance"
+        url: /docs/get-wordinstance/
       - title: "new-worddocument"
         url: /docs/new-worddocument/
       - title: "new-wordinstance"
