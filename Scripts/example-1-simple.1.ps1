@@ -7,9 +7,6 @@ $Text     =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 New-WordInstance
 New-WordDocument
 
-get-WordInstance
-get-WordDocument
-
 Add-WordCoverPage -CoverPage Facet 
 Add-WordBreak -breaktype NewPage
 
@@ -51,4 +48,9 @@ Set-WordBuiltInProperty "My SubTitle" -WdBuiltInProperty wdPropertySubject
 
 Save-WordDocument
 Save-WordDocument -filename worddoc.pdf -WordSaveFormat wdFormatPDF
-Save-WordDocument -filename worddoc.docx -WordSaveFormat wdFormatDocumentDefault
+Save-WordDocument -filename worddoc.docx -WordSaveFormat wdFormatDocumentdefault
+Save-WordDocument -filename worddoc.doc -WordSaveFormat wdFormatDocument
+Save-WordDocument -filename worddoc.html -WordSaveFormat wdFormatHTML
+
+Close-WordDocument
+Close-WordInstance
