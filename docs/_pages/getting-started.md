@@ -42,15 +42,15 @@ Once you have installed the module you can now Create Word Document's from power
 ```powershell
 Import-Module Worddoc 
 $a = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' 
-$word = New-WordInstance 
-$worddoc = New-WordDocument -Word $word
-Add-WordCoverPage -CoverPage Banded -Word $word -WordDoc $worddoc 
-Add-WordText -text 'Table of Contents' -WDBuiltinStyle wdStyleTitle -WordDoc $worddoc 
-Add-WordTOC -word $word -WordDoc $worddoc 
-Add-WordBreak -breaktype NewPage -word $word -WordDoc $worddoc 
-Add-WordText -text 'Heading1' -WDBuiltinStyle wdStyleHeading1 -WordDoc $worddoc
-Add-WordText -text $text -WDBuiltinStyle wdStyleNormal -WordDoc $worddoc #WordDoc
+New-WordInstance 
+New-WordDocument
+Add-WordCoverPage -CoverPage Banded
+Add-WordText -text 'Table of Contents' -WDBuiltinStyle wdStyleTitle
+Add-WordTOC
+Add-WordBreak -breaktype NewPage
+Add-WordText -text 'Heading1' -WDBuiltinStyle wdStyleHeading1
+Add-WordText -text $text -WDBuiltinStyle wdStyleNormal
 ```
 
-**ProTip:** Be sure to check out the [example scripts](/worddoc/scripts/) 
+**ProTip:** Be sure to check out other [example scripts](/worddoc/scripts/) 
 {: .notice--success}
