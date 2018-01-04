@@ -6,6 +6,9 @@ https://shanehoey.github.io/worddoc/
 The latest release is hosted on PowerShell Gallery 
 https://www.powershellgallery.com/packages/WordDoc/
 
+## Distributed under MIT License
+https://www.github.com/worddoc/license.md
+
 ## Distributed under the MIT License
 This project is distrubuted undet the MIT License. The license can be viewed [here](https://github.com/shanehoey/worddoc/blob/master/LICENSE)
 
