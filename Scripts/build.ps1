@@ -26,9 +26,9 @@ Import-Module .\WordDoc\WordDoc.psd1
 get-command -Module WordDoc | select name,version
 
 #Manually run these 
-. .\Scripts\example-1-simple.ps1
-. .\Scripts\example-2-detailed.ps1
-. .\Scripts\example-3-template.ps1
+code .\Scripts\example-1-simple.ps1
+code .\Scripts\example-2-detailed.ps1
+code .\Scripts\example-3-template.ps1
 
 ### MANUAL GitHUB Commit to master
 
