@@ -1,7 +1,6 @@
 ﻿#requires -version 4.0
 #requires -module WordDoc
 
-Import-Module Worddoc
 $object   = Get-Process -name po* | Select-Object name,id | Select-Object -First 3
 $Text     =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
@@ -50,6 +49,6 @@ Set-WordBuiltInProperty "My Title" -WdBuiltInProperty wdPropertyTitle
 Set-WordBuiltInProperty "Shane Hoey" -WdBuiltInProperty wdPropertyAuthor
 Set-WordBuiltInProperty "My SubTitle" -WdBuiltInProperty wdPropertySubject
 
-Save-WordDocument -filename worddoc.html -WordSaveFormat wdFormatHTML
+Save-WordDocument
 Save-WordDocument -filename worddoc.pdf -WordSaveFormat wdFormatPDF
 Save-WordDocument -filename worddoc.docx -WordSaveFormat wdFormatDocumentDefault
