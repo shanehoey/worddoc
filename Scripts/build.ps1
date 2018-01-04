@@ -34,4 +34,4 @@ code .\Scripts\example-3-template.ps1
 
 ### IMPORTANT ONLY RUN AFTER ALL ABOVE IS COMPLETED
 pause
-Publish-Module -path .\ -NuGetApiKey $NuGetApiKey -WhatIf
+Publish-Module -path .\WordDoc -NuGetApiKey $NuGetApiKey

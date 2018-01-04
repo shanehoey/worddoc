@@ -99,7 +99,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = 'Microsoft Office','Microsoft Word','word','Office','Documents','Documentation'
+        Tags = 'MicrosoftOffice','MicrosoftWord','Word','Office','Documents','Documentation'
 
         # A URL to the license for this module.
         LicenseUri = 'https://shanehoey.github.io/worddoc/license/'
@@ -132,8 +132,8 @@ PrivateData = @{
 # SIG # Begin signature block
 # MIINCgYJKoZIhvcNAQcCoIIM+zCCDPcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUVCYRxDwF5D/1/wDwko8gA2JC
-# E7igggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUU7jrop6DnmYFi0ozztKxyjXL
+# iDigggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
 # AQsFADByMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
 # VQQLExB3d3cuZGlnaWNlcnQuY29tMTEwLwYDVQQDEyhEaWdpQ2VydCBTSEEyIEFz
 # c3VyZWQgSUQgQ29kZSBTaWduaW5nIENBMB4XDTE4MDEwMzAwMDAwMFoXDTE5MDEw
@@ -193,11 +193,11 @@ PrivateData = @{
 # Q2VydCBTSEEyIEFzc3VyZWQgSUQgQ29kZSBTaWduaW5nIENBAhAOr9wAfEpcG37G
 # YjHwWg6RMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkG
 # CSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEE
-# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBTEQtoiYMEXi+NpGHfWeHmLk6gOJzANBgkq
-# hkiG9w0BAQEFAASCAQCkP4liJE/JWVWwTYV9YWWCL5+bNEk47JWjOLH/Ne/428xV
-# xzOpWfsCu7SWmTaxHkwVop2zhnQI9EGggR5qJPlz4nE2BdGCjGPtgKM0NP2hY4I6
-# j0ogRcrrxIFWWBnec3cJxaxNg5Eka4GIKVBHDwro31SRKcKcbXI4Hv+W7tkAk2yy
-# /d4R0u6F5FYv7b+WWX2UHldO9dkGAQFynpH3GY5RVv0QLVaRyvIHrbOHIqmI30T+
-# 45iHRNUJYNajorC/WLEVesqb4+HyrTIlgPJkw35YrIgMjKemoYVOxTKjQcZryiz0
-# D0wkfn/LzXRL6ml2EomzKu/FFuI0Cjg0OhCXxO94
+# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSySPY2HOGdOxxDYPNPOxfigvzqHzANBgkq
+# hkiG9w0BAQEFAASCAQBDUeTxLLQ6P/JRsFTeEKq1x4MnUjLCQ1FCiFV2XTfqXkJi
+# JjuJwVU/ccuZaQeOOZ/1M5L6JEZE2p3SoCzNmW2qdD7WMyJIQO70N79EBpznzxJK
+# 0RgiZ1cBUj+IZMhk2w8pyOn00TCDnrDrdNx89heMxonUSZCl+jfxN40LpIwe9c+C
+# Nyj+eQs4PzsBvr3JhWkwfQLbMQ18S4I6zatBpxyIg99GqazqEPJms7qDEbQVMAsU
+# RrLvbTJQ0oEEjo6Rf1WmXvlnUGCSWd1A3vh73wJ2xOEons08rDY+/+BPJ3I/HR5k
+# zK245LOO+ZlsC8We8BZeMHBx5VlNuzr3gvIcT1wF
 # SIG # End signature block
