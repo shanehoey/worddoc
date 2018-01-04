@@ -4,7 +4,7 @@ excerpt: "This function is used to return a Word Instance created automatically 
 category: "help"
 ---
 
-# get-WordInstance
+# Get-WordInstance
 **Module** WordDoc
 
 ## SYNOPSIS
@@ -16,7 +16,7 @@ This function is used to return a Word Instance created automatically by Word Do
 ## SYNTAX
 
 ```
-get-WordInstance [[-WordInstance] <Application>] [<CommonParameters>]
+Get-WordInstance [[-WordInstance] <Application>] [<CommonParameters>]
 ```
 
 
@@ -26,7 +26,7 @@ get-WordInstance [[-WordInstance] <Application>] [<CommonParameters>]
 
 
 ```
-PS C:\>get-WordInstance -WordInstance Value
+PS C:\>Get-WordInstance -WordInstance Value
 ```
 
 Describe what this call does

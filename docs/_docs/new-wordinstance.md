@@ -1,22 +1,22 @@
 ---
 title: "new-wordinstance"
-excerpt: "The new-wordinstance function starts a new instance of MS Word."
+excerpt: "The New-WordInstance function starts a new instance of MS Word."
 category: "help"
 ---
 
-# new-WordInstance
+# New-WordInstance
 **Module** WordDoc
 
 ## SYNOPSIS
-The new-wordinstance function starts a new instance of MS Word.
+The New-WordInstance function starts a new instance of MS Word.
 
 ## DESCRIPTION
-The new-wordinstance function starts a new instance of MS Word.
+The New-WordInstance function starts a new instance of MS Word.
 
 ## SYNTAX
 
 ```
-new-WordInstance [-WordInstanceObject] [[-Visable] <Boolean>] [<CommonParameters>]
+New-WordInstance [-returnobject] [[-Visable] <Boolean>] [<CommonParameters>]
 ```
 
 
@@ -26,7 +26,7 @@ new-WordInstance [-WordInstanceObject] [[-Visable] <Boolean>] [<CommonParameters
 
 
 ```
-PS C:\>new-WordInstance -Visable True
+PS C:\>New-WordInstance -Visable True
 ```
 
 Create a new Word Instance that is visable
@@ -35,7 +35,7 @@ Create a new Word Instance that is visable
 
 
 ```
-PS C:\>new-WordInstance -Visable False
+PS C:\>New-WordInstance -Visable False
 ```
 
 Create a new Word Instance that is hidden
@@ -44,7 +44,7 @@ Create a new Word Instance that is hidden
 
 
 ```
-PS C:\>$wi = new-wordinstance -wordinstanceobject
+PS C:\>$wi = New-WordInstance -wordinstanceobject
 ```
 
 Create a word instance that is stored in a local variable
@@ -52,7 +52,7 @@ Create a word instance that is stored in a local variable
 
 ## PARAMETERS
 
-### WordInstanceObject
+### returnobject
 
 When used the function will return the Word Instance as an Object to be stored in a variable in the local shell. 
 If using this method you must use worddocobject as well, and manually parse these objects to all functions.
@@ -85,7 +85,7 @@ This function only supports -verbose
 
 ## RELATED LINKS
 
-new-wordinstance
+New-WordInstance
 
 https://shanehoey.github.io/worddoc/docs/new-wordinstance
 

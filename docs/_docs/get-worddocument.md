@@ -1,14 +1,14 @@
 ---
 title: "get-worddocument"
-excerpt: "Describe purpose of "get-WordDoc" in 1-2 sentences."
+excerpt: "Describe purpose of "Get-WordDoc" in 1-2 sentences."
 category: "help"
 ---
 
-# get-WordDocument
+# Get-WordDocument
 **Module** WordDoc
 
 ## SYNOPSIS
-Describe purpose of "get-WordDoc" in 1-2 sentences.
+Describe purpose of "Get-WordDoc" in 1-2 sentences.
 
 ## DESCRIPTION
 Add a more complete description of what the function does.
@@ -16,7 +16,7 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-get-WordDocument [[-WordDocument] <Document>] [<CommonParameters>]
+Get-WordDocument [[-WordDocument] <Document>] [<CommonParameters>]
 ```
 
 
@@ -26,7 +26,7 @@ get-WordDocument [[-WordDocument] <Document>] [<CommonParameters>]
 
 
 ```
-PS C:\>get-WordDocument -WordDocument Value
+PS C:\>Get-WordDocument -WordDocument Value
 ```
 
 
@@ -54,4 +54,4 @@ This function only supports -verbose
 ## RELATED LINKS
 
 
-https://shanehoey.github.io/worddoc/docs/get-worddoc
+https://shanehoey.github.io/worddoc/docs/get-worddocument

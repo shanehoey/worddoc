@@ -1,14 +1,14 @@
 ---
-title: "new-worddocument"
-excerpt: "Describe purpose of "New-WordDocument" in 1-2 sentences."
+title: "close-wordinstance"
+excerpt: "Describe purpose of "Close-WordInstance" in 1-2 sentences."
 category: "help"
 ---
 
-# New-WordDocument
+# Close-WordInstance
 **Module** WordDoc
 
 ## SYNOPSIS
-Describe purpose of "New-WordDocument" in 1-2 sentences.
+Describe purpose of "Close-WordInstance" in 1-2 sentences.
 
 ## DESCRIPTION
 Add a more complete description of what the function does.
@@ -16,7 +16,7 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-New-WordDocument [[-WordInstance] <Application>] [-returnobject] [<CommonParameters>]
+Close-WordInstance [[-WordInstance] <Application>] [<CommonParameters>]
 ```
 
 
@@ -26,7 +26,7 @@ New-WordDocument [[-WordInstance] <Application>] [-returnobject] [<CommonParamet
 
 
 ```
-PS C:\>New-WordDocument -WordInstance Value -WordDocObject
+PS C:\>Close-WordInstance -WordInstance Value
 ```
 
 Describe what this call does
@@ -47,19 +47,6 @@ Position: 1
 Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
-### returnobject
-
-Describe parameter -returnobject.
-
-```
-Type SwitchParameter
-Parameter Sets: 
-Aliases: 
-Required: false
-Position: named
-Default Value:False
-Accept pipeline input: false
-```
 ### CommonParameters
 
 This function only supports -verbose
@@ -67,4 +54,4 @@ This function only supports -verbose
 ## RELATED LINKS
 
 
-https://shanehoey.github.io/worddoc/docs/new-worddocument
+https://shanehoey.github.io/worddoc/docs/close-wordinstance

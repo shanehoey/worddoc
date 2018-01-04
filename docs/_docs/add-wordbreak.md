@@ -1,6 +1,6 @@
 ---
 title: "add-wordbreak"
-excerpt: "Describe purpose of "Add-WordBreak" in 1-2 sentences."
+excerpt: "Create a new Break (newpage,section or paragraph)"
 category: "help"
 ---
 
@@ -8,10 +8,10 @@ category: "help"
 **Module** WordDoc
 
 ## SYNOPSIS
-Describe purpose of "Add-WordBreak" in 1-2 sentences.
+Create a new Break (newpage,section or paragraph)
 
 ## DESCRIPTION
-Add a more complete description of what the function does.
+Create a new Break (newpage,section or paragraph)
 
 ## SYNTAX
 
@@ -26,17 +26,17 @@ Add-WordBreak [-breaktype <String>] [-WordInstance <Application>] [-WordDocument
 
 
 ```
-PS C:\>Add-WordBreak -breaktype Value -WordInstance Value -WordDocument Value
+PS C:\>Add-WordBreak -breaktype NewPage
 ```
 
-Describe what this call does
+Creates a NewPage Break
 
 
 ## PARAMETERS
 
 ### breaktype
 
-Describe parameter -breaktype.
+Type of break (newpage,section or paragraph)
 
 ```
 Type String
@@ -80,4 +80,4 @@ This function only supports -verbose
 ## RELATED LINKS
 
 
-https://shanehoey.github.io/worddoc/docs/add-wordbreak
+https://shanehoey.github.io/worddoc/docs/add-wordinstance

@@ -16,7 +16,7 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Add-WordTemplate [-filename] <String> [-WordDocument <Document>] [<CommonParameters>]
+Add-WordTemplate [[-filename] <String>] [-WordDocument <Document>] [<CommonParameters>]
 ```
 
 
@@ -42,7 +42,7 @@ Describe parameter -filename.
 Type String
 Parameter Sets: 
 Aliases: 
-Required: true
+Required: false
 Position: 1
 Default Value:
 Accept pipeline input: false
