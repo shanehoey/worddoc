@@ -217,7 +217,8 @@ defaults:
       layout: single
       author_profile: false
       read_time: false
-      comments: false      share: false
+      comments: false      
+      share: false
       related: false
       sitemap: true
     header:
