@@ -7,7 +7,7 @@ header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/unsplash.jpg
   overlay_filter: rgba(100, 100, 100, 0.5)
-  cta_label: "<i class='fa fa-download'></i> Getting Started"
+  cta_label: "<i class='fa fa-download'> </i>Getting Started"
   cta_url: "/getting-started"
   caption: ""
 feature_row:
