@@ -14,7 +14,7 @@ feature_row:
   - image_path: /assets/images/getting-started-teaser.jpg
     alt: "Getting Started"
     title: "Getting Started"
-    excerpt: "Do you just Want to just jump&nbsp;right in and get started with WordDoc straight away&emsp;?"
+    excerpt: "Do you just Want to just jump right in and get started with WordDoc straight away?"
     url: "/getting-started"
     btn_label: "<i class='fa fa-download'></i> Start Here"
     btn_class: "btn--primary"
