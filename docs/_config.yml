@@ -300,9 +300,18 @@ defaults:
         overlay_filter: rgba(100, 100, 100, 0.5)
         
 #custom
+<<<<<<< HEAD
 btn_paypal:       '[<i class="fa fa-paypal"></i> Show your Appreciation](https://www.paypal.me/shanehoey){: .btn .bth--primary .btn--inverse}'
 btn_github_watch: '[<i class="fa fa-eye"></i> Watch on Github](https://www.github.com/shanehoey/worddoc/subscription/){: .btn .bth--primary .btn--inverse}'
 btn_github_fork:  '[<i class="fa fa-code-branch"></i> Fork on Github](https://www.github.com/shanehoey/worddoc/fork/){: .btn .bth--primary .btn--inverse}'
 btn_github_star:  '[<i class="fa fa-star"></i> Star on Github](https://www.github.com/shanehoey/worddoc/star/){: .btn .bth--primary .btn--inverse}'
 btn_github:       '[<i class="fa fa-github"></i> View on Github](https://www.github.com/shanehoey/worddoc/){: .btn .bth--primary .btn--inverse}'
 btn_poshgal:      '[<i class="fa fa-code"></i> View on Powershell Gallery](https://www.powershellgallery.com/packages/worddoc/){: .btn .bth--primary .btn--inverse}'
+=======
+btn_paypal:       '[<i class="fab fa-paypal"></i> Show your Appreciation](https://www.paypal.me/shanehoey){: .btn .bth--primary .btn--info}'
+btn_github_watch: '[<i class="fa fa-eye"></i> Watch on Github](https://www.github.com/shanehoey/worddoc/subscription/){: .btn .bth--primary .btn--info}'
+btn_github_fork:  '[<i class="fa fa-code-branch"></i> Fork on Github](https://www.github.com/shanehoey/worddoc/fork/){: .btn .bth--primary .btn--info}'
+btn_github_star:  '[<i class="fab fa-star"></i> Star on Github](https://www.github.com/shanehoey/worddoc/star/){: .btn .bth--primary .btn--info}'
+btn_github:       '[<i class="fab fa-github"></i> View on Github](https://www.github.com/shanehoey/worddoc/){: .btn .bth--primary .btn--info}'
+btn_poshgal:      '[<i class="fas fa-code"></i> View on Powershell Gallery](https://www.powershellgallery.com/packages/worddoc/){: .btn .bth--primary .btn--info}'
+>>>>>>> a9274f86c5f99b0376558c694530c47c3b19a51e
