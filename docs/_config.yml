@@ -217,7 +217,7 @@ defaults:
       layout: single
       author_profile: false
       read_time: false
-      comments: false
+      comments: false      
       share: false
       related: false
       sitemap: true
@@ -226,7 +226,6 @@ defaults:
       overlay_image: /assets/images/unsplash.jpg
       overlay_filter: rgba(100, 100, 100, 0.5)
       teaser: /assets/images/teaser.jpg
-  
   # _pages
   - scope:
       path: ""
@@ -246,7 +245,6 @@ defaults:
         teaser: /assets/images/teaser.jpg
       sidebar:
         nav: "docs"
- 
   # _docs
   - scope:
       path: ""
@@ -266,7 +264,6 @@ defaults:
         overlay_image: /assets/images/unsplash.jpg
         overlay_filter: rgba(100, 100, 100, 0.5)
         teaser: /assets/images/teaser.jpg
-  
   # _scripts
   - scope:
       path: ""
@@ -284,7 +281,24 @@ defaults:
         overlay_color: "#5e616c"
         overlay_image: /assets/images/unsplash.jpg
         overlay_filter: rgba(100, 100, 100, 0.5)
-
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: false
+      share: true
+      related: true
+      sitemap: true
+      header:
+        teaser: /assets/images/teaser.jpg
+        overlay_color: "#5e616c"
+        overlay_image: /assets/images/unsplash.jpg
+        overlay_filter: rgba(100, 100, 100, 0.5)
+        
 #custom
 btn_paypal:       '[<i class="fa fa-paypal"></i> Show your Appreciation](https://www.paypal.me/shanehoey){: .btn .bth--primary .btn--info}'
 btn_github_watch: '[<i class="fa fa-eye"></i> Watch on Github](https://www.github.com/shanehoey/worddoc/subscription/){: .btn .bth--primary .btn--info}'
