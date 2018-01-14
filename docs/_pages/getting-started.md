@@ -6,7 +6,7 @@ header:
   cta_url: "/docs"
 ---
 
-This PowerShell module enables you to **create Word Documents directly from Powershell**. The only prequisites are that you have PowerShell v5 and MS Word installed on your computer. The Installation of the module could not be simpler as the current release is hosted on [PowerShell Gallery](https://www.powershellgallery.com/packages/WordDoc/)
+This PowerShell module enables you to **create Word Documents directly from Powershell**. The only prequisites are that you have PowerShell v5 and MS Word installed on your computer.
 
 ## Latest Release
 
