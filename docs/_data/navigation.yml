@@ -42,7 +42,7 @@ docs:
       - title: "set-wordbuiltinproperty"
         url: /docs/set-wordbuiltinproperty/
       - title: "set-wordorientation"
-        url: /docs/save-wordorientation/
+        url: /docs/set-wordorientation/
       - title: "update-wordtoc"
         url: /docs/update-wordtoc/
   - title: About WordDoc
