@@ -164,14 +164,11 @@ Param(
         $license = "MIT License`nCopyright (c) 2016-2018 Shane Hoey`rPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:`nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.`nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
         Add-WordBreak -breaktype Paragraph
         Add-WordText -text 'This document has been created with wordDoc which has been distributed under the MIT license. For more information visit http://shanehoey.github.io/worddoc/' -WDBuiltinStyle wdStyleBookTitle
-        Add-WordBreak -breaktype Paragraph
         #bug with bold/italic in worddoc module
         $selection = (Get-WordDocument).application.selection
         $selection.font.Bold = $False
         $selection.ParagraphFormat.Alignment = 3
         Add-WordText -text $license -WDBuiltinStyle wdStyleNormal
-        Add-WordBreak -breaktype NewPage
-
         #Add Shameless Plug
         for ($i = 0; $i -lt 3; $i++) 
         {
@@ -203,16 +200,39 @@ Param(
 
     if ($section.Examples) 
     {
+        
         Add-WordText "Example One" -WDBuiltinStyle wdStyleHeading1 
         if($section.DesignText) 
         {   
             $DesignText.textExample1 | ForEach-Object { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
             $DesignText.tableExample1 | foreach-object { Add-WordTable -Object $_  -GridTable 'Grid Table 4' -GridAccent 'Accent 3' -WdAutoFitBehavior wdAutoFitWindow } 
         }
+        else 
+        {
+            Add-WordText -text "Design Text not Downloaded" -WdColor wdColorRed -WDBuiltinStyle wdStyleIntenseQuote
+        }
+        
         Add-WordText "Example Two" -WDBuiltinStyle wdStyleHeading1 
         if($section.DesignText) 
         { 
             $designtext.textExample2 | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
             $DesignText.tableExample2 | foreach-object { Add-WordTable -Object $_ -GridTable 'Grid Table 4' -GridAccent 'Accent 3' -WdAutoFitBehavior wdAutoFitWindow } 
         }
+        else 
+        {
+            Add-WordText -text "Design Text not Downloaded" -WdColor wdColorRed -WDBuiltinStyle wdStyleIntenseQuote
+        }
+
+        Add-WordText "Example Three" -WDBuiltinStyle wdStyleHeading1 
+        if($section.DesignText) 
+        { 
+            $designtext.textExample3 | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
+        }
+        else 
+        {
+            Add-WordText -text "Design Text not Downloaded" -WdColor wdColorRed -WDBuiltinStyle wdStyleIntenseQuote
+        }
+        Add-WordTable -Object (get-service -Name "A*" | Select-object name,status) -GridTable 'Grid Table 4' -GridAccent 'Accent 3'  -WdAutoFitBehavior wdAutoFitWindow
     }
+    Update-WordTOC
+    Save-WordDocument 
