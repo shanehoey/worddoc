@@ -31,27 +31,31 @@ function New-WordInstance {
     .DESCRIPTION
     The New-WordInstance function starts a new instance of MS Word.
 
-    .PARAMETER returnobject
+    .PARAMETER WindowState
+    Set the MS Word application wdWindowStateMaximize, wdWindowStateMinimize, wdWindowStateNormal
+
+    .PARAMETER Visible
+    Makes MS Word application Visable or Hidden
+
+    .PARAMETER ReturnObject
     When used the function will return the Word Instance as an Object to be stored in a variable in the local shell. 
     If using this method you must use worddocobject as well, and manually parse these objects to all functions. 
 
-    .PARAMETER Visable
-    Makes MS Word application Visable or Hidden
 
     .EXAMPLE
-    New-WordInstance -Visable True
+    New-WordInstance -WindowState wdWindowStateMaximize -Visable True 
     
-    Create a new Word Instance that is visable
-    
-    .EXAMPLE
-    New-WordInstance -Visable False
-
-    Create a new Word Instance that is hidden
+    Create a new Word Instance that is maximised and is visable.
     
     .EXAMPLE
-    $wi = New-WordInstance -wordinstanceobject
+    New-WordInstance -Visable False 
 
-    Create a word instance that is stored in a local variable
+    Create a new Word Instance that is hidden.
+    
+    .EXAMPLE
+    $wi = New-WordInstance -ReturnObject
+
+    Create a word instance that is stored in a local variable.
     
     .INPUTS
 
@@ -71,9 +75,10 @@ function New-WordInstance {
 
     [CmdletBinding()]
     Param( 
-        [switch]$returnobject,
-
-        [bool]$Visable = $true
+        [Microsoft.Office.Interop.Word.WdWindowState]$WindowState = "wdWindowStateMaximize",
+        [alias("Visable")]
+        [bool]$Visible = $true,
+        [switch]$ReturnObject
         )
     Begin { 
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
@@ -85,7 +90,18 @@ function New-WordInstance {
             }
         }
     Process { 
-        try { $WordInstance = New-Object -ComObject Word.Application -Property @{Visible = $Visable} }
+        try 
+        { 
+            #$WordInstance = New-Object -ComObject Word.Application -Property @{Visible = $Visible} 
+            $WordInstance = New-Object -ComObject Word.Application
+            if ($Visible) 
+            {
+                Write-Warning "*** MS Word may be behind this window! ***"
+                $WordInstance.Visible = $Visible
+                $WordInstance.Activate()
+                $WordInstance.WindowState = $WindowState
+            }
+        }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - Unable to Invoke Word... exiting" ; break }
         try { if ($returnobject) { return $WordInstance } else { New-Variable -Name 'WordInstance' -Value $WordInstance -scope script -ErrorAction SilentlyContinue } }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - Unable to create variable... exiting" ; break }   
@@ -241,7 +257,6 @@ function New-WordDocument {
   
       .EXAMPLE
       New-WordDocument -WordInstance Value -WordDocObject
-      Describe what this call does
   
       .NOTES
       for more examples visit https://shanehoey.github.io/worddoc/
@@ -255,7 +270,7 @@ function New-WordDocument {
       Param(  
           [Parameter(Position = 0)] 
           [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
-   
+
           [switch]$returnobject
         )
       Begin { 
@@ -269,8 +284,10 @@ function New-WordDocument {
         }
       Process { 
           try {
+
               $WordDocument = $WordInstance.Documents.Add()
               $WordDocument.Activate()
+            
               try { if ($returnobject) { return $WordDocument } else { New-Variable -Name 'WordDocument' -Value $WordDocument -scope script -ErrorAction SilentlyContinue } }
               catch { Write-Warning -Message "$($MyInvocation.InvocationName) - Unable to create variable... exiting" ; break }   
             }
@@ -1309,8 +1326,8 @@ function Set-WordOrientation {
 # SIG # Begin signature block
 # MIINCgYJKoZIhvcNAQcCoIIM+zCCDPcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUAEO4/Yz3p2R956pKaGdJWUXI
-# Fg6gggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU3mGti64EWD2Ko7PwU6FwlC8S
+# j46gggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
 # AQsFADByMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
 # VQQLExB3d3cuZGlnaWNlcnQuY29tMTEwLwYDVQQDEyhEaWdpQ2VydCBTSEEyIEFz
 # c3VyZWQgSUQgQ29kZSBTaWduaW5nIENBMB4XDTE4MDEwMzAwMDAwMFoXDTE5MDEw
@@ -1370,11 +1387,11 @@ function Set-WordOrientation {
 # Q2VydCBTSEEyIEFzc3VyZWQgSUQgQ29kZSBTaWduaW5nIENBAhAOr9wAfEpcG37G
 # YjHwWg6RMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkG
 # CSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEE
-# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBTfnkoJo2dJYy/iRyqxWrUPQPwR8DANBgkq
-# hkiG9w0BAQEFAASCAQCCZk4ANRbQyLEqSWEzdm8I+WRlvpbuhSRIo4Ha5kfZ1wbZ
-# sG70T4ibWKOygnq29bbvc1+JuZ21Up2kFnT54frI1wqaoxO8eWYXyJkAvyWGVnTv
-# GUAuEnu+pI16QATZ8HNMuJiZNf8iIDIGKoWp6RXm9yNSbDBYTJEsVE2QotSYB5lp
-# t4/5jypk0bzYlr4C8EizPp6jh6kEJiptq+LxsjL8Z+B0cji+0CCh00j+I3cGi4zu
-# 0DUicV+f6qd5asPjD9L5PNQxdfZX09KNBqkZ8NybNJCB5AFSx3UFSkq237enZACz
-# ExrWiM6Xnlv1M/YoEZWjJfIbN7soTVgjO6uved4O
+# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQI4zdG/yYpkRdgk19ozqimMihJ7zANBgkq
+# hkiG9w0BAQEFAASCAQC33Be4+/RTmY6etwKHY/JDnV4ApBDxXJU8Tp47JVGGwPZ8
+# kA0vtRmMxFb88tUQFV1M7rtGDSBEZw8p4C0I/OjxKCehlW+I20/sxbvBbAA7dQEq
+# dEFQOSOv1neX402kCa/eE3gCuDT6g9pFwYUJby45oQRWnZyW5cYIBzoK2ooqOohg
+# vt5/68Go+sm6WlDUwAmmsa20H+VYH/MqV0AcqyGx1t+E7voVuZu8tKfE0I6CKLRN
+# KPQhfuw0ZVQWTTK24A9GcH0qO1yg/7cZYds8jSH6CmDXgzwIytIZIisOvkllS891
+# mOE9EX3DO7AScPWXMtRpHj+14Ma+xk80py/OIb3C
 # SIG # End signature block
