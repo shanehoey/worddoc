@@ -417,49 +417,40 @@ function Save-WordDocument {
     [CmdletBinding()]
     Param( 
         
-        [Parameter(ParameterSetName = "Default")]
-        [Parameter(ParameterSetName = "Defined")]
-        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument,
-        
-        [Parameter(Mandatory=$true,ParameterSetName = "Defined")]
-        [string]$filename,
+        [Parameter(Mandatory=$true,ParameterSetName = "SaveAs")]
+        [string]$Filename,
 
-        [Parameter(Mandatory=$true,ParameterSetName = "Defined")]
+        [Parameter(ParameterSetName = "SaveAs")]
+        [String]$Folder = [Environment]::GetFolderPath('MyDocuments'),
+
+        [Parameter(Mandatory=$false,ParameterSetName = "SaveAs")]
         [Microsoft.Office.Interop.Word.WdSaveFormat]$WordSaveFormat,
      
-        [Parameter(ParameterSetName = "Defined")]
         [Parameter(ParameterSetName = "Default")]
-        [String]$folder = [Environment]::GetFolderPath('MyDocuments')
+        [Parameter(ParameterSetName = "SaveAs")]
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument
+        
     )
-    Begin { Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
-        try { 
-            $null = test-WordDocument -WordDocument $WordDocument 
-            Add-Type -AssemblyName System.windows.forms
-            }
+    Begin {
+        Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
+        try { $null = test-WordDocument -WordDocument $WordDocument }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
-        }
+    }
     Process { 
-        try {
-            if ($PSBoundParameters.ContainsKey('filename')) { $filepath = (Join-Path -path $folder -ChildPath $filename) } 
-            else { 
-                $SaveFileDialog = New-Object -TypeName System.Windows.Forms.saveFileDialog
-                $SaveFileDialog.InitialDirectory = [Environment]::GetFolderPath('MyDocuments')
-                $SaveFileDialog.filter = 'Word Document (*.docx)|*.docx|HTML File (*.html)|*.html|PDF (*.pdf)|*.pdf'
-                [void]$SaveFileDialog.ShowDialog()
-                $filepath = $SaveFileDialog.FileName
-                switch ($SaveFileDialog.FilterIndex) { 
-                    1 { [Microsoft.Office.Interop.Word.WdSaveFormat]$WordSaveFormat = "wdFormatDocumentdefault" }
-                    2 { [Microsoft.Office.Interop.Word.WdSaveFormat]$WordSaveFormat = "wdFormatHTML" }
-                    3 { [Microsoft.Office.Interop.Word.WdSaveFormat]$WordSaveFormat = "wdFormatPDF" }
-                }
-
-                }
-            $null = $WordDocument.SaveAs([ref]($filepath) , [ref]$WordSaveFormat) 
+        try { 
+            if ($PSCmdlet.ParameterSetName -eq "SaveAs") { 
+                $filepath = Join-Path -path $folder -ChildPath $filename
+                $WordDocument.SaveAs([ref]$filepath , [ref]$WordSaveFormat) 
             }
+            else
+            {
+                if (!($WordDocument.saved)) { $WordDocument.Save() }
+            } 
+        }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)" }
         }
-    End { Write-Verbose -Message "End    : $($Myinvocation.InvocationName)"  }
-    }
+    End { Write-Verbose -Message "[End] *** $($Myinvocation.InvocationName) ***"   }
+}
 
 function Close-WordDocument {
   <#
@@ -468,6 +459,12 @@ function Close-WordDocument {
 
     .DESCRIPTION
     Add a more complete description of what the function does.
+    
+    .PARAMETER SaveChanges
+    Describe parameter -wdPromptToSaveChanges.
+
+    .PARAMETER OriginalFormat
+    Describe parameter -wdPromptUser.
 
     .PARAMETER WordInstance
     Describe parameter -WordInstance.
@@ -487,33 +484,33 @@ function Close-WordDocument {
 
   #>
 
-
     [CmdletBinding()]
     param(
-        [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
-  
+        [Microsoft.Office.Interop.Word.WdSaveOptions]$SaveOptions = "wdPromptToSaveChanges",
+        [Microsoft.Office.Interop.Word.WdOriginalFormat]$OriginalFormat = "wdPromptUser",
         [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument
+
     )
     Begin { 
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***"  
         try { 
-            $null = test-wordinstance -WordInstance $wordinstance
             $null = test-WordDocument -WordDocument $worddocument
         }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process {     
-        try {
-            $WordDocument.Close() 
-            if (test-path variable:script:Worddocument) { remove-variable WordDocument -Scope Script }
-
+        try 
+        {
+           $WordDocument.close($SaveOptions,$OriginalFormat)
+           if (!($word.ActiveDocument)) { if (test-path variable:script:Worddocument) { remove-variable WordDocument -Scope Script } }
         }
-        catch {
-            Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"
+        catch 
+        {
+            Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message) - Unable to save document"
         }
     }
     End { Write-Verbose -Message "End    : $($Myinvocation.InvocationName)" }
-    }
+}
 
 
 function Add-WordBreak {
