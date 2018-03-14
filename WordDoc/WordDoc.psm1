@@ -223,7 +223,11 @@ function Close-WordInstance {
   
     [CmdletBinding()]
     param(
+        [Microsoft.Office.Interop.Word.WdSaveOptions]$SaveOptions = "wdPromptToSaveChanges",
+        [Microsoft.Office.Interop.Word.WdOriginalFormat]$OriginalFormat = "wdPromptUser",
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument,
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance
+
       )
     Begin { 
           Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
@@ -232,9 +236,17 @@ function Close-WordInstance {
         }
     Process {     
         try {
-            $WordInstance.Quit()  
-            if (test-path variable:script:WordInstance) { remove-variable WordInstance -Scope Script }
-            if (test-path variable:script:Worddocument) { remove-variable WordDocument -Scope Script }
+
+            if ($wordinstance.activedocument){
+                Close-WordDocument -SaveOptions $SaveOptions -OriginalFormat $OriginalFormat
+                if (test-path variable:script:Worddocument) { remove-variable WordDocument -Scope Script }
+            }
+            if ($WordInstance.ActiveWindow.Active) { throw "Unable to exit - Document Not Closed" }
+            if (!($wordinstance.ActiveDocument)){ 
+                $WordInstance.Quit()
+                if (test-path variable:script:WordInstance) { remove-variable WordInstance -Scope Script }
+            }
+
             }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)" }
         }
@@ -488,8 +500,8 @@ function Close-WordDocument {
     param(
         [Microsoft.Office.Interop.Word.WdSaveOptions]$SaveOptions = "wdPromptToSaveChanges",
         [Microsoft.Office.Interop.Word.WdOriginalFormat]$OriginalFormat = "wdPromptUser",
-        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument
-
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument,
+        [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance
     )
     Begin { 
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***"  
@@ -501,17 +513,18 @@ function Close-WordDocument {
     Process {     
         try 
         {
-           $WordDocument.close($SaveOptions,$OriginalFormat)
-           if (!($word.ActiveDocument)) { if (test-path variable:script:Worddocument) { remove-variable WordDocument -Scope Script } }
+            if ($WordInstance.ActiveDocument) { 
+                $WordDocument.close($SaveOptions,$OriginalFormat)
+                if (!($wordinstance.ActiveDocument)) { if (test-path variable:script:Worddocument) { remove-variable WordDocument -Scope Script } }
+            }
         }
         catch 
         {
-            Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message) - Unable to save document"
+            Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message) - Document Not Saved"
         }
     }
     End { Write-Verbose -Message "End    : $($Myinvocation.InvocationName)" }
 }
-
 
 function Add-WordBreak {
   <#
@@ -1323,8 +1336,8 @@ function Set-WordOrientation {
 # SIG # Begin signature block
 # MIINCgYJKoZIhvcNAQcCoIIM+zCCDPcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU3mGti64EWD2Ko7PwU6FwlC8S
-# j46gggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUlS27qCkJ8siYRi1yLzdCXSSv
+# seqgggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
 # AQsFADByMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
 # VQQLExB3d3cuZGlnaWNlcnQuY29tMTEwLwYDVQQDEyhEaWdpQ2VydCBTSEEyIEFz
 # c3VyZWQgSUQgQ29kZSBTaWduaW5nIENBMB4XDTE4MDEwMzAwMDAwMFoXDTE5MDEw
@@ -1384,11 +1397,11 @@ function Set-WordOrientation {
 # Q2VydCBTSEEyIEFzc3VyZWQgSUQgQ29kZSBTaWduaW5nIENBAhAOr9wAfEpcG37G
 # YjHwWg6RMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkG
 # CSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEE
-# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQI4zdG/yYpkRdgk19ozqimMihJ7zANBgkq
-# hkiG9w0BAQEFAASCAQC33Be4+/RTmY6etwKHY/JDnV4ApBDxXJU8Tp47JVGGwPZ8
-# kA0vtRmMxFb88tUQFV1M7rtGDSBEZw8p4C0I/OjxKCehlW+I20/sxbvBbAA7dQEq
-# dEFQOSOv1neX402kCa/eE3gCuDT6g9pFwYUJby45oQRWnZyW5cYIBzoK2ooqOohg
-# vt5/68Go+sm6WlDUwAmmsa20H+VYH/MqV0AcqyGx1t+E7voVuZu8tKfE0I6CKLRN
-# KPQhfuw0ZVQWTTK24A9GcH0qO1yg/7cZYds8jSH6CmDXgzwIytIZIisOvkllS891
-# mOE9EX3DO7AScPWXMtRpHj+14Ma+xk80py/OIb3C
+# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSxvPJ+5DGnnf/2woKCre5/eWSFijANBgkq
+# hkiG9w0BAQEFAASCAQAteKsYsPnZUtK6B/VSJBUtiD8ipG2c89akwRDWgzgcF7dD
+# 6ZWJqrlP4FBHjJyirBNCHAhxMsU0uC1IhQ+aBux2uHmgw2x1JngzWN0SN3gTk3g3
+# MiRqseUMCxyfPyOk0vhZuDjmZC01BIRJaNq2I1nmDQI1wvc66VTlTXtTekXyjMMV
+# FdiWw4SKXcLcsANbM/5MiDD+PKaQj8sgzOyrwPQX1t5mfgunX0gc0F2pPFA6Q4i6
+# 111akW3kffuk4iDz59H5mzedPx9QPJe6ORU7MEgLYEb6S3rMRhF28IwRBtPjRxGt
+# VGpM3ThqSCf8a7Y6lOvwLdHxYdwWxbDIKkTnPq9R
 # SIG # End signature block
