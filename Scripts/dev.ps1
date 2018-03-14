@@ -33,10 +33,10 @@ $document.Styles | select NameLocal
 
 [enum]::GetNames([microsoft.office.interop.word])
 
-[Microsoft.Office.Interop.Word.WdAlertLevel
+[enum]::GetNames([Microsoft.Office.Interop.Word.WdAlertLevel])
 [Microsoft.Office.Interop.Word.WdAlignmentTabAlignment
 [Microsoft.Office.Interop.Word.WdAlignmentTabRelative
-[Microsoft.Office.Interop.Word.WdAnimation
+[enum]::GetNames([Microsoft.Office.Interop.Word.WdAnimation])
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdApplyQuickStyleSets])
 
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdTableFormat])
@@ -74,7 +74,7 @@ $document.Styles | select NameLocal
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdPageFit])
 
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdThemeColorIndex])
-$s = [Microsoft.Office.Interop.Word.WdThemeColorIndex]"wdThemeColorAccent5"
+$s = [Microsoft.Office.Interop.Word.WdThemeColorIndex]"wdThemeColorAccent6"
 
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdTableDirection])
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdTableFieldSeparator])
