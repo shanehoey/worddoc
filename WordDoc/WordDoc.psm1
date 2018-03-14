@@ -1076,7 +1076,7 @@ function Add-WordText {
             if (!($noparagraph)) { $WordDocument.Application.Selection.TypeParagraph() }
             
             $worddocument.Application.Selection.Font.reset()
-            [void]$WordDocument.Application.Selection.MoveEnd()
+            $worddocument.Application.Selection.select()
 
         }
         catch {
