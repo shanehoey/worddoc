@@ -807,7 +807,7 @@ function Add-WordTable {
     
         [switch]$NoParagraph,
     
-        [Microsoft.Office.Interop.Word.Document][Object]$WordDocument = $Script:WordDocument
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument
     )
    
     Begin {
@@ -1025,14 +1025,31 @@ function Add-WordText {
     param(
         [Parameter(Position = 0, Mandatory = $true )] 
         [String]$text,
-    
-        [Microsoft.Office.Interop.Word.WdColor]$WdColor = 'wdColorAutomatic',
-    
+
         [Microsoft.Office.Interop.Word.WdBuiltinStyle]$WDBuiltinStyle = 'wdStyleDefaultParagraphFont',
     
+        [switch]$Allcaps,
+        [switch]$Bold,
+        [switch]$DoubleStrikeThrough,
+        [switch]$Italic,
+        [switch]$Size,
+        [switch]$SmallCaps,
+        [switch]$StrikeThrough,
+        [switch]$SubScript,
+        [switch]$SuperScript,
+        [alias("WdColor")]
+        [Microsoft.Office.Interop.Word.WdColor]$TextColor = 'wdColorAutomatic',
+        [switch]$Underline,
+        [string]$Font,
+
+        [switch]$NoParagraph,
+
+        [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
         [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument
+        
     )
-    Begin {
+    Begin 
+    {
         Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
         try { $null  = test-WordDocument -WordDocument $WordDocument }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
@@ -1040,10 +1057,30 @@ function Add-WordText {
     Process { 
         try {
             if ($PSBoundParameters.ContainsKey('WDBuiltinStyle')) { Write-verbose -Message "$WDBuiltinStyle"; $WordDocument.application.selection.Style = $WDBuiltinStyle }
-            if ($PSBoundParameters.ContainsKey('WdColor')) { Write-verbose -Message "$wdcolor"; $WordDocument.Application.Selection.font.Color = $WdColor.value__ }
-            $WordDocument.Application.Selection.TypeText("$($text)")    
-            $WordDocument.Application.Selection.TypeParagraph() 
+            if ($PSBoundParameters.ContainsKey('Allcaps')) { $WordDocument.Application.Selection.Font.Allcaps = $true }
+            if ($PSBoundParameters.ContainsKey('Bold')) { $WordDocument.Application.Selection.Font.Bold = $true }
+            if ($PSBoundParameters.ContainsKey('DoubleStrikeThrough')) { $WordDocument.Application.Selection.Font.DoubleStrikeThrough = $true }
+            if ($PSBoundParameters.ContainsKey('Italic')) { $WordDocument.Application.Selection.Font.Italic = $true }
+            if ($PSBoundParameters.ContainsKey('Size')) { $WordDocument.Application.Selection.Font.size = $true }
+            if ($PSBoundParameters.ContainsKey('SmallCaps')) { $WordDocument.Application.Selection.Font.smallcaps = $true }
+            if ($PSBoundParameters.ContainsKey('StrikeThrough')) { $WordDocument.Application.Selection.Font.StrikeThrough = $true }
+            if ($PSBoundParameters.ContainsKey('SubScript')) { $WordDocument.Application.Selection.Font.Subscript = $true }
+            if ($PSBoundParameters.ContainsKey('SuperScript')) { $WordDocument.Application.Selection.Font.Superscript = $true }
+            if ($PSBoundParameters.ContainsKey('Underline')) { $WordDocument.Application.Selection.Font.Underline = $true }
+            if ($PSBoundParameters.ContainsKey('TextColor')) { Write-verbose -Message "$TextColor"; $WordDocument.Application.Selection.font.Color = $TextColor.value__ }
+            if ($Font) 
+            { 
+                if ($WordInstance.FontNames -contains $font) 
+                {
+                    $worddocument.Application.Selection.font.name = $Font
+                }
+            }
+            $WordDocument.Application.Selection.TypeText("$($text)")
+            if (!($noparagraph)) { $WordDocument.Application.Selection.TypeParagraph() }
+
             $WordDocument.application.selection.Style = [Microsoft.Office.Interop.Word.WdBuiltinStyle]'wdStyleNormal'
+            $worddocument.application.selection.Font.reset()
+
         }
         catch {
             Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"
@@ -1052,7 +1089,7 @@ function Add-WordText {
     End { 
         Write-Verbose -Message "End    : $($Myinvocation.InvocationName)" 
     }
-    }
+}
 
 function Add-WordTOC {
   <#
