@@ -816,6 +816,9 @@ function Add-WordTable {
     }
     Process { 
         try {
+            $WordDocument.Application.Selection.Style = [Microsoft.Office.Interop.Word.WdBuiltinStyle]'wdStyleNormal'
+            $WordDocument.Application.Selection.Font.reset()
+
             $TableRange = $WordDocument.application.selection.range  
             if (!($VerticleTable)) {
                 $Columns = @($Object | Get-Member -MemberType Property, NoteProperty).count
@@ -1032,7 +1035,7 @@ function Add-WordText {
         [switch]$Bold,
         [switch]$DoubleStrikeThrough,
         [switch]$Italic,
-        [switch]$Size,
+        [Int]$Size,
         [switch]$SmallCaps,
         [switch]$StrikeThrough,
         [switch]$SubScript,
@@ -1056,12 +1059,17 @@ function Add-WordText {
     }
     Process { 
         try {
+
+            #Always reset to default!
+            $WordDocument.application.selection.Style = [Microsoft.Office.Interop.Word.WdBuiltinStyle]'wdStyleNormal'
+            $worddocument.application.selection.Font.reset()
+
             if ($PSBoundParameters.ContainsKey('WDBuiltinStyle')) { Write-verbose -Message "$WDBuiltinStyle"; $WordDocument.application.selection.Style = $WDBuiltinStyle }
             if ($PSBoundParameters.ContainsKey('Allcaps')) { $WordDocument.Application.Selection.Font.Allcaps = $true }
             if ($PSBoundParameters.ContainsKey('Bold')) { $WordDocument.Application.Selection.Font.Bold = $true }
             if ($PSBoundParameters.ContainsKey('DoubleStrikeThrough')) { $WordDocument.Application.Selection.Font.DoubleStrikeThrough = $true }
             if ($PSBoundParameters.ContainsKey('Italic')) { $WordDocument.Application.Selection.Font.Italic = $true }
-            if ($PSBoundParameters.ContainsKey('Size')) { $WordDocument.Application.Selection.Font.size = $true }
+            if ($PSBoundParameters.ContainsKey('Size')) { $WordDocument.Application.Selection.Font.Size = $Size }
             if ($PSBoundParameters.ContainsKey('SmallCaps')) { $WordDocument.Application.Selection.Font.smallcaps = $true }
             if ($PSBoundParameters.ContainsKey('StrikeThrough')) { $WordDocument.Application.Selection.Font.StrikeThrough = $true }
             if ($PSBoundParameters.ContainsKey('SubScript')) { $WordDocument.Application.Selection.Font.Subscript = $true }
@@ -1070,16 +1078,15 @@ function Add-WordText {
             if ($PSBoundParameters.ContainsKey('TextColor')) { Write-verbose -Message "$TextColor"; $WordDocument.Application.Selection.font.Color = $TextColor.value__ }
             if ($Font) 
             { 
-                if ($WordInstance.FontNames -contains $font) 
+                if ($worddocument.application.FontNames -contains $font) 
                 {
                     $worddocument.Application.Selection.font.name = $Font
                 }
             }
             $WordDocument.Application.Selection.TypeText("$($text)")
             if (!($noparagraph)) { $WordDocument.Application.Selection.TypeParagraph() }
-
-            $WordDocument.application.selection.Style = [Microsoft.Office.Interop.Word.WdBuiltinStyle]'wdStyleNormal'
-            $worddocument.application.selection.Font.reset()
+            
+            else { $WordDocument.Application.Selection.Type() }
 
         }
         catch {
@@ -1141,6 +1148,9 @@ function Add-WordTOC {
     }
     Process {  
         try {
+            $WordDocument.Application.Selection.Style = [Microsoft.Office.Interop.Word.WdBuiltinStyle]'wdStyleNormal'
+            $WordDocument.Application.Selection.Font.reset()
+
             $toc = $WordDocument.TablesOfContents.Add($WordInstance.selection.Range)
             $toc.Tableader = $Tableader
             $toc.IncludePageNumbers = $IncludePageNumbers
@@ -1373,8 +1383,8 @@ function Set-WordOrientation {
 # SIG # Begin signature block
 # MIINCgYJKoZIhvcNAQcCoIIM+zCCDPcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUlS27qCkJ8siYRi1yLzdCXSSv
-# seqgggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUtrPTwFnl2jkQxYGJcOwEgM0a
+# SBWgggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
 # AQsFADByMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
 # VQQLExB3d3cuZGlnaWNlcnQuY29tMTEwLwYDVQQDEyhEaWdpQ2VydCBTSEEyIEFz
 # c3VyZWQgSUQgQ29kZSBTaWduaW5nIENBMB4XDTE4MDEwMzAwMDAwMFoXDTE5MDEw
@@ -1434,11 +1444,11 @@ function Set-WordOrientation {
 # Q2VydCBTSEEyIEFzc3VyZWQgSUQgQ29kZSBTaWduaW5nIENBAhAOr9wAfEpcG37G
 # YjHwWg6RMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkG
 # CSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEE
-# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSxvPJ+5DGnnf/2woKCre5/eWSFijANBgkq
-# hkiG9w0BAQEFAASCAQAteKsYsPnZUtK6B/VSJBUtiD8ipG2c89akwRDWgzgcF7dD
-# 6ZWJqrlP4FBHjJyirBNCHAhxMsU0uC1IhQ+aBux2uHmgw2x1JngzWN0SN3gTk3g3
-# MiRqseUMCxyfPyOk0vhZuDjmZC01BIRJaNq2I1nmDQI1wvc66VTlTXtTekXyjMMV
-# FdiWw4SKXcLcsANbM/5MiDD+PKaQj8sgzOyrwPQX1t5mfgunX0gc0F2pPFA6Q4i6
-# 111akW3kffuk4iDz59H5mzedPx9QPJe6ORU7MEgLYEb6S3rMRhF28IwRBtPjRxGt
-# VGpM3ThqSCf8a7Y6lOvwLdHxYdwWxbDIKkTnPq9R
+# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSePbDiS3EMH2uSgo192nVLhNr7/zANBgkq
+# hkiG9w0BAQEFAASCAQCOIyB8hZ+SZcXYvYokkaH9gnoWTKEVRkDMuABYxZ6IjLIP
+# imV+/WtuwvWRqArLqs+8wCTukzTI+W9h+GOLHpcNzZw2LTJNFigt80x11ujw9eD/
+# DwrznfH5klZaBWraTci9ZtuzOEI6biZjcUJkvP06iLVSgwDrFYI45qLDcX1rTP/8
+# /2I56fajZ8+OK5rlaTZK8xkfcU1hH+FsH1QflbmeAh+2GDQDctrLVCN6l0d1gczi
+# KDYTWCRPVIdjacEHenrdc38GLTB0WHVrjAH0qGMvjI3gEUPs2vY8Me4e4gUhk1kD
+# 00f4VBM3ZjZENhzj0aD2kmE1WyPoMH/ZDIxkCN5t
 # SIG # End signature block
