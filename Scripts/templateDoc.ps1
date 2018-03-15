@@ -57,16 +57,17 @@ Param(
 
     try { import-module -name WordDoc -ErrorAction Stop } catch { Write-Warning "WordDoc Module is required , to install ->  install-module -name worddoc -scope currentuser"; break }
 
-    if(!($DesignJsonURL)) { $DesignJsonURL ='https://shanehoey.com/templatedoc.json' }    #Change this 
-    $VersionGUID = "523129c9-3f83-4efc-839f-973c2c205a28"                         #Change this (new-guid)
-    $VersionURL = 'https://shanehoey.com/versions/templateDoc.json'                 #Change this 
-    $useragent = 'templateDoc'                                                      #Change this
+    if(!($DesignJsonURL)) { $DesignJsonURL ='https://shanehoey.com/templatedoc.json' }    #Modify this to your own Design Document json file 
+    $VersionGUID = "5ed7e004-5fdc-48e7-8319-d9a5c99c0ced"                                 #Change this (new-guid)
+    $VersionURL = 'https://shanehoey.com/versions/templateDoc.json'                       #Change this 
+    $useragent = 'templateDoc'                                                            #Change this
     
     #Used to quickly enable/disabled specific sections 
     $section = @{}
     $section["CoverPage"] = $true
     $section["Overview"] = $true
     $section["Examples"] = $true
+    $section["EndPage"] = $true
 
     if ($PSBoundParameters.ContainsKey('WordTemplate')) 
     {
@@ -143,42 +144,38 @@ Param(
     if($section.CoverPage) { 
         
         #Add Coverpage
-        for ($i = 0; $i -lt 3; $i++) 
-        {
-            Add-WordBreak -breaktype Paragraph 
-        }
-        Add-WordText -text $DocumentTitle -WDBuiltinStyle wdStyleTitle
-        for ($i = 0; $i -lt 3; $i++) 
-        {
-            Add-WordBreak -breaktype Paragraph 
-        }
-        Add-WordText -text 'for' -WDBuiltinStyle wdStyleTitle
-        for ($i = 0; $i -lt 3; $i++) 
-        {
-            Add-WordBreak -breaktype Paragraph 
-        }
-        Add-WordText -text $DocumentCustomer -WDBuiltinStyle wdStyleTitle
+        for ($i = 0; $i -lt 18; $i++) { Add-WordBreak -breaktype Paragraph }
+        Add-WordText -text $DocumentTitle -WDBuiltinStyle wdStyleTitle -TextColor wdColorWhite
+        Add-WordText -text $DocumentCustomer -WDBuiltinStyle wdStyleSubtitle -TextColor wdColorWhite
+        for ($i = 0; $i -lt  4; $i++) { Add-WordBreak -breaktype Paragraph }
+
+        $fa_github  = [char]0xf09b
+        $fontawesometext = "Font Awesome 5 Brands Regular"
+        add-wordtext  -text $fa_github -Font $fontawesometext -Size 18 -NoParagraph -TextColor wdColorWhite
+        add-wordtext " https://shanehoey.github.io/worddoc/" -Size 18 -TextColor wdColorWhite
+
+        $pagewidth = (get-worddocument).pagesetup.pagewidth
+        $pageheight = (get-worddocument).pagesetup.pageheight
+        add-wordshape -shape msoShapeRectangle -left 0 -top 0 -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -UserPicture "http://source.unsplash.com/YXemfQiPR_E/800x600" -PictureEffect msoEffectChalkSketch
+        add-wordshape -shape msoShapeRectangle -left 0 -top ($pageheight/2) -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -themecolor msoThemeColorDark1
+
         Add-WordBreak -breaktype NewPage
 
         #AddLicense
         $license = "MIT License`nCopyright (c) 2016-2018 Shane Hoey`rPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:`nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.`nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
         Add-WordBreak -breaktype Paragraph
         Add-WordText -text 'This document has been created with wordDoc which has been distributed under the MIT license. For more information visit http://shanehoey.github.io/worddoc/' -WDBuiltinStyle wdStyleBookTitle
-        #bug with bold/italic in worddoc module
-        $selection = (Get-WordDocument).application.selection
-        $selection.font.Bold = $False
-        $selection.ParagraphFormat.Alignment = 3
-        Add-WordText -text $license -WDBuiltinStyle wdStyleNormal
+        Add-WordText -text $license -WDBuiltinStyle wdStyleNormal -Bold -Align wdAlignParagraphJustify
         #Add Shameless Plug
         for ($i = 0; $i -lt 3; $i++) 
         {
             Add-WordBreak -breaktype Paragraph 
         }
-        Add-WordText -text 'Are you using this commercially? Show your appreciation and encourage more development of this script at https://paypal.me/shanehoey' -WDBuiltinStyle wdStyleIntenseQuote
+        Add-WordText -text 'Are you using this commercially? Show your appreciation and encourage more development of this script at https://paypal.me/shanehoey' -WDBuiltinStyle wdStyleIntenseQuote -TextColor wdColorBlack
 
         #Table of Contents
         Add-WordBreak -breaktype NewPage
-        Add-WordText -text 'Contents' -WDBuiltinStyle wdStyleTOCHeading 
+        Add-WordText -text 'Contents' -WDBuiltinStyle wdStyleTOCHeading -TextColor wdColorBlack
         Add-WordTOC 
         Add-WordBreak -breaktype NewPage
 
@@ -193,7 +190,7 @@ Param(
 
     if ($section.Overview) 
     {
-        Add-WordText "Overview" -WDBuiltinStyle wdStyleHeading1 
+        Add-WordText "Overview" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
         if($section.DesignText) { $designtext.textOverview | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } }
         Add-WordBreak -breaktype NewPage
     }
@@ -201,7 +198,7 @@ Param(
     if ($section.Examples) 
     {
         
-        Add-WordText "Example One" -WDBuiltinStyle wdStyleHeading1 
+        Add-WordText "Example One" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
         if($section.DesignText) 
         {   
             $DesignText.textExample1 | ForEach-Object { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
@@ -209,10 +206,10 @@ Param(
         }
         else 
         {
-            Add-WordText -text "Design Text not Downloaded" -WdColor wdColorRed -WDBuiltinStyle wdStyleIntenseQuote
+            Add-WordText -text "Design Text not Downloaded"  -WDBuiltinStyle wdStyleIntenseQuote -TextColor wdColorBlack
         }
         
-        Add-WordText "Example Two" -WDBuiltinStyle wdStyleHeading1 
+        Add-WordText "Example Two" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
         if($section.DesignText) 
         { 
             $designtext.textExample2 | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
@@ -220,19 +217,37 @@ Param(
         }
         else 
         {
-            Add-WordText -text "Design Text not Downloaded" -WdColor wdColorRed -WDBuiltinStyle wdStyleIntenseQuote
+            Add-WordText -text "Design Text not Downloaded"  -WDBuiltinStyle wdStyleIntenseQuote -TextColor wdColorBlack
         }
 
-        Add-WordText "Example Three" -WDBuiltinStyle wdStyleHeading1 
+        Add-WordText "Example Three" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
         if($section.DesignText) 
         { 
             $designtext.textExample3 | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
         }
         else 
         {
-            Add-WordText -text "Design Text not Downloaded" -WdColor wdColorRed -WDBuiltinStyle wdStyleIntenseQuote
+            Add-WordText -text "Design Text not Downloaded" -TextColor wdColorBlack -WDBuiltinStyle wdStyleIntenseQuote 
         }
-        Add-WordTable -Object (get-service -Name "A*" | Select-object name,status) -GridTable 'Grid Table 4' -GridAccent 'Accent 3'  -WdAutoFitBehavior wdAutoFitWindow
+        Add-WordTable -Object (get-service -Name "A*" | Select-object name,status) -GridTable 'Grid Table 4' -GridAccent 'Accent 3'  -WdAutoFitBehavior wdAutoFitWindow 
     }
+
+    if ($section.EndPage)  {
+     
+    
+      Add-WordBreak -breaktype NewPage  
+      for ($i = 0; $i -lt 18; $i++) { Add-WordBreak -breaktype Paragraph }
+      $fa_github  = [char]0xf09b
+      $fontawesometext = "Font Awesome 5 Brands Regular"
+      add-wordtext  -text $fa_github -Font $fontawesometext -Size 18 -NoParagraph -TextColor wdColorWhite
+      add-wordtext " https://shanehoey.github.io/worddoc/" -Size 18 -TextColor wdColorWhite -Align wdAlignParagraphCenter
+
+      $pagewidth = (get-worddocument).pagesetup.pagewidth
+      $pageheight = (get-worddocument).pagesetup.pageheight
+      add-wordshape -shape msoShapeRectangle -left 0 -top 0 -Width $pagewidth -Height $pageheight -zorder msoSendBehindText -themecolor msoThemeColorDark1
+
+
+    }
+    
     Update-WordTOC
     Save-WordDocument 
