@@ -70,10 +70,11 @@ PowerShellVersion = '4.0'
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Add-WordBreak', 'Add-WordCoverPage', 'Add-WordTable', 
-               'Add-WordTemplate', 'Add-WordText', 'Add-WordTOC', 'Close-WordDocument', 
-               'Close-WordInstance', 'Get-WordDocument', 'Get-WordInstance', 
-               'New-WordDocument', 'New-WordInstance', 'Save-WordDocument', 
-               'Set-WordBuiltInProperty', 'Set-WordOrientation', 'Update-WordTOC'
+               'Add-WordTemplate', 'Add-WordText', 'Add-WordTOC', 'Add-WordShape', 
+               'Close-WordDocument', 'Close-WordInstance', 'Get-WordDocument', 
+               'Get-WordInstance', 'New-WordDocument', 'New-WordInstance', 
+               'Save-WordDocument', 'Set-WordBuiltInProperty', 'Set-WordOrientation', 
+               'Update-WordTOC'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -132,8 +133,8 @@ PrivateData = @{
 # SIG # Begin signature block
 # MIINCgYJKoZIhvcNAQcCoIIM+zCCDPcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUkZL/8fuuRWO1xYMm0xyCQ8Ug
-# 5yKgggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUI0V9UbSs/a71lCuHk0aQcDVM
+# ALygggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
 # AQsFADByMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
 # VQQLExB3d3cuZGlnaWNlcnQuY29tMTEwLwYDVQQDEyhEaWdpQ2VydCBTSEEyIEFz
 # c3VyZWQgSUQgQ29kZSBTaWduaW5nIENBMB4XDTE4MDEwMzAwMDAwMFoXDTE5MDEw
@@ -193,11 +194,11 @@ PrivateData = @{
 # Q2VydCBTSEEyIEFzc3VyZWQgSUQgQ29kZSBTaWduaW5nIENBAhAOr9wAfEpcG37G
 # YjHwWg6RMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkG
 # CSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEE
-# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRjZL13MDNGA0du4UpCGqGeULRvPTANBgkq
-# hkiG9w0BAQEFAASCAQCqkInLI9jY5iM8y9jwJNa4s9WcN4X59N836cbrjnrKkxAk
-# MBzp+Okudk9S8B6708LmgaLLfNNJyivgPlCijw9ECm0PlkSrcVO+3mgQoiSGxVIQ
-# mE9VxwWyoAi2UPMJ0a6NGeQ7Obf+6Lc2zLAuyklQo1wOqw/QlaTUvyJJtBdOg6MN
-# OsBPg2jtUdzDLZuZ6dhobQAk+uinRLQsT71Ll6ISG9fVA7e3WICqgjayaqbecKBb
-# 4bdg9Oh5MSRr+kFUH+umRtpR1C+UBFSfnlBibtJ5p4GRRanTm/j+5L1VrFW8Is71
-# 808UoTosi7PkisuchcZ8hTHjB8sDEIwc17J0YTql
+# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRCqOwYAGC0JTaEMsFTh89pO2pzaTANBgkq
+# hkiG9w0BAQEFAASCAQANaio83ugrpKcB+0kTwrFr57U2csFPJdC1063sZSALWe+R
+# UjMA/QW+PHJFp7Rc+oO9c8Wuz7eK6NPVPiY+KSsxgghUWN+iUFPduY6O9bOfRmt8
+# 2IpTUm+HU/0XfZfNc6mgEGZ8pDUj/clPxZOImC3vh9TMGXEmqRvug2d9Nk9WCU/G
+# Bfrm4wM+/wmwlTnkOlctBn/aXXgXSni5C6El7mmaVikU41ArSAP3DoM3e6BghGya
+# Usa/5sZtfsHueqyEFXWYS7vLzwWbUnM52jGDlkPrImhngZlWueufrRQ0ycpiwHBo
+# pGZ2LKMvqMH/eb5KLN6DGNmpY8LKX2q+x/G1RsUx
 # SIG # End signature block
