@@ -1091,6 +1091,42 @@ function Add-WordText {
     }
 }
 
+function Add-WordShape {
+  
+      [CmdletBinding()]
+      param(
+        $Top,
+        $Width, 
+        $Height,
+        $Bottom, 
+        [Microsoft.Office.Core.MsoAutoShapeType]$shape = "msoShapeRectangle",
+        [Microsoft.Office.Core.MsoThemeColorIndex]$themecolor,
+        [Microsoft.Office.Core.MsoZOrderCmd]$zorder,
+        [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
+        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument
+          
+      )
+      Begin 
+      {
+          Write-Verbose -Message "[Start] *** $($Myinvocation.InvocationName) ***" 
+          try { $null  = test-WordDocument -WordDocument $WordDocument }
+          catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
+      }
+      Process { 
+          try {
+           $shape = $worddocument.shapes.AddShape($shape,$Left,$top,$Width,$Height)
+           $shape.Fill.ForeColor.ObjectThemeColor = $themecolor
+           $shape.zorder($zorder)
+          }
+          catch {
+              Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"
+          }
+      }
+      End { 
+          Write-Verbose -Message "End    : $($Myinvocation.InvocationName)" 
+      }
+  }
+
 function Add-WordTOC {
   <#
     .SYNOPSIS
@@ -1376,8 +1412,8 @@ function Set-WordOrientation {
 # SIG # Begin signature block
 # MIINCgYJKoZIhvcNAQcCoIIM+zCCDPcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU6smvY4rkJDPYpStWSHMTd0SN
-# P/ygggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU3DKKruK5y9uQEQn9XJt2DVXG
+# dY2gggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
 # AQsFADByMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
 # VQQLExB3d3cuZGlnaWNlcnQuY29tMTEwLwYDVQQDEyhEaWdpQ2VydCBTSEEyIEFz
 # c3VyZWQgSUQgQ29kZSBTaWduaW5nIENBMB4XDTE4MDEwMzAwMDAwMFoXDTE5MDEw
@@ -1437,11 +1473,11 @@ function Set-WordOrientation {
 # Q2VydCBTSEEyIEFzc3VyZWQgSUQgQ29kZSBTaWduaW5nIENBAhAOr9wAfEpcG37G
 # YjHwWg6RMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkG
 # CSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEE
-# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRCAw5TPsXZeohOauU1f0QdvcXUkzANBgkq
-# hkiG9w0BAQEFAASCAQAY38W+KG14lNa1rNWMI2wmMXaduj9HkjOjqdSbJr/O1QW4
-# BWt/SYD8xabcXOlvFwSU0K0Xv68AX21vNH/N9qqIquuULnqArdZLqOPhSS4UJUeE
-# XfOWVejtqWeXeEEJ/8sZdP1HUC5AQvXBBGkNspqa+iCHD76FeJze0ATNH3gUgbsK
-# siRGLQlVHFRv9lB/kkESPI5o7podcpl8sbGBEl6NokUpCd2WwxdK3cCHqjbiOQuC
-# XA1Sg+hshW8P2OK/68iJj7TQ7uwG6L/ktJoPDyeyEXMAZtcEiyEHPn2JgRA6Ll0G
-# yQ2syHwUV3UwpKCZYusW2D1asq233Y65px4aSsMx
+# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQeqDlF3FUJkss7zHWLfRNIfLPIoDANBgkq
+# hkiG9w0BAQEFAASCAQC8Ji0NTauwjsmo2XwN+MOrkAouX+3Hivg2SQjR1j0ayi2c
+# qiocrTtWFm3WQasXE6lsEcDr0f/8Vx2KrvuSjsWkn8RhQUoauOTR4lTaFoxl22RE
+# lVxfFn98lSmNDYAMnLwz1fSvYJpNeGPQXM1Gfrjm3XiruVBCN5gpyAntayzOP9jk
+# Sm4DEqnSK3cwqF3i2N8+yg4LTitr+Evl/tc3/887cIQKwnTxZP2ee5zY0wWjkShu
+# GFoL2VkH7VhSMCZxLW4BUVsl3vvjZTKQHBnm0IThXpPxxz9wKUVDscW8eQ5fWbAW
+# LGX4TM4i8BWvZPwcT+jayWGnz6z92Z7MUnbZJ/aV
 # SIG # End signature block
