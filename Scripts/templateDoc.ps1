@@ -137,11 +137,14 @@ Param(
 
     New-WordInstance 
     New-WordDocument
-    if ($TemplateFile) {
+
+    if ($TemplateFile) 
+    {
         Add-WordTemplate -filename $TemplateFile
     }
 
-    if($section.CoverPage) { 
+    if($section.CoverPage) 
+    { 
         
         #Add Coverpage
         for ($i = 0; $i -lt 18; $i++) { Add-WordBreak -breaktype Paragraph }
@@ -156,15 +159,24 @@ Param(
 
         $pagewidth = (get-worddocument).pagesetup.pagewidth
         $pageheight = (get-worddocument).pagesetup.pageheight
-        add-wordshape -shape msoShapeRectangle -left 0 -top 0 -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -UserPicture "http://source.unsplash.com/YXemfQiPR_E/800x600" -PictureEffect msoEffectChalkSketch
+        add-wordshape -shape msoShapeRectangle -left 0 -top 0 -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -UserPicture "http://source.unsplash.com/YXemfQiPR_E/800x600" -PictureEffect msoEffectPaintBrush
         add-wordshape -shape msoShapeRectangle -left 0 -top ($pageheight/2) -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -themecolor msoThemeColorDark1
 
-        Add-WordBreak -breaktype NewPage
+        #Fixes to implement into modules 
+        #set to RelativeVerticalPosition
+        #(Get-WordDocument).Shapes(1).RelativeVerticalPosition = 1
+        #(Get-WordDocument).Shapes(2).RelativeVerticalPosition = 1
+        #(Get-WordDocument).Shapes(1).RelativeHorizontalPosition  = 1
+        #(Get-WordDocument).Shapes(2).RelativeHorizontalPosition = 1
+        (Get-WordDocument).Shapes(1).LockAnchor = -1
+        (Get-WordDocument).Shapes(2).LockAnchor = -1
+
+        Add-WordBreak -breaktype Section
 
         #AddLicense
-        $license = "MIT License`nCopyright (c) 2016-2018 Shane Hoey`rPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:`nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.`nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
         Add-WordBreak -breaktype Paragraph
-        Add-WordText -text 'This document has been created with wordDoc which has been distributed under the MIT license. For more information visit http://shanehoey.github.io/worddoc/' -WDBuiltinStyle wdStyleBookTitle
+        Add-WordText -text 'This document has been created with wordDoc which has been distributed under the MIT license. For more information visit http://shanehoey.github.io/worddoc/' -Align wdAlignParagraphJustify
+        $license = "MIT License`nCopyright (c) 2016-2018 Shane Hoey`rPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:`nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.`nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
         Add-WordText -text $license -WDBuiltinStyle wdStyleNormal -Bold -Align wdAlignParagraphJustify
         #Add Shameless Plug
         for ($i = 0; $i -lt 3; $i++) 
@@ -176,6 +188,7 @@ Param(
         #Table of Contents
         Add-WordBreak -breaktype NewPage
         Add-WordText -text 'Contents' -WDBuiltinStyle wdStyleTOCHeading -TextColor wdColorBlack
+
         Add-WordTOC 
         Add-WordBreak -breaktype NewPage
 
@@ -191,7 +204,8 @@ Param(
     if ($section.Overview) 
     {
         Add-WordText "Overview" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
-        if($section.DesignText) { $designtext.textOverview | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } }
+        Add-WordBreak -breaktype Paragraph
+        if($section.DesignText) { $designtext.textOverview | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal -Align wdAlignParagraphJustify } }
         Add-WordBreak -breaktype NewPage
     }
 
@@ -199,44 +213,53 @@ Param(
     {
         
         Add-WordText "Example One" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
+        Add-WordBreak Paragraph
         if($section.DesignText) 
         {   
-            $DesignText.textExample1 | ForEach-Object { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
+            $DesignText.textExample1 | ForEach-Object { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal  -Align wdAlignParagraphJustify  } 
+            Add-WordBreak Paragraph
             $DesignText.tableExample1 | foreach-object { Add-WordTable -Object $_  -GridTable 'Grid Table 4' -GridAccent 'Accent 3' -WdAutoFitBehavior wdAutoFitWindow } 
         }
         else 
         {
             Add-WordText -text "Design Text not Downloaded"  -WDBuiltinStyle wdStyleIntenseQuote -TextColor wdColorBlack
         }
-        
+        Add-WordBreak NewPage
+
         Add-WordText "Example Two" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
+        Add-WordBreak Paragraph
         if($section.DesignText) 
         { 
-            $designtext.textExample2 | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
+            $designtext.textExample2 | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal  -Align wdAlignParagraphJustify  } 
+            Add-WordBreak Paragraph
             $DesignText.tableExample2 | foreach-object { Add-WordTable -Object $_ -GridTable 'Grid Table 4' -GridAccent 'Accent 3' -WdAutoFitBehavior wdAutoFitWindow } 
         }
         else 
         {
             Add-WordText -text "Design Text not Downloaded"  -WDBuiltinStyle wdStyleIntenseQuote -TextColor wdColorBlack
         }
+        Add-WordBreak NewPage
 
         Add-WordText "Example Three" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
+        Add-WordBreak Paragraph
         if($section.DesignText) 
         { 
-            $designtext.textExample3 | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal } 
+            $designtext.textExample3 | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal  -Align wdAlignParagraphJustify  } 
         }
         else 
         {
             Add-WordText -text "Design Text not Downloaded" -TextColor wdColorBlack -WDBuiltinStyle wdStyleIntenseQuote 
         }
+        Add-WordBreak Paragraph
         Add-WordTable -Object (get-service -Name "A*" | Select-object name,status) -GridTable 'Grid Table 4' -GridAccent 'Accent 3'  -WdAutoFitBehavior wdAutoFitWindow 
     }
-
-    if ($section.EndPage)  {
+    
+    if ($section.EndPage)  
+    {
      
     
       Add-WordBreak -breaktype NewPage  
-      for ($i = 0; $i -lt 18; $i++) { Add-WordBreak -breaktype Paragraph }
+      for ($i = 0; $i -lt 16; $i++) { Add-WordBreak -breaktype Paragraph }
       $fa_github  = [char]0xf09b
       $fontawesometext = "Font Awesome 5 Brands Regular"
       add-wordtext  -text $fa_github -Font $fontawesometext -Size 18 -NoParagraph -TextColor wdColorWhite
@@ -251,3 +274,4 @@ Param(
     
     Update-WordTOC
     Save-WordDocument 
+    Close-WordDocument -SaveOptions wdDoNotSaveChanges
