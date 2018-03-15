@@ -1042,6 +1042,7 @@ function Add-WordText {
         [Microsoft.Office.Interop.Word.WdColor]$TextColor,
         [switch]$Underline,
         [string]$Font,
+        [Microsoft.Office.Interop.Word.WdParagraphAlignment]$Align,
 
         [switch]$NoParagraph,
 
@@ -1072,6 +1073,8 @@ function Add-WordText {
             if ($PSBoundParameters.ContainsKey('Underline')) { $WordDocument.Application.Selection.Font.Underline = $true }
             if ($PSBoundParameters.ContainsKey('TextColor')) { $WordDocument.Application.Selection.font.Color = $TextColor.value__ }
             if ($PSBoundParameters.ContainsKey('Font')) { if ($worddocument.application.FontNames -contains $font) { $worddocument.Application.Selection.font.name = $Font } }
+            if ($PSBoundParameters.ContainsKey('Align')) { $worddocument.Application.Selection.ParagraphFormat.Alignment = $align } 
+
             $WordDocument.Application.Selection.TypeText("$($text)")
             if (!($noparagraph)) { $WordDocument.Application.Selection.TypeParagraph() }
             
