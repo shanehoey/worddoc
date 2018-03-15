@@ -4,31 +4,21 @@ break
 ## DO NOT USE 
 
 ### This file just a scrath file for testing 
+yhings to include ~
+$worddocument.application.Selection.InlineShapes.AddHorizontalLineStandard()
+$worddocument.application.Selection.InlineShapes.AddHorizontalLine()
 
-Set-Location .\worddoc
-
-Import-Module .\WordDoc\WordDoc.psd1 
-Import-Module .\WordDoc\WordDoc.psd1 -Force
-
-Import-Module .\WordDoc\WordDoc.psm1
-Import-Module .\WordDoc\WordDoc.psm1 -Force 
-
-remove-Module WordDoc
-
-New-WordInstance
-get-WordInstance
-
-New-WordDocument
-New-WordDocument
+$a = $worddocument.Shapes.Addtextbox(1,1,100,100)
+$a.Fill.BackColor
+$worddocument.application.selection.ShapeRange | GM 
 
 
 [Enum]::GetNames([Microsoft.Office.Interop.Word.WdPageColor]) 
 
-[Enum]::GetNames([Microsoft.Office.Interop.Word.WdSaveFormat ]) 
-[Enum]::GetNames([Microsoft.Office.Interop.Word.WdSaveOptions ]) 
+[Enum]::GetNames([Microsoft.Office.Interop.Word.WdSaveFormat]) 
+[Enum]::GetNames([Microsoft.Office.Interop.Word.WdSaveOptions]) 
 
-
-$document.Styles | select NameLocal
+[Enum]::GetNames([Microsoft.Office.Interop.Word.WdParagraphAlignment])
 
 
 [enum]::GetNames([microsoft.office.interop.word])
@@ -41,7 +31,7 @@ $document.Styles | select NameLocal
 
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdTableFormat])
 
-[Microsoft.Office.Interop.Word.WdArabicNumeral
+[Microsoft.Office.Interop.Word.WdArabicNumeral]
 [Microsoft.Office.Interop.Word.WdAraSpeller
 [Microsoft.Office.Interop.Word.WdArrangeStyle
 [Microsoft.Office.Interop.Word.WdAutoFitBehavior
@@ -83,3 +73,4 @@ $table.style = [Microsoft.Office.Interop.Word.WdTableFormat]"wdTableFormatList5"
 $table.linkstyle = [Microsoft.Office.Interop.Word.WdTableFormat]"wdTableFormatList5"
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdTableFormatApply])
 [enum]::GetNames([Microsoft.Office.Interop.Word.WdTablePosition])
+

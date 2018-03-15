@@ -18,24 +18,33 @@ Set-AuthenticodeSignature -filepath ".\WordDoc\worddoc.psd1" -Certificate $cert
 Set-AuthenticodeSignature -filepath ".\WordDoc\worddoc.psm1" -Certificate $cert
 (Get-AuthenticodeSignature -FilePath ".\WordDoc\worddoc.psm1").Status
 
-Test-ModuleManifest -path ".\WordDoc\WordDoc.psd1"
+Test-ModuleManifest -path ".\WordDoc\WordDoc.psd1" | select -expand ExportedCommands | Fl
 
 Remove-Module WordDoc -ErrorAction SilentlyContinue
-Import-Module .\WordDoc\WordDoc.psd1 
+Import-Module .\WordDoc\WordDoc.psm1 
+
+get-command -Module WordDoc | select name,version
 
 New-WordInstance
 New-WordDocument
 
 $fa_github  = [char]0xf09b
 $fontawesometext = "Font Awesome 5 Brands Regular"
-add-wordtext  -text $fa_github -Font $fontawesometext -Size 45 -NoParagraph
-add-wordtext "https://shanehoey.github.io/worddoc/"
+add-wordtext  -text $fa_github -Font $fontawesometext -Size 45 -NoParagraph -TextColor wdColorAqua
+add-wordtext "https://shanehoey.github.io/worddoc/" -TextColor wdColorAqua
+
+$pagewidth = (get-worddocument).pagesetup.pagewidth
+$pageheight = (get-worddocument).pagesetup.pageheight
+add-wordshape -shape msoShapeRectangle -left 0 -top 0 -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -UserPicture "http://source.unsplash.com/random" -PictureEffect msoEffectCement 
+add-wordshape -shape msoShapeRectangle -left 0 -top ($pageheight/2) -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -themecolor msoThemeColorDark1
+
+
 
 Close-WordDocument -SaveOptions wdDoNotSaveChanges
 Close-WordDocument
 Close-WordInstance
 
-get-command -Module WordDoc | select name,version
+
 
 #Manually run these 
 . .\Scripts\example-1-simple.ps1
