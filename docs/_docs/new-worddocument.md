@@ -29,7 +29,7 @@ New-WordDocument [[-WordInstance] <Application>] [-returnobject] [<CommonParamet
 PS C:\>New-WordDocument -WordInstance Value -WordDocObject
 ```
 
-Describe what this call does
+
 
 
 ## PARAMETERS

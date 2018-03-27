@@ -16,7 +16,8 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Add-WordTemplate [[-filename] <String>] [-WordDocument <Document>] [<CommonParameters>]
+Add-WordTemplate [[-filename] <String>] [-WordDocument <Document>] 
+[<CommonParameters>]
 ```
 
 

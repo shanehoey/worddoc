@@ -16,24 +16,45 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] 
-[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-WDTableFormat {wdTableFormatNone | wdTableFormatSimple1 | wdTableFormatSimple2 | wdTableFormatSimple3 | wdTableFormatClassic1 
-| wdTableFormatClassic2 | wdTableFormatClassic3 | wdTableFormatClassic4 | wdTableFormatColorful1 | wdTableFormatColorful2 | wdTableFormatColorful3 | wdTableFormatColumns1 | wdTableFormatColumns2 | wdTableFormatColumns3 | 
-wdTableFormatColumns4 | wdTableFormatColumns5 | wdTableFormatGrid1 | wdTableFormatGrid2 | wdTableFormatGrid3 | wdTableFormatGrid4 | wdTableFormatGrid5 | wdTableFormatGrid6 | wdTableFormatGrid7 | wdTableFormatGrid8 | 
-wdTableFormatList1 | wdTableFormatList2 | wdTableFormatList3 | wdTableFormatList4 | wdTableFormatList5 | wdTableFormatList6 | wdTableFormatList7 | wdTableFormatList8 | wdTableFormat3DEffects1 | wdTableFormat3DEffects2 | 
-wdTableFormat3DEffects3 | wdTableFormatContemporary | wdTableFormatElegant | wdTableFormatProfessional | wdTableFormatSubtle1 | wdTableFormatSubtle2 | wdTableFormatWeb1 | wdTableFormatWeb2 | wdTableFormatWeb3}] 
-[-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDocument <Document>] [<CommonParameters>]
+Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | 
+wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | 
+wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] [-BandedRow 
+<Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] 
+[-WDTableFormat {wdTableFormatNone | wdTableFormatSimple1 | wdTableFormatSimple2 | 
+wdTableFormatSimple3 | wdTableFormatClassic1 | wdTableFormatClassic2 | 
+wdTableFormatClassic3 | wdTableFormatClassic4 | wdTableFormatColorful1 | 
+wdTableFormatColorful2 | wdTableFormatColorful3 | wdTableFormatColumns1 | 
+wdTableFormatColumns2 | wdTableFormatColumns3 | wdTableFormatColumns4 | 
+wdTableFormatColumns5 | wdTableFormatGrid1 | wdTableFormatGrid2 | wdTableFormatGrid3 
+| wdTableFormatGrid4 | wdTableFormatGrid5 | wdTableFormatGrid6 | wdTableFormatGrid7 | 
+wdTableFormatGrid8 | wdTableFormatList1 | wdTableFormatList2 | wdTableFormatList3 | 
+wdTableFormatList4 | wdTableFormatList5 | wdTableFormatList6 | wdTableFormatList7 | 
+wdTableFormatList8 | wdTableFormat3DEffects1 | wdTableFormat3DEffects2 | 
+wdTableFormat3DEffects3 | wdTableFormatContemporary | wdTableFormatElegant | 
+wdTableFormatProfessional | wdTableFormatSubtle1 | wdTableFormatSubtle2 | 
+wdTableFormatWeb1 | wdTableFormatWeb2 | wdTableFormatWeb3}] [-RemoveProperties] 
+[-VerticleTable] [-NoParagraph] [-WordDocument <Document>] [<CommonParameters>]
 
-Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] 
-[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-PlainTable <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDocument <Document>] [<CommonParameters>]
+Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | 
+wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | 
+wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] [-BandedRow 
+<Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] 
+[-PlainTable <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] 
+[-WordDocument <Document>] [<CommonParameters>]
 
-Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] 
-[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-GridTable <String>] [-GridAccent <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDocument <Document>] 
-[<CommonParameters>]
+Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | 
+wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | 
+wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] [-BandedRow 
+<Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] 
+[-GridTable <String>] [-GridAccent <String>] [-RemoveProperties] [-VerticleTable] 
+[-NoParagraph] [-WordDocument <Document>] [<CommonParameters>]
 
-Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] 
-[-BandedRow <Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] [-ListTable <String>] [-ListAccent <String>] [-RemoveProperties] [-VerticleTable] [-NoParagraph] [-WordDocument <Document>] 
-[<CommonParameters>]
+Add-WordTable [-Object] <PSObject> [-WdAutoFitBehavior {wdAutoFitFixed | 
+wdAutoFitContent | wdAutoFitWindow}] [-WdDefaultTableBehavior {wdWord8TableBehavior | 
+wdWord9TableBehavior}] [-HeaderRow <Boolean>] [-TotalRow <Boolean>] [-BandedRow 
+<Boolean>] [-FirstColumn <Boolean>] [-LastColumn <Boolean>] [-BandedColumn <Boolean>] 
+[-ListTable <String>] [-ListAccent <String>] [-RemoveProperties] [-VerticleTable] 
+[-NoParagraph] [-WordDocument <Document>] [<CommonParameters>]
 ```
 
 

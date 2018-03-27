@@ -16,7 +16,8 @@ Create a new Break (newpage,section or paragraph)
 ## SYNTAX
 
 ```
-Add-WordBreak [-breaktype <String>] [-WordInstance <Application>] [-WordDocument <Document>] [<CommonParameters>]
+Add-WordBreak [-breaktype <String>] [-WordInstance <Application>] [-WordDocument 
+<Document>] [<CommonParameters>]
 ```
 
 

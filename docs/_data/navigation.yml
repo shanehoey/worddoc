@@ -17,6 +17,8 @@ docs:
         url: /docs/add-wordbreak
       - title: "add-wordcoverpage"
         url: /docs/add-wordcoverpage/
+      - title: "add-wordshape"
+        url: /docs/add-wordshape/
       - title: "add-wordtable"
         url: /docs/add-wordtable/
       - title: "add-wordtemplate"

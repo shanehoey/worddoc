@@ -16,7 +16,8 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Add-WordCoverPage [[-CoverPage] <String>] [-WordInstance <Application>] [-WordDocument <Document>] [<CommonParameters>]
+Add-WordCoverPage [[-CoverPage] <String>] [-WordInstance <Application>] 
+[-WordDocument <Document>] [<CommonParameters>]
 ```
 
 

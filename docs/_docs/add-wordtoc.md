@@ -16,7 +16,8 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Add-WordTOC [[-WordInstance] <Application>] [[-WordDocument] <Document>] [[-Tableader] <Int32>] [[-IncludePageNumbers] <Int32>] [<CommonParameters>]
+Add-WordTOC [[-WordInstance] <Application>] [[-WordDocument] <Document>] 
+[[-Tableader] <Int32>] [[-IncludePageNumbers] <Int32>] [<CommonParameters>]
 ```
 
 

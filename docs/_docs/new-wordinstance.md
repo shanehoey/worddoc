@@ -16,7 +16,8 @@ The New-WordInstance function starts a new instance of MS Word.
 ## SYNTAX
 
 ```
-New-WordInstance [-returnobject] [[-Visable] <Boolean>] [<CommonParameters>]
+New-WordInstance [[-WindowState] {wdWindowStateNormal | wdWindowStateMaximize | 
+wdWindowStateMinimize}] [[-Visible] <Boolean>] [-ReturnObject] [<CommonParameters>]
 ```
 
 
@@ -26,10 +27,10 @@ New-WordInstance [-returnobject] [[-Visable] <Boolean>] [<CommonParameters>]
 
 
 ```
-PS C:\>New-WordInstance -Visable True
+PS C:\>New-WordInstance -WindowState wdWindowStateMaximize -Visable True
 ```
 
-Create a new Word Instance that is visable
+Create a new Word Instance that is maximised and is visable.
 
 ### -------------------------- EXAMPLE 2 --------------------------
 
@@ -38,35 +39,35 @@ Create a new Word Instance that is visable
 PS C:\>New-WordInstance -Visable False
 ```
 
-Create a new Word Instance that is hidden
+Create a new Word Instance that is hidden.
 
 ### -------------------------- EXAMPLE 3 --------------------------
 
 
 ```
-PS C:\>$wi = New-WordInstance -wordinstanceobject
+PS C:\>$wi = New-WordInstance -ReturnObject
 ```
 
-Create a word instance that is stored in a local variable
+Create a word instance that is stored in a local variable.
 
 
 ## PARAMETERS
 
-### returnobject
+### WindowState
 
-When used the function will return the Word Instance as an Object to be stored in a variable in the local shell. 
-If using this method you must use worddocobject as well, and manually parse these objects to all functions.
+Set the MS Word application wdWindowStateMaximize, wdWindowStateMinimize, 
+wdWindowStateNormal
 
 ```
-Type SwitchParameter
+Type WdWindowState
 Parameter Sets: 
 Aliases: 
 Required: false
-Position: named
-Default Value:False
+Position: 1
+Default Value:wdWindowStateMaximize
 Accept pipeline input: false
 ```
-### Visable
+### Visible
 
 Makes MS Word application Visable or Hidden
 
@@ -75,8 +76,24 @@ Type Boolean
 Parameter Sets: 
 Aliases: 
 Required: false
-Position: 1
+Position: 2
 Default Value:True
+Accept pipeline input: false
+```
+### ReturnObject
+
+When used the function will return the Word Instance as an Object to be stored in a 
+variable in the local shell. 
+If using this method you must use worddocobject as well, and manually parse these 
+objects to all functions.
+
+```
+Type SwitchParameter
+Parameter Sets: 
+Aliases: 
+Required: false
+Position: named
+Default Value:False
 Accept pipeline input: false
 ```
 ### CommonParameters

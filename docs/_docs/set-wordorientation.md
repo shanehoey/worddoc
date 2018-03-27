@@ -16,7 +16,8 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Set-WordOrientation [-Orientation] <String> [-WordInstance <Application>] [<CommonParameters>]
+Set-WordOrientation [-Orientation] <String> [-WordInstance <Application>] 
+[<CommonParameters>]
 ```
 
 

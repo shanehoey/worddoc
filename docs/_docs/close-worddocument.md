@@ -16,7 +16,10 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Close-WordDocument [[-WordInstance] <Application>] [[-WordDocument] <Document>] [<CommonParameters>]
+Close-WordDocument [[-SaveOptions] {wdDoNotSaveChanges | wdPromptToSaveChanges | 
+wdSaveChanges}] [[-OriginalFormat] {wdWordDocument | wdOriginalDocumentFormat | 
+wdPromptUser}] [[-WordDocument] <Document>] [[-WordInstance] <Application>] 
+[<CommonParameters>]
 ```
 
 
@@ -34,17 +37,30 @@ Describe what this call does
 
 ## PARAMETERS
 
-### WordInstance
+### SaveOptions
 
-Describe parameter -WordInstance.
+
 
 ```
-Type Application
+Type WdSaveOptions
 Parameter Sets: 
 Aliases: 
 Required: false
 Position: 1
-Default Value:$Script:WordInstance
+Default Value:wdPromptToSaveChanges
+Accept pipeline input: false
+```
+### OriginalFormat
+
+Describe parameter -wdPromptUser.
+
+```
+Type WdOriginalFormat
+Parameter Sets: 
+Aliases: 
+Required: false
+Position: 2
+Default Value:wdPromptUser
 Accept pipeline input: false
 ```
 ### WordDocument
@@ -56,8 +72,21 @@ Type Document
 Parameter Sets: 
 Aliases: 
 Required: false
-Position: 2
+Position: 3
 Default Value:$Script:WordDocument
+Accept pipeline input: false
+```
+### WordInstance
+
+Describe parameter -WordInstance.
+
+```
+Type Application
+Parameter Sets: 
+Aliases: 
+Required: false
+Position: 4
+Default Value:$Script:WordInstance
 Accept pipeline input: false
 ```
 ### CommonParameters

@@ -203,6 +203,7 @@ Param(
 
     if ($section.Overview) 
     {
+        $header = Get-WordDocument
         Add-WordText "Overview" -WDBuiltinStyle wdStyleHeading1 -TextColor wdColorBlack
         Add-WordBreak -breaktype Paragraph
         if($section.DesignText) { $designtext.textOverview | ForEach-Object  { Add-wordtext -text $_ -WDBuiltinStyle wdStyleNormal -Align wdAlignParagraphJustify } }

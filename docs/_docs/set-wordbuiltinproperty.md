@@ -16,10 +16,16 @@ Add a more complete description of what the function does.
 ## SYNTAX
 
 ```
-Set-WordBuiltInProperty [-WdBuiltInProperty] {wdPropertyTitle | wdPropertySubject | wdPropertyAuthor | wdPropertyKeywords | wdPropertyComments | wdPropertyTemplate | wdPropertyLastAuthor | wdPropertyRevision | 
-wdPropertyAppName | wdPropertyTimeLastPrinted | wdPropertyTimeCreated | wdPropertyTimeLastSaved | wdPropertyVBATotalEdit | wdPropertyPages | wdPropertyWords | wdPropertyCharacters | wdPropertySecurity | wdPropertyCategory | 
-wdPropertyFormat | wdPropertyManager | wdPropertyCompany | wdPropertyBytes | wdPropertyLines | wdPropertyParas | wdPropertySlides | wdPropertyNotes | wdPropertyHiddenSlides | wdPropertyMMClips | wdPropertyHyperlinkBase | 
-wdPropertyCharsWSpaces} [-text] <String> [-WordDocument <Document>] [<CommonParameters>]
+Set-WordBuiltInProperty [-WdBuiltInProperty] {wdPropertyTitle | wdPropertySubject | 
+wdPropertyAuthor | wdPropertyKeywords | wdPropertyComments | wdPropertyTemplate | 
+wdPropertyLastAuthor | wdPropertyRevision | wdPropertyAppName | 
+wdPropertyTimeLastPrinted | wdPropertyTimeCreated | wdPropertyTimeLastSaved | 
+wdPropertyVBATotalEdit | wdPropertyPages | wdPropertyWords | wdPropertyCharacters | 
+wdPropertySecurity | wdPropertyCategory | wdPropertyFormat | wdPropertyManager | 
+wdPropertyCompany | wdPropertyBytes | wdPropertyLines | wdPropertyParas | 
+wdPropertySlides | wdPropertyNotes | wdPropertyHiddenSlides | wdPropertyMMClips | 
+wdPropertyHyperlinkBase | wdPropertyCharsWSpaces} [-text] <String> [-WordDocument 
+<Document>] [<CommonParameters>]
 ```
 
 
