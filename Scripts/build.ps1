@@ -8,7 +8,7 @@ $NuGetApiKey
 $cert = Get-ChildItem Cert:\CurrentUser\My -CodeSigningCert
 $cert | format-table subject,issuer
 
-$version = "1.2.1"
+$version = "1.2.2"
 
 Update-ModuleManifest -Path ".\WordDoc\WordDoc.psd1" -ModuleVersion $version
 
@@ -33,10 +33,22 @@ $fontawesometext = "Font Awesome 5 Brands Regular"
 add-wordtext  -text $fa_github -Font $fontawesometext -Size 45 -NoParagraph -TextColor wdColorAqua
 add-wordtext "https://shanehoey.github.io/worddoc/" -TextColor wdColorAqua
 
+$worddocumment=Get-WordDocument
+[Microsoft.Office.Core.MsoAutoShapeType]$shape = "msoShapeRectangle"
+
+
 $pagewidth = (get-worddocument).pagesetup.pagewidth
 $pageheight = (get-worddocument).pagesetup.pageheight
+
+$newshape = $worddocument.shapes.AddShape($shape,0,0,$pagewidth,$pageheight)
+$newshape.Line.Weight =10
+$newshape.line.Visible = 0
+
+
+
+
 add-wordshape -shape msoShapeRectangle -left 0 -top 0 -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -UserPicture "http://source.unsplash.com/random" -PictureEffect msoEffectCement 
-add-wordshape -shape msoShapeRectangle -left 0 -top ($pageheight/2) -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -themecolor msoThemeColorDark1
+add-wordshape -shape msoShapeRectangle -left 0 -top ($pageheight/2) -Width $pagewidth -Height ($pageheight/2) -zorder msoSendBehindText -themecolor msoThemeColorDark1 
 
 
 

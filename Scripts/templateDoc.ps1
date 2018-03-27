@@ -168,8 +168,8 @@ Param(
         #(Get-WordDocument).Shapes(2).RelativeVerticalPosition = 1
         #(Get-WordDocument).Shapes(1).RelativeHorizontalPosition  = 1
         #(Get-WordDocument).Shapes(2).RelativeHorizontalPosition = 1
-        (Get-WordDocument).Shapes(1).LockAnchor = -1
-        (Get-WordDocument).Shapes(2).LockAnchor = -1
+        #(Get-WordDocument).Shapes(1).LockAnchor = -1
+        #(Get-WordDocument).Shapes(2).LockAnchor = -1
 
         Add-WordBreak -breaktype Section
 
