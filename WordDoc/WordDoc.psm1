@@ -462,7 +462,7 @@ function Save-WordDocument {
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)" }
         }
     End { Write-Verbose -Message "[End] *** $($Myinvocation.InvocationName) ***"   }
-}
+    }
 
 function Close-WordDocument {
   <#
@@ -524,7 +524,7 @@ function Close-WordDocument {
         }
     }
     End { Write-Verbose -Message "End    : $($Myinvocation.InvocationName)" }
-}
+    }
 
 function Add-WordBreak {
   <#
@@ -1089,7 +1089,8 @@ function Add-WordText {
     End { 
         Write-Verbose -Message "End    : $($Myinvocation.InvocationName)" 
     }
-}
+    }
+
 function Add-WordShape {
   
       [CmdletBinding()]
@@ -1142,6 +1143,42 @@ function Add-WordShape {
         [Parameter(Mandatory=$false,ParameterSetName = "themecolor")]
         [Parameter(Mandatory=$false,ParameterSetName = "UserPicture")]
         [Parameter(Mandatory=$false,ParameterSetName = "PresetTexture")]
+        [int]$Lineweight=0,
+
+        [Parameter(Mandatory=$false,ParameterSetName = "Default")]
+        [Parameter(Mandatory=$false,ParameterSetName = "themecolor")]
+        [Parameter(Mandatory=$false,ParameterSetName = "UserPicture")]
+        [Parameter(Mandatory=$false,ParameterSetName = "PresetTexture")]
+        [int]$LineStyle=1,
+
+        [Parameter(Mandatory=$false,ParameterSetName = "Default")]
+        [Parameter(Mandatory=$false,ParameterSetName = "themecolor")]
+        [Parameter(Mandatory=$false,ParameterSetName = "UserPicture")]
+        [Parameter(Mandatory=$false,ParameterSetName = "PresetTexture")]
+        [Switch]$LineVisible,
+
+        [Parameter(Mandatory=$false,ParameterSetName = "Default")]
+        [Parameter(Mandatory=$false,ParameterSetName = "themecolor")]
+        [Parameter(Mandatory=$false,ParameterSetName = "UserPicture")]
+        [Parameter(Mandatory=$false,ParameterSetName = "PresetTexture")]
+        [switch]$RelativeVerticalPosition,
+
+        [Parameter(Mandatory=$false,ParameterSetName = "Default")]
+        [Parameter(Mandatory=$false,ParameterSetName = "themecolor")]
+        [Parameter(Mandatory=$false,ParameterSetName = "UserPicture")]
+        [Parameter(Mandatory=$false,ParameterSetName = "PresetTexture")]
+        [switch]$RelativeHorizontalPosition,
+
+        [Parameter(Mandatory=$false,ParameterSetName = "Default")]
+        [Parameter(Mandatory=$false,ParameterSetName = "themecolor")]
+        [Parameter(Mandatory=$false,ParameterSetName = "UserPicture")]
+        [Parameter(Mandatory=$false,ParameterSetName = "PresetTexture")]
+        [switch]$LockPosition,
+
+        [Parameter(Mandatory=$false,ParameterSetName = "Default")]
+        [Parameter(Mandatory=$false,ParameterSetName = "themecolor")]
+        [Parameter(Mandatory=$false,ParameterSetName = "UserPicture")]
+        [Parameter(Mandatory=$false,ParameterSetName = "PresetTexture")]
         [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance,
         
         [Parameter(Mandatory=$false,ParameterSetName = "Default")]
@@ -1167,8 +1204,19 @@ function Add-WordShape {
            if ($PSBoundParameters.ContainsKey('UserPicture')) { $newshape.fill.UserPicture($UserPicture) }
            if ($PSBoundParameters.ContainsKey('PictureEffect')) { $newshape.fill.PictureEffects.Insert($PictureEffect) }
            if ($PSBoundParameters.ContainsKey('PresetTexture')) { $newshape.fill.UserTextured($PresetTexture) }
-            #todo make this configuriable
-            $newshape.Line.Weight = 0
+           if ($PSBoundParameters.ContainsKey('LineVisible')) { $newshape.Line.Visible = -1 } else { $newshape.Line.Visible = 0 }
+           if ($PSBoundParameters.ContainsKey('Lineweight')) { $newshape.Line.Weight = $Lineweight } else { $newshape.Line.Weight = 0 }
+           if ($PSBoundParameters.ContainsKey('LineStyle')) { $newshape.Line.Style = $LineStyle } else { $newshape.Line.Style = 1 }
+           if ($PSBoundParameters.ContainsKey('RelativeVerticalPosition')) { $newshape.RelativeVerticalPosition = 1 }
+           if ($PSBoundParameters.ContainsKey('RelativeHorizontalPosition')) { $newshape.RelativeHorizontalPosition = 1 }
+           if ($PSBoundParameters.ContainsKey('LockPosition')) { $newshape.LockAnchor = 1 }
+            
+
+           #(Get-WordDocument).shapes(1).fill.forecolor.objectthemecolor =9
+           #(Get-WordDocument).shapes(1).fill.backcolor.objectthemecolor =4
+           #(Get-WordDocument).shapes(1).line.forecolor.objectthemecolor =9
+           #(Get-WordDocument).shapes(1).line.fill.backcolor.objectthemecolor =4
+
           }
           catch {
               Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"
@@ -1464,8 +1512,8 @@ function Set-WordOrientation {
 # SIG # Begin signature block
 # MIINCgYJKoZIhvcNAQcCoIIM+zCCDPcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUyrBsvhEPTOTrJSN2uvpGfgL1
-# tJqgggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUGcYusbpbs0Cn5xwVYnzCFYUe
+# x8agggpMMIIFFDCCA/ygAwIBAgIQDq/cAHxKXBt+xmIx8FoOkTANBgkqhkiG9w0B
 # AQsFADByMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
 # VQQLExB3d3cuZGlnaWNlcnQuY29tMTEwLwYDVQQDEyhEaWdpQ2VydCBTSEEyIEFz
 # c3VyZWQgSUQgQ29kZSBTaWduaW5nIENBMB4XDTE4MDEwMzAwMDAwMFoXDTE5MDEw
@@ -1525,11 +1573,11 @@ function Set-WordOrientation {
 # Q2VydCBTSEEyIEFzc3VyZWQgSUQgQ29kZSBTaWduaW5nIENBAhAOr9wAfEpcG37G
 # YjHwWg6RMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkG
 # CSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEE
-# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQ6N/GyBDg1lUo09zBihI/qMwfPhDANBgkq
-# hkiG9w0BAQEFAASCAQAh8aJhhKhyZaisg8quFyTTtobaYMqK62ef47b8ZtZa9nWL
-# d7i260G677yYzzgJqDsOuSDlGcm7ocqUNtVcpRAhERTQ7G3946yCBx0XuijbPms2
-# it45Y7w9C4LULr13lQbwyi0BGpsUkOsaNCk5p5bPIXiKUAlaDEnBCWq+TqiI52Ac
-# tH0eoUuo/f78h9baP9znFUvfKMGAjifv79xrnSrqnw4JHG9VKXv03KBCLf/Ddf/A
-# QBkqxYwDeWaJDntX7Tcp4buMqG6vYRGPJYRVnoMbxu5ZJpkTegc6jl7YFdbTJR/C
-# XPK6bYiV2UE1XQV2jsoiYdHflBHlRhGX5uQugjXi
+# AYI3AgEVMCMGCSqGSIb3DQEJBDEWBBS9aY1g+QX9xXZFyDflWQYmjjuJSDANBgkq
+# hkiG9w0BAQEFAASCAQBDvYDYTRtrz+Tn6E4j6wxURT5lJygrl4E4i0CDSop4rDcf
+# 8yirDn5VRa8R7KZ8hB5Xn+XSULZhAi+KOJo0TYaWbcvFhXhaZzebmCRkF9CEUmb6
+# aQhinlMkxkZna3F6yCXuft2VXhX2D2wDsGCCO1GIGIjBwg+bnzwy51VuurtPwJSP
+# 1p/f6Jdh++G+fduiZ8dCVVMuHgsimXFs0ovQhuBmhFoRaoOQ+xa5GTh0xGeI13gm
+# 0t0n+/u22OFT1VTI7p2vA4ZmrFh9bi7apqOSYgFnMg3MoxpGQhsIGBkw48eLnQ7b
+# Mno/ELY497FBTD1MIkIRg0KE/oBGdBY3ZxL7BZgm
 # SIG # End signature block
