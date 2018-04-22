@@ -12,7 +12,7 @@ layout: single2
 |1.1.0 | 2017 | Minor updates to functions |
 |1.2.0 | Jan 2018 | Minor updates that may include Breaking Changes |
 |1.2.1 | March 2018 | Minor updates that may include Breaking Changes |
-|1.2.2 | TBA | Minor updates |
+|1.2.2 | TBA | Minor updates **Not yet published!**|
 
 **1.2.2 Features**
  - Added Absolute/Relative parameters to add-wordshape
