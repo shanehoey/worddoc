@@ -16,6 +16,8 @@ layout: single2
 
 **1.2.2 Features**
  - Added Absolute/Relative parameters to add-wordshape
+ - Added ability to add theme to add-wordShape when downloading a picture
+ - Fixed Save-WordDocument bug where it would not save documents correctly  
  
  **1.2.1 Features**
  - Update New-WordInstance including adding WindowState and renamed Visable parameter
