@@ -1,10 +1,10 @@
 ---
-title: "cceDesignDoc Example"
-excerpt: "cceDesignDoc Example"
+title: "Template Example"
+excerpt: "Template Example"
 category: "general"
 ---
 
-## cceDesi Script
+## Template Script
 
 The below script can be used as a template for all your scripts.  
 
