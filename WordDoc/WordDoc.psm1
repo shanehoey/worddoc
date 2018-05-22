@@ -452,7 +452,7 @@ function Save-WordDocument {
         try { 
             if ($PSCmdlet.ParameterSetName -eq "SaveAs") { 
                 $filepath = Join-Path -path $folder -ChildPath $filename
-                $WordDocument.SaveAs([ref][ref][system.object]$filepath , [ref]$WordSaveFormat) 
+                $WordDocument.SaveAs([ref][system.object]$filepath , [ref]$WordSaveFormat) 
             }
             else
             {
