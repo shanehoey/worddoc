@@ -1,6 +1,6 @@
 ---
-title: "cce Design Doc"
-excerpt: "cce Design Doc will generate a design document for Skype for Business online Cloud Connector Edition from a cloudconnector.ini fle"
+title: "cceDesignDoc"
+excerpt: "cceDesignDoc will generate a design document for Skype for Business Online Cloud Connector Edition from a cloudconnector.ini file"
 category: "general"
 ---
 
@@ -14,9 +14,9 @@ Hightlights include:
  * Firewall Requirements
  * Certificate Requirements
  
-[Download the Production version on Powershell Gallery](https://powershellgallery.com/ccedesigndoc/)
-[Download the latest on GitHUB](https://github.com/shanehoey/ccedesigndoc/)
-[Download the Prequiste WordDoc module on Powershell Gallery](https://powershellgallery.com/worddoc/)
+[Get the Production version on Powershell Gallery](https://powershellgallery.com/packages/ccedesigndoc/)
+[Get the Development version GitHUB](https://github.com/shanehoey/ccedesigndoc/)
+[Get the Prequiste WordDoc module on Powershell Gallery](https://powershellgallery.com/packages/worddoc/)
 
 ## Easy Installation via PowerShell Gallery
 ```powershell
@@ -32,8 +32,6 @@ update-script ccedesigndoc -scope currentuser
 
 ## Example 
  .\cceDesignDoc.ps1 -filepath .\cloudconnector.ini
-
-
 
 **ProTip:** Be sure to check out the other [example scripts](/worddoc/scripts/) 
 {: .notice--info}
