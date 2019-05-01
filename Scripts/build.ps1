@@ -8,7 +8,7 @@ $NuGetApiKey
 $cert = Get-ChildItem Cert:\CurrentUser\My -CodeSigningCert
 $cert | format-table subject,issuer
 
-$version = "1.2.2"
+$version = "1.2.3"
 
 Update-ModuleManifest -Path ".\WordDoc\WordDoc.psd1" -ModuleVersion $version
 
