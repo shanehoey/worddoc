@@ -1321,15 +1321,16 @@ function Update-WordTOC {
 
     [CmdletBinding()]   
     param (
-        [Microsoft.Office.Interop.Word.Document]$WordDocument = $Script:WordDocument
+        [ValidateScript( {test-wordinstance -WordInstance $_})]
+        [Microsoft.Office.Interop.Word.Application]$WordInstance = $Script:WordInstance
     )
     Begin {
         Write-Verbose -Message "Start  : $($Myinvocation.InvocationName)" 
-        try { $null = test-WordDocument -WordDocument $WordDocument }
+        try {  $null = test-wordinstance -WordInstance $wordinstance }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)"; break }
     }
     Process { 
-        try { $null =  $WordDocument.Fields | ForEach-Object -Process { $_.Update() } }
+        try { $WordInstance.ActiveDocument.TablesOfContents[1].Update() }
         catch { Write-Warning -Message "$($MyInvocation.InvocationName) - $($_.exception.message)" }
     }
     End { Write-Verbose -Message "End    : $($Myinvocation.InvocationName)" }
