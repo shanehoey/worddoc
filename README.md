@@ -1,3 +1,6 @@
+> This project is no longer under development,  if you are wanting to create documentation from powershell, try using markdown instead, along with pandoc to convert to word documents.
+
+
 # WordDoc - Create Word Documents directly from PowerShell
 
 This project's documentation is hosted on Git Pages
